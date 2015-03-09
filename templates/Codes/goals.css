@@ -1,0 +1,187 @@
+/**---------------------------------------------------------------------*/
+body		{background-image: url("../images/general/background_kids.jpg");
+		background-size: 100%;}
+
+#content	{background-color: #FFFFFF;
+			width: 1055px;
+			margin: 0px auto;
+			padding-top: 10px;}
+			
+#banner	{width: 1055px;
+		height: 191px;
+		margin: 0% auto;}
+/**---------------------------------------------------------------------*/	
+	
+/**---------------------------------------------------------------------*/	
+#nav_bar	{background-color: #FFFFFF;
+			height: 80px;
+			width: 1055px;
+			background-image:url("../images/general/lloyds_group_logo.png");
+			background-position: left;
+			background-size: 157px 85px;
+			background-repeat: no-repeat;
+			margin: 0% auto;}
+#nav_bar ul	{text-align: right;
+			padding: 25px 0px;}
+#nav_bar ul li	{display: inline;
+			font-family: Century Gothic;
+			font-size: 25px;
+			font-style:  italic;
+			color: #0B8C52;
+			padding: 25px 10px;}
+#nav_bar li a	{text-decoration:none;
+			color: #0B8C52;}
+#nav_bar li:hover	a {color: #FFFFFF;}
+#nav_bar li:hover	{background-color: #0B8C52;}
+/**---------------------------------------------------------------------*/	
+
+/**---------------------------------------------------------------------*/	
+#frame	{width: 1005px;
+		height: 200px;
+		padding: 10px;
+		margin: 0px auto;
+		background-color: #0B8C52;
+		font-family: Century Gothic;
+		font-size: 16px;}
+
+#finish_text	{text-align: right;}		
+#start_text, #finish_text	{width: 500px;
+							font-size: 25px;
+							font-weight: bold;
+							color:	#FFFFFF;
+							float: left;}
+
+#y-axis, #chart, #finish	{float: left;}
+
+#y-axis	{margin-left: 15px;
+		padding: 10px 5px 0px 5px;}
+
+#chart	{padding: 10px 0px 0px 0px;
+		width: 900px;}
+
+#finish	{padding: 10px 5px 0px 0px;}
+		
+.numbers	{width: 25px;
+			height: 25px;
+			background-color: #0B8C52;
+			font-weight: bold;
+			margin-bottom: 10px;
+			text-align: center;
+			color: #FFFFFF;}
+	
+.bars 	{width: 0px;
+		height: 25px;
+		margin-bottom: 10px;
+		-webkit-transition:width 2s;
+		transition:width 2s;
+		background-color: #D0CECE;
+		text-align: right;
+		color: #FFFFFF;
+		font-size: 15px;}
+		
+.bar_wrappers	{height: 25px;
+				width: 900px;
+				margin-bottom: 10px;}
+				
+.bars, .horse	{float: left;}
+	
+.finish	{width: 25px;
+		height: 25px;
+		margin-bottom: 10px;}
+
+#legend		{width: 1025px;
+			height: 30px;
+			margin: 5px auto;
+			background-color: #D0CECE;}		
+
+#legend p	{float: left;
+			margin: 5px 20px;
+			font-family: Century Gothic;
+			font-size: 15px;}
+/**---------------------------------------------------------------------*/	
+
+/**---------------------------------------------------------------------*/	
+#overview	{width: 1005px;
+			height: 130px;
+			margin: 15px auto;}
+
+#score, #winner	{width: 325px;
+				height: 130px;
+				float: left;
+				padding-top: 0px;}
+
+#overview p	{margin: 5px 30px;
+			font-family: Century Gothic;
+			font-size: 20px;}		
+			
+#overview p.heading	{font-family: Calibri;
+					font-weight: bold;
+					font-size: 40px;
+					color: #0B8C52;}
+
+input.claim_prize	{background-color: #0B8C52;
+					height: 40px;
+					width: 300px;
+					margin-bottom: 30px;
+					position: relative;
+					top: 40px;
+					left: 20px;
+					font-family: Century Gothic;
+					font-size: 25px;
+					font-style: italic;
+					font-weight: bold;
+					color: #FFFFFF;}
+/**---------------------------------------------------------------------*/	
+
+/**---------------------------------------------------------------------*/	
+form#control_panel	{width: 1005px;
+					height: 130px;
+					margin: 30px auto;
+					background-color: #D0CECE;}
+
+#add_points, #move_points	{width: 500px;
+							height: 130px;
+							float: left;}
+							
+#add_points p, #move_points p 	{font-family: Century Gothic;
+								font-size: 25px;
+								color: #0B8C52;
+								text-align: right;}
+
+#add_points p input, #move_points p input 	{width: 100px;
+										height: 20px;}
+					
+#add_points input.add,
+#move_points input.move	{background-color: #0B8C52;
+						height: 40px;
+						width: 200px;
+						font-family: Century Gothic;
+						font-size: 25px;
+						font-style: italic;
+						font-weight: bold;
+						color: #FFFFFF;}
+#add_points input.add		{position: relative;
+						top: 10px;}
+#move_points input.move	{position: relative;
+						top: 25px;}
+
+#add_points p, #add_points input.add	{float: left;
+									margin: 30px 0px 0px 30px;}						
+#move_points p, #move_points input.move	{float: left;
+										margin: 15px 0px 0px 30px;}
+
+
+/**---------------------------------------------------------------------*/	
+
+/**---------------------------------------------------------------------*/			 
+#footer	{background-color: #D0CECE;
+		height: 80px;
+		width: 1055px;
+		font-family: Century Gothic;
+		color: #0B8C52;
+		font-size: 25px;
+		text-align: center;
+		padding-top: 40px;}	
+#footer p	{width: 200px;
+			margin: auto;}			 
+/**---------------------------------------------------------------------*/

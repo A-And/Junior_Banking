@@ -1,0 +1,125 @@
+<!DOCTYPE html >
+<html>
+<head> 
+ <meta http-equiv="content-type" 
+ content="text/html;charset=utf-8"/> 
+ <link rel="stylesheet" type="text/css" href="goals.css"/>
+ <script type="text/javascript" src="goals.js"></script>
+ <title>Goals</title> 
+</head> 
+
+
+<body onLoad="initialize();">
+
+<div id="nav_bar">
+<ul>	
+    <li> <a href="home.html">Home</a></li>
+    <li> <a href="index.html">Profile</a></li>
+    <li> <a href="Accounts.html">Accounts </a></li>
+    <li> <a href="goals.html">Goals</a></li>
+    <li> <a href="collection.html">Collection</a></li>
+    <li> <a href="ATMs.html">ATMs</a></li>
+    <li> <a href="Guide.html">Banking Guide</a></li>
+</ul>
+</div>
+
+<div id="banner">
+<img src="../images/goals/Goals_1.png" width="1055px" height="191px" alt="Goals Banner">
+</div>
+
+<div id="content">
+
+<div id="frame" title="Bar LEFTCLICK = auto-fill the corresponding To (goal) field.
+Bar RIGHTCLICK = auto-fill the corresponding From (goal) field.">
+<div id="start_text">START</div>
+<div id="finish_text">FINISH</div>
+
+<div id="y-axis">
+	<div class="numbers">1</div>
+	<div class="numbers">2</div>
+	<div class="numbers">3</div>
+	<div class="numbers">4</div>
+</div>
+
+
+<div id="chart">
+	<div class="bar_wrappers">
+		<div id="bar1" class="bars" oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);"></div>
+		<img src="../images/goals/horse.png" width="40px" height="25px" style="background-color: transparent" class="horse" id="horse1"
+									 oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);">
+	</div>
+
+	<div class="bar_wrappers">
+		<div id="bar2" class="bars" oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);"></div>
+		<img src="../images/goals/horse.png" width="40px" height="25px" style="background-color: transparent" class="horse" id="horse2"
+									 oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);">	</div>
+	
+	<div class="bar_wrappers">
+		<div id="bar3" class="bars" oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);"></div>
+		<img src="../images/goals/horse.png" width="40px" height="25px" style="background-color: transparent" class="horse" id="horse3"
+									 oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);">
+	</div>
+	
+	<div class="bar_wrappers">
+		<div id="bar4" class="bars" oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);"></div>
+		<img src="../images/goals/horse.png" width="40px" height="25px" style="background-color: transparent" class="horse" id="horse4"
+									 oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);">
+	</div>
+</div>
+
+<div id="finish">
+	<div class="finish"><img src="../images/goals/finish_sign.png" width="25px" height="25px" alt="finish sign"></div>
+	<div class="finish"><img src="../images/goals/finish_sign.png" width="25px" height="25px" alt="finish sign"></div>
+	<div class="finish"><img src="../images/goals/finish_sign.png" width="25px" height="25px" alt="finish sign"></div>
+	<div class="finish"><img src="../images/goals/finish_sign.png" width="25px" height="25px" alt="finish sign"></div>
+</div>
+</div>
+
+<div id="legend">
+	<p id="1"></p>
+	<p id="2"></p>
+	<p id="3"></p>
+	<p id="4"></p>
+</div>
+
+<div id="overview">
+	<div id="score">
+		<p class="heading">SCORE</p>
+		<p>Total : 840 points</p>
+		<p id="unused"></p>
+	</div>
+	
+	<div id="winner">
+		<p class="heading">WINNER</p>
+		<p id="wining_goal"></p>
+	</div>
+	
+	<input class="claim_prize" type="button" value="CLAIM PRIZE" onClick="goalIsComplete();" />
+</div>
+
+<form id="control_panel">
+	<div id="add_points">
+		<p>
+			Goal <input type="text" id="add_goal_num" /><br/>
+			Points <input type="text" id="add_goal_points" /><br/>
+		</p>	
+		<input class="add" type="button" value="ADD POINTS" onClick="addPoints();" />
+	</div>
+
+	<div id="move_points">
+		<p>
+			To <input type="text" id="to_goal_num" /><br/>
+			From <input type="text" id="from_goal_num" /><br/>
+			Points <input type="text" id="move_goal_points" /><br/>
+		</p>
+		<input class="move" type="button" value="MOVE POINTS" onClick="movePoints();" />
+	</div>
+</form>
+
+<div id="footer">
+		<p>Page Footer</p>
+</div>
+
+</div>
+</body>
+</html>

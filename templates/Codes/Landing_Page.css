@@ -1,0 +1,173 @@
+body		{background-image: url("../images/login/background_signup.jpg");
+		background-size: 100%;
+		background-repeat: no-repeat;
+		background-position: fixed;
+		background-color: #D0CECE;
+		min-width: 500px;}
+		
+#page-header-wrapper { margin-top: 180px; }
+/**---------------------------------------------------------------------*/	
+#nav_bar	{background-color: #FFFFFF;
+			height: 89px;
+			width: 100%;
+			min-width: 1000px;
+			background-image:url("../images/general/lloyds_group_logo.png");
+			background-position: left;
+			background-size: 190px 100px;
+			background-repeat: no-repeat;
+			margin: -8px;
+			z-index: 9999;
+			position: fixed;}
+#nav_bar ul	{text-align: right;
+			margin-top: 23px;
+			width: 850px;
+			float: right;}
+#nav_bar ul li	{display: inline;
+			font-family: Century Gothic;
+			font-size: 35px;
+			font-style:  italic;
+			font-weight: bold;
+			padding: 24px 20px;}
+#nav_bar li a	{text-decoration:none;
+			color: #000000;}
+#nav_bar li:hover	a {color: #FFFFFF;}
+#nav_bar li:hover	{background-color: #0B8C52;}
+/**---------------------------------------------------------------------*/
+
+/**---------------------------------------------------------------------*/
+#main	{width: 100%;
+		background-color: transparent;
+		text-align: center;}
+		
+#title	{max-width: 75%;
+		max-height: 40%;
+		min-width: 30%;
+		min-height: 14%;
+		margin-top: 100px;}
+
+#login	{width: 500px;
+		height: 310px;
+		margin: 0px auto;
+		margin-bottom: 250px;
+		background-color: RGBA(255, 255, 255, 0.7);
+		background-image: url("../images/general/lloyds_group_logo.png");
+		background-size: 20% 20%;
+		background-repeat: no-repeat;}
+		
+#j_login, #p_login	{float: left;
+					margin: 60px 0px;
+					width: 230px;
+					height: 200x;
+					font-family: Century Gothic;
+					font-size: 25px;
+					font-weight: bold;
+					color: #0B8C52;}
+					
+#j_login	{border-right: 2px solid #0B8C52;
+			margin-left: 15px;}
+#p_login	{border-left: 2px solid #0B8C52;}			
+					
+.input_title	{width: 200px;
+				height: 30px;
+				font-size: 23px;
+				font-style: italic;
+				background-color: #FFFFFF;
+				text-align: right;
+				margin: 20px auto;}
+				
+.input_field	{width: 150px;
+				height: 24px;
+				vertical-align: bottom;
+				background-color: #0B8C52;
+				color: #FFFFFF;
+				font-size: 20px;}
+
+.login_button	{background-color: #0B8C52;
+				height: 35px;
+				width: 100px;
+				margin-top: 10px;
+				font-family: Century Gothic;
+				font-size: 20px;
+				font-weight: bold;
+				color: #FFFFFF;}	
+/**---------------------------------------------------------------------*/
+				
+/**---------------------------------------------------------------------*/
+#about_start	{padding-top: 89px;
+				background-color: transparent;
+				-webkit-transition: all 2s;
+				transition: all 2s;}
+.grey, 
+.green,
+.white		{font-family: Century Gothic;
+			font-size: 30px;
+			font-style: italic;
+			display: inline-block;
+			width: 101%;
+			margin-top: -4px;
+			margin-left: -8px;}
+				
+.grey	{color: #0B8C52;
+		background-color: #D0CECE;}	
+			
+.green	{color: #FFFFFF;
+		background-color: #0B8C52;}	
+			
+.white	{color: #0B8C52;
+		background-color: #FFFFFF;}	
+			
+.site_info	{width: 450px;
+			text-align: center;}
+
+.ABOUT_content	{position: relative;
+				left: -50%;
+				float: right;
+				margin: 40px 0px;
+				clear: both;}
+	
+.ABOUT_content > .page_sample, 
+.ABOUT_content > .site_info		{float: left;
+								position: relative;
+								left: 50%;
+								margin: 10px 20px;}		
+
+#guide, #profiles_pics	{margin-top: 5px;}	
+#profiles_text	{margin-bottom: 5px;}	
+#profiles_text p	{width: auto;}							
+/**---------------------------------------------------------------------*/
+				
+/**---------------------------------------------------------------------*/						
+#footer			{background-color: #EAE7E7;
+				width: 101%;
+				margin-top: -4px;
+				margin-left: -8px;
+				margin-bottom: -8px;}	
+				
+#footer_message	{width: 500px;
+				height: 100px;
+				font-family: Century Gothic;
+				font-size: 25px;
+				color: #262626;
+				margin: 0% auto;
+				padding: 30px;
+				text-align: center;}	
+
+#back_to_top,
+#register		{width: 180px;
+				font-family: Century Gothic;
+				font-size: 20px;
+				color: #FFFFFF;
+				padding: 10px;
+				background-color: #0B8C52;
+				border-radius: 10px;
+				border: none;
+				margin: 30px;}				
+				
+#brands_logos	{width: 100%;
+				background-color: #FFFFFF;}			
+				
+.logos	{width: 170px;
+		height: 170px;
+		float: center;
+		margin: 5px auto;}
+		
