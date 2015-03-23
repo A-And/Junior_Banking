@@ -82,6 +82,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Using os join to work regardless of machine/
+# These directories are where you would mess around with the css
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+# Template directory
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
 )
+# Image and other media directory
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
