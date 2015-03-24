@@ -1,0 +1,137 @@
+@charset "utf-8";
+/* CSS Document */
+
+#content {
+	margin-left: auto;
+    margin-right: auto;
+	width: 1055px;
+	background-color:rgb(255,255,255); 
+	color:#FFF;
+	}
+
+/**---------------------------------------------------------------------*/			 	
+#nav_bar	{background-color: #0B8C52;
+			height: 80px;
+			width: 1055px;
+			background-image:url("../images/general/lloyds_group_logo.png");
+			background-position: left;
+			background-size: 157px 85px;
+			background-repeat: no-repeat;
+			margin: 0% auto;}
+#nav_bar ul	{text-align: right;
+			padding: 25px 0px;}
+#nav_bar ul li	{display: inline;
+			font-family: Century Gothic;
+			font-size: 25px;
+			font-style: italic;
+			color: #FFFFFF;
+			padding: 25px 10px;}
+#nav_bar li a	{text-decoration:none;
+			color: #FFFFFF;}
+#nav_bar li:hover	a {color: #000000;}
+#nav_bar li:hover	{background-color: #FFFFFF;}
+/**---------------------------------------------------------------------*/			 
+
+
+
+.edit{
+	color:rgb(11,140,82);
+	background-color:rgb(208,206,206);
+	}
+.change_color{
+	color:rgb(11,140,82);
+	background-color:rgb(208,206,206);
+	}
+	
+#body{
+	background-color:rgb(11,140,82);
+	margin-left: auto;
+    margin-right: auto;
+	height:1200px; 
+	width:1055px;
+
+	}	
+	
+	
+/**---------------------------------------------------------------------*/			 
+#footer	{background-color: #FFFFFF;
+		height: 80px;
+		width: 1055px;
+		font-family: Century Gothic;
+		color: #A4A3A3;
+		font-size: 25px;
+		text-align: center;
+		padding-top: 40px;}	
+#footer p	{width: 200px;
+			margin: auto;}		
+/**---------------------------------------------------------------------*/
+
+
+#picture
+{
+position:relative;
+top:0px;
+}
+#ph 
+{
+position:absolute;
+top: 170px;
+left: 75px;
+}
+
+#ph img {border-radius: 100px;}
+
+#name
+{
+position:absolute;
+background-color:white;
+top:50px;
+left:250px;
+color:rgb(11,140,82);
+font-family: Arial Black;
+font-size: 30px;
+filter:alpha(Opacity=70);-moz-opacity:0.7;opacity: 0.7;
+padding-left: 15px;
+padding-right: 15px;
+display: inline;
+}
+
+#buttons input.edit
+{
+	width:150px;
+	height:30px;
+	font-style:italic;
+	font-family: Calibri(body);
+}
+
+#buttons input.change_color
+{
+	width: 300px;
+	white-space:pre;
+	height:30px;
+	font-style:italic;
+	font-family: Calibri(body);
+}
+
+#buttons 
+{
+position:relative;
+top:10px;
+left:300px;
+}
+
+#profile > p{
+position:relative;
+text-align: left;
+margin-left: 300px;
+margin-top: 50px;
+font-variant: small-caps;
+}
+
+#profile input {width: 250px;}
+
+
+
+body{
+background-color:#D0CECE;
+}
