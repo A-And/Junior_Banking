@@ -1,7 +1,13 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, render
 from django.template import loader, RequestContext
+from login.forms import LoginForm
 
 
-# Create your views here.
 def landing(request):
-    return render_to_response("Landing_Page.html", context_instance=RequestContext(request))
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+
+    else:
+        form = LoginForm()
+
+    return render(request, 'Landing_Page.html', {'form': form, })

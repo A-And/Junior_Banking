@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'login'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -48,9 +49,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'Junior_Banking.urls'
+ROOT_URLCONF = 'main.urls'
 
-WSGI_APPLICATION = 'Junior_Banking.wsgi.application'
+WSGI_APPLICATION = 'main.wsgi.application'
 
 
 # Database

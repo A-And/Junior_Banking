@@ -22,24 +22,23 @@
 	dj
 <div id="main">
 	<img src="{% static 'login/title.png' %}" alt="finish sign" id="title">
+    <div id="login">
+	<form action = "/user/auth" id="j_login">
 
-	<form id="login">
+            {{form.as_p}}
 
-		<div id="j_login">
-			<p>Junior Login</p>
-			<div class="input_title">ID <input type="text" class="input_field" /></div>
-			<div class="input_title">PW <input type="password" class="input_field" /></div  >
 			<input class="login_button" type="submit" value="Sign In" id="j_log" onclick="window.location.href='home.html'" />
-		</div>
-			
-		<div id="p_login">
-			<p>Parent Login</p>
-			<p class="input_title">ID <input type="text" class="input_field" /></p>
-			<p class="input_title">PW <input type="text" class="input_field" /></p>
-			<input class="login_button" type="button" value="Sign In" id="p_log" onclick="window.location.href='parent_account.html'" />
-		</div>
+
+
 	</form>
-	
+	<form action ="/user/auth" id="p_login">
+			<p>Parent Login</p>
+			<div class="input_title"> <label for ="p_username" class="input_title">ID</label> <input type="text" name="username" id = "p_username" class="input_field" /></div>
+			<div class="input_title"> <label for = "p_password">PW</label> <input type="password" name = "password" class="input_field" id="p_password" /></div  >
+			<input class="login_button" type="submit" value="Sign In" id="p_log" onclick="window.location.href='home.html'" />
+
+	</form>
+        </div>
 </div>
 
 <div id="about_start">	
@@ -56,8 +55,8 @@
 	
 <div class="green">
 	<div class="ABOUT_content">
-		<img src={% static 'login/pages/4.png' %} width="370px" height="250px" alt="home" class="page_sample">
-		<img src={% static 'login/pages/11.png' %} width="300px" height="250px" alt="home" class="page_sample">
+		<img src={% static 'login/pages/4.png' %} width="370px" height="250px" alt="home" class="page_sample"/>
+		<img src={% static 'login/pages/11.png' %} width="300px" height="250px" alt="home" class="page_sample"/>
 		
 		<p class="site_info">Two types of interfaces
 			<br/>______________________________
@@ -82,13 +81,13 @@
 			<br/>______________________________
 		</p>
 		
-		<img src={% static 'login/pages/5.png' %} width="300px" height="250px" alt="home" class="page_sample">
+		<img src={% static 'login/pages/5.png' %} width="300px" height="250px" alt="home" class="page_sample"/>
 	</div>
 </div>
 	
 <div class="grey">
 	<div class="ABOUT_content">
-		<img src={% static 'login/pages/6.png' %} width="300px" height="250px" alt="home" class="page_sample">
+		<img src={% static 'login/pages/6.png' %} width="300px" height="250px" alt="home" class="page_sample"/>
 
 		<p class="site_info">Goals and Awards system ...
 			<br/>______________________________
@@ -97,7 +96,7 @@
 			<br/>______________________________
 		</p>
 	
-		<img src={% static 'login/pages/7.png' %} width="300px" height="250px" alt="home" class="page_sample">
+		<img src={% static 'login/pages/7.png' %} width="300px" height="250px" alt="home" class="page_sample"/>
 	</div>
 </div>
 	
@@ -105,10 +104,10 @@
 	<div class="ABOUT_content" id="atms">
 		<p class="site_info">Select Safe<br/>Neighbourhood ATMs</p>
 	
-		<img src={% static 'login/pages/8.png' %} width="300px" height="250px" alt="home" class="page_sample">
+		<img src={% static 'login/pages/8.png' %} width="300px" height="250px" alt="home" class="page_sample"/>
 	</div>	
 	<div class="ABOUT_content"  id="guide">	
-		<img src={% static 'login/pages/9.png' %} width="300px" height="250px" alt="home" class="page_sample">
+		<img src={% static 'login/pages/9.png' %} width="300px" height="250px" alt="home" class="page_sample"/>
 		
 		<p class="site_info">Get banking <br/>advice and tips</p>
 	</div>
@@ -120,11 +119,11 @@
 	</div>	
 	
 	<div class="ABOUT_content" id="profiles_pics">	
-		<img src={% static 'login/pages/100.png' %} width="250px" height="210px" alt="home" class="page_sample">
-		<img src={% static 'login/pages/101.png' %} width="250px" height="210px" alt="home" class="page_sample">
-		<img src={% static 'login/pages/102.png' %} width="250px" height="210px" alt="home" class="page_sample">
-		<img src={% static 'login/pages/103.png' %} width="250px" height="210px" alt="home" class="page_sample">
-		<img src={% static 'login/pages/104.png' %}width="250px" height="210px" alt="home" class="page_sample">
+		<img src={% static 'login/pages/100.png' %} width="250px" height="210px" alt="home" class="page_sample"/>
+		<img src={% static 'login/pages/101.png' %} width="250px" height="210px" alt="home" class="page_sample"/>
+		<img src={% static 'login/pages/102.png' %} width="250px" height="210px" alt="home" class="page_sample"/>
+		<img src={% static 'login/pages/103.png' %} width="250px" height="210px" alt="home" class="page_sample"/>
+		<img src={% static 'login/pages/104.png' %}width="250px" height="210px" alt="home" class="page_sample"/>
 	</div>	
 </div>
 
@@ -140,15 +139,15 @@
 	
 	
 	<div id="brands_logos">
-		<img src={% static 'login/bank_of_scotland.png' %} alt="bank_of_scotland" class="logos">
-		<img src={% static 'login/birmingham_midshares.png' %} alt="birmingham_midshares" class="logos">
-		<img src={% static 'login/black_horse.png' %} alt="black_horse" class="logos">
-		<img src={% static 'login/colleys.png' %} alt="colleys" class="logos">
-		<img src={% static 'login/halifax.png' %} alt="halifax" class="logos">
-		<img src={% static 'login/ldc.png' %} alt="ldc" class="logos">
-		<img src={% static 'login/lloyds_autolease.png' %} alt="lloyds_autolease" class="logos">
-		<img src={% static 'login/lloyds_bank.png' %} alt="lloyds_bank" class="logos">
-		<img src={% static 'login/scottish_widows.png' %} alt="scottish_widows" class="logos">
+		<img src={% static 'login/bank_of_scotland.png' %} alt="bank_of_scotland" class="logos"/>
+		<img src={% static 'login/birmingham_midshares.png' %} alt="birmingham_midshares" class="logos"/>
+		<img src={% static 'login/black_horse.png' %} alt="black_horse" class="logos"/>
+		<img src={% static 'login/colleys.png' %} alt="colleys" class="logos"/>
+		<img src={% static 'login/halifax.png' %} alt="halifax" class="logos"/>
+		<img src={% static 'login/ldc.png' %} alt="ldc" class="logos"/>
+		<img src={% static 'login/lloyds_autolease.png' %} alt="lloyds_autolease" class="logos"/>
+		<img src={% static 'login/lloyds_bank.png' %} alt="lloyds_bank" class="logos"/>
+		<img src={% static 'login/scottish_widows.png' %} alt="scottish_widows" class="logos"/>
 	</div>
 </div>
 		
