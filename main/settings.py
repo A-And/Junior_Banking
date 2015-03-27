@@ -47,11 +47,15 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 )
 
 ROOT_URLCONF = 'main.urls'
 
 WSGI_APPLICATION = 'main.wsgi.application'
+
+API_URL = 'http://teddi.eu/api/'
+API_KEY = '.UG-z.qi=Pk:*j_.;*+.;;~*x~~NhDuq_W++;H+j.|^.+h=::|Jj+-6~hA.**;uB'
 
 
 # Database
@@ -97,3 +101,49 @@ TEMPLATE_DIRS = (
 # Image and other media directory
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'standard': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+    },
+    'handlers': {
+        'null': {
+            'level':'DEBUG',
+            'class':'django.utils.log.NullHandler',
+        },
+        'logfile': {
+            'level':'DEBUG',
+            'class':'logging.handlers.RotatingFileHandler',
+            'filename': BASE_DIR + "/logfile",
+            'maxBytes': 50000,
+            'backupCount': 2,
+            'formatter': 'standard',
+        },
+        'console':{
+            'level':'INFO',
+            'class':'logging.StreamHandler',
+            'formatter': 'standard'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers':['console'],
+            'propagate': True,
+            'level':'WARN',
+        },
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'login': {
+            'handlers': ['console', 'logfile'],
+            'level': 'DEBUG',
+        },
+    }
+}

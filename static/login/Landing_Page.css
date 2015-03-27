@@ -1,128 +1,141 @@
 body		{
         background-image: url("/static/login/background_signup.jpg");
-		background-size: 100%;
 		background-repeat: no-repeat;
 		background-color: #D0CECE;
 		min-width: 500px;
+		background-size: 100%;
 }
 		
 #page-header-wrapper { margin-top: 180px; }
 /**---------------------------------------------------------------------*/	
-#nav_bar	{background-color: #FFFFFF;
-			height: 89px;
-			width: 100%;
-			min-width: 1000px;
-			background-image:url("/static/login/lloyds_group_logo.png");
-			background-position: left;
-			background-size: 190px 100px;
-			background-repeat: no-repeat;
-			margin: -8px;
-			z-index: 9999;
-			position: fixed;}
-#nav_bar ul	{text-align: right;
-			margin-top: 23px;
-			width: 850px;
-			float: right;}
-#nav_bar ul li	{display: inline;
-			font-family: Century Gothic;
-			font-size: 35px;
-			font-style:  italic;
-			font-weight: bold;
-			padding: 24px 20px;}
-#nav_bar li a	{text-decoration:none;
-			color: #000000;}
+#nav_bar	{
+    background-color: #FFFFFF;
+	height: 89px;
+	width: 100%;
+	min-width: 1000px;
+	background-image:url("/static/login/lloyds_group_logo.png");
+	background-position: left;
+	background-size: 190px 100px;
+	background-repeat: no-repeat;
+	margin: -8px;
+	z-index: 9999;
+	position: fixed;
+}
+#nav_bar ul	{
+    text-align: right;
+	margin-top: 23px;
+	width: 850px;
+	float: right;
+}
+#nav_bar ul li	{
+    display: inline;
+	font-family: Century Gothic;
+	font-size: 35px;
+	font-style:  italic;
+	font-weight: bold;
+	padding: 24px 20px;}
+#nav_bar li a	{
+    text-decoration:none;
+	color: #000000;}
 #nav_bar li:hover	a {color: #FFFFFF;}
 #nav_bar li:hover	{background-color: #0B8C52;}
 /**---------------------------------------------------------------------*/
 
 /**---------------------------------------------------------------------*/
-#main	{width: 100%;
-		background-color: transparent;
-		text-align: center;}
+#main	{
+    width: 100%;
+	background-color: transparent;
+	text-align: center;}
 		
-#title	{max-width: 75%;
-		max-height: 40%;
-		min-width: 30%;
-		min-height: 14%;
-		margin-top: 100px;}
+#title	{
+    max-width: 75%;
+	max-height: 40%;
+	min-width: 30%;
+	min-height: 14%;
+	margin-top: 100px;}
 
-#login	{width: 500px;
-		height: 310px;
-		margin: 0px auto;
-		margin-bottom: 250px;
-		background-color: RGBA(255, 255, 255, 0.7);
-		background-image: url("/static/login/lloyds_group_logo.png");
-		background-size: 20% 20%;
-		background-repeat: no-repeat;}
-form{
-    float: left;
-					margin: 60px 0px;
-					width: 230px;
-					height: 200px;
-					font-family: Century Gothic;
-					font-size: 25px;
-					font-weight: bold;
-					color: #0B8C52;
+#login	{
+    width: 560px;
+	height: 400px;
+    padding-left:5%;
+    margin: 0px auto 250px;
+    background: RGBA(255, 255, 255, 0.7) url("/static/login/lloyds_group_logo.png") no-repeat;
+	background-size: 20% 20%;
 }
+
 		
-#j_login, #p_login	{float: left;
-					margin: 60px 0px;
-					width: 230px;
-					height: 200px;
-					font-family: Century Gothic;
-					font-size: 25px;
-					font-weight: bold;
-					color: #0B8C52;}
+#j_login, #p_login	{
+    float: left;
+	margin: 60px 0px;
+	width: 230px;
+	height: 200px;
+	font-family: Century Gothic;
+	font-size: 25px;
+	font-weight: bold;
+	color: #0B8C52;}
 					
-#j_login	{border-right: 2px solid #0B8C52;
-			margin-left: 15px;}
-#p_login	{border-left: 2px solid #0B8C52;}			
-					
-.input_title	{width: 200px;
-				height: 30px;
-				font-size: 23px;
-				font-style: italic;
-				background-color: #FFFFFF;
-				text-align: right;
-				margin: 20px auto;}
-				
-.input_field	{width: 150px;
-				height: 24px;
-				vertical-align: bottom;
-				background-color: #0B8C52;
-				color: #FFFFFF;
-				font-size: 20px;;}
+#j_login	{
+    border-right: 2px solid #0B8C52;
+	margin-left: 15px;
+}
+#p_login	{
+    border-left: 2px solid #0B8C52;
+}
+
+.input_title	{
+    width: 200px;
+	height: 30px;
+	font-size: 23px;
+	font-style: italic;
+	background-color: #FFFFFF;
+	text-align: right;
+	margin: 20px auto;
+}
+
+.input_field	{
+    width: 150px;
+	height: 24px;
+    margin-top:0;
+	vertical-align: bottom;
+	background-color: #0B8C52;
+	color: #FFFFFF;
+	font-size: 20px;
+}
 .line           {
 
-                display:block
+    display:block
 }
-.login_button	{background-color: #0B8C52;
-				height: 35px;
-				width: 100px;
-				margin-top: 10px;
-				font-family: Century Gothic;
-				font-size: 20px;
-				font-weight: bold;
-				color: #FFFFFF;}	
+.login_button	{
+    background-color: #0B8C52;
+	height: 35px;
+	width: 100px;
+	margin-top: 10px;
+	font-family: Century Gothic;
+	font-size: 20px;
+	font-weight: bold;
+	color: #FFFFFF;}
 /**---------------------------------------------------------------------*/
 				
 /**---------------------------------------------------------------------*/
-#about_start	{padding-top: 89px;
-				background-color: transparent;
-				-webkit-transition: all 2s;
-				transition: all 2s;}
+#about_start	{
+    padding-top: 89px;
+	background-color: transparent;
+	-webkit-transition: all 2s;
+	transition: all 2s;}
 .grey, 
 .green,
-.white		{font-family: Century Gothic;
-			font-size: 30px;
-			font-style: italic;
-			display: inline-block;
-			width: 101%;
-			margin-top: -4px;
-			margin-left: -8px;}
+.white		{
+    font-family: Century Gothic;
+	font-size: 30px;
+	font-style: italic;
+	display: inline-block;
+	width: 101%;
+	margin-top: -4px;
+	margin-left: -8px;}
 				
-.grey	{color: #0B8C52;
-		background-color: #D0CECE;}	
+.grey	{
+    color: #0B8C52;
+	background-color: #D0CECE;}
 			
 .green	{color: #FFFFFF;
 		background-color: #0B8C52;}	
