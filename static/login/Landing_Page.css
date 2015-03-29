@@ -1,5 +1,4 @@
 body		{
-        background-image: url("/static/login/background_signup.jpg");
 		background-repeat: no-repeat;
 		background-color: #D0CECE;
 		min-width: 500px;
@@ -13,7 +12,6 @@ body		{
 	height: 89px;
 	width: 100%;
 	min-width: 1000px;
-	background-image:url("/static/login/lloyds_group_logo.png");
 	background-position: left;
 	background-size: 190px 100px;
 	background-repeat: no-repeat;
