@@ -9,6 +9,13 @@ body		{background-size: 100%;}
 #banner	{width: 1055px;
 		height: 191px;
 		margin: 0% auto;}
+		
+#logout	{position: relative;
+		top: -85px;
+		left: 905px;}
+#logout:hover	{background-color: RGBA(255, 255, 255, 0.7);
+				border-radius: 3px;}
+#logout:active	{background-color: RGBA(208, 206, 206, 0.7);}
 /**---------------------------------------------------------------------*/	
 	
 /**---------------------------------------------------------------------*/	
