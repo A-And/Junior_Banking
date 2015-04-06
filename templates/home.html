@@ -3,7 +3,7 @@
 <head> 
  <meta http-equiv="content-type" 
  content="text/html;charset=utf-8"/> 
- <link rel="stylesheet" type="text/css" href="home.css" />
+ <link rel="stylesheet" type="text/css" href= {% static 'home/home.css' %} />
  <title>Home</title> 
 </head> 
 
@@ -19,32 +19,32 @@
 
 <div id="frame">	
 	<a href="Accounts.html" class="buttons">
-		<img src="../images/home/piggy_bank_1.png" width="230px" height="230px" alt="Accounts">
+		<img src={% static 'home/piggy_bank_1.png' %} width="230px" height="230px" alt="Accounts">
 		<p>Accounts</p>
 	</a>
 	
 	<a href="goals.html" class="buttons">
-		<img src="../images/home/goblet_1.png" width="230px" height="230px" alt="Goals">
+		<img src={% static 'home/goblet_1.png' %} width="230px" height="230px" alt="Goals">
 		<p>Goals</p>
 	</a>
 	
 	<a href="ATMs.html" class="buttons">
-		<img src="../images/home/map_1.png" width="230px" height="230px" alt="ATMs">
+		<img src={% static 'home/map_1.png' %} width="230px" height="230px" alt="ATMs">
 		<p>ATMs</p>
 	</a>
 	
 	<a href="profile.html" class="buttons">
-		<img src="../images/home/photo.jpg" width="200px" height="200px" alt="Profile" id="photo">
+		<img src={% static 'home/photo.jpg' %} width="200px" height="200px" alt="Profile" id="photo">
 		<p>Profile</p>
 	</a>
 	
 	<a href="collection.html" class="buttons">
-		<img src="../images/home/cards_1.png" width="230px" height="230px" alt="Collection">
+		<img src={% static 'home/cards_1.png' %} width="230px" height="230px" alt="Collection">
 		<p>Collection</p>
 	</a>
 	
 	<a href="Guide.html" class="buttons">
-		<img src="../images/home/book_1.png" width="230px" height="230px" alt="Banking Guide">
+		<img src={% static 'home/book_1.png' %} width="230px" height="230px" alt="Banking Guide">
 		<p>Banking Guide</p>
 	</a>
 </div>
