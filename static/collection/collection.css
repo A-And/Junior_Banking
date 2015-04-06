@@ -1,6 +1,5 @@
 /**---------------------------------------------------------------------*/
-body		{background-image: url("../images/general/background_kids.jpg");
-		background-size: 100%;}
+body		{background-size: 100%;}
 
 #content	{background-color: #FFFFFF;
 			width: 1055px;
@@ -16,7 +15,6 @@ body		{background-image: url("../images/general/background_kids.jpg");
 #nav_bar	{background-color: #FFFFFF;
 			height: 80px;
 			width: 1055px;
-			background-image:url("../images/general/lloyds_group_logo.png");
 			background-position: left;
 			background-size: 157px 85px;
 			background-repeat: no-repeat;
@@ -38,7 +36,7 @@ body		{background-image: url("../images/general/background_kids.jpg");
 /**---------------------------------------------------------------------*/
 #trophies_box	{width: 1005px;
 				height: 400px;
-				background-color: #D0CECE;
+				background-color: RGBA(11, 140, 82, 0.9);
 				margin: 10px auto;
 				border-radius: 50px;}
 #cards, #rewards, #gifts	{float: left;

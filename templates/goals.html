@@ -3,8 +3,12 @@
 <head> 
  <meta http-equiv="content-type" 
  content="text/html;charset=utf-8"/> 
- <link rel="stylesheet" type="text/css" href="goals.css"/>
- <script type="text/javascript" src="goals.js"></script>
+ <link rel="stylesheet" type="text/css" href={% static 'goals/goals.css' %}/>
+ <style>
+	body {background-image: url('{% static "general\background_kids.jpg" %}') ;}
+	#nav_bar {background-image: url('{% static "general\lloyds_group_logo.png" %}') ;}
+</style>
+ <script type="text/javascript" src={% static 'goals/goals.js' %}></script>
  <title>Goals</title> 
 </head> 
 
@@ -24,12 +28,14 @@
 </div>
 
 <div id="banner">
-<img src="../images/goals/Goals_1.png" width="1055px" height="191px" alt="Goals Banner">
+<img src="{% static 'goals/Goals_1.png' %}" width="1055px" height="191px" alt="Goals Banner">
+<img  src="{% static 'general/logout_1.png' %}" width="140px" height="70px" alt="Logout" id="logout" onClick="window.location.href='Landing_page.html'">
 </div>
 
 <div id="content">
 
-<div id="frame">
+<div id="frame" title="Bar LEFTCLICK = auto-fill the corresponding To (goal) field.
+Bar RIGHTCLICK = auto-fill the corresponding From (goal) field.">
 <div id="start_text">START</div>
 <div id="finish_text">FINISH</div>
 
@@ -42,20 +48,35 @@
 
 
 <div id="chart">
-	<div id="bar1" class="bars"></div>
+	<div class="bar_wrappers">
+		<div id="bar1" class="bars" oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);"></div>
+		<img src="{% static 'goals/horse.png' %}" width="40px" height="25px" style="background-color: transparent" class="horse" id="horse1"
+									 oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);">
+	</div>
 
-	<div id="bar2" class="bars"></div>
-
-	<div id="bar3" class="bars"></div>
-
-	<div id="bar4" class="bars"></div>
+	<div class="bar_wrappers">
+		<div id="bar2" class="bars" oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);"></div>
+		<img src="{% static 'goals/horse.png' %}" width="40px" height="25px" style="background-color: transparent" class="horse" id="horse2"
+									 oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);">	</div>
+	
+	<div class="bar_wrappers">
+		<div id="bar3" class="bars" oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);"></div>
+		<img src="{% static 'goals/horse.png' %}" width="40px" height="25px" style="background-color: transparent" class="horse" id="horse3"
+									 oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);">
+	</div>
+	
+	<div class="bar_wrappers">
+		<div id="bar4" class="bars" oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);"></div>
+		<img src="{% static 'goals/horse.png' %}" width="40px" height="25px" style="background-color: transparent" class="horse" id="horse4"
+									 oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);">
+	</div>
 </div>
 
 <div id="finish">
-	<div class="finish"><img src="../images/goals/finish_sign.png" width="25px" height="25px" alt="finish sign"></div>
-	<div class="finish"><img src="../images/goals/finish_sign.png" width="25px" height="25px" alt="finish sign"></div>
-	<div class="finish"><img src="../images/goals/finish_sign.png" width="25px" height="25px" alt="finish sign"></div>
-	<div class="finish"><img src="../images/goals/finish_sign.png" width="25px" height="25px" alt="finish sign"></div>
+	<div class="finish"><img src="{% static 'goals/finish_sign.png' %}" width="25px" height="25px" alt="finish sign"></div>
+	<div class="finish"><img src="{% static 'goals/finish_sign.png' %}" width="25px" height="25px" alt="finish sign"></div>
+	<div class="finish"><img src="{% static 'goals/finish_sign.png' %}" width="25px" height="25px" alt="finish sign"></div>
+	<div class="finish"><img src="{% static 'goals/finish_sign.png' %}" width="25px" height="25px" alt="finish sign"></div>
 </div>
 </div>
 

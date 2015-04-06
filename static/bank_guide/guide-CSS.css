@@ -1,8 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 /*template*/
-body		{background-image: url("../images/general/background_kids_1.jpg");
-		background-size: 100%;}
+body		{background-size: 100%;}
 #banner	{width: 1055px;
 		height: 191px;
 		margin: 0% auto;}
@@ -12,6 +11,13 @@ body		{background-image: url("../images/general/background_kids_1.jpg");
 			margin: 0px auto;
 			padding-top: 4px;
 			padding-bottom: 80px;}
+			
+#logout	{position: relative;
+		top: -85px;
+		left: 905px;}
+#logout:hover	{background-color: RGBA(255, 255, 255, 0.7);
+				border-radius: 3px;}
+#logout:active	{background-color: RGBA(208, 206, 206, 0.7);}
 /**---------------------------------------------------------------------*/
 
 
@@ -19,7 +25,6 @@ body		{background-image: url("../images/general/background_kids_1.jpg");
 #nav_bar	{background-color: #FFFFFF;
 			height: 80px;
 			width: 1055px;
-			background-image:url("../images/general/lloyds_group_logo.png");
 			background-position: left;
 			background-size: 157px 85px;
 			background-repeat: no-repeat;

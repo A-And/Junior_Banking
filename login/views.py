@@ -15,6 +15,7 @@ def landing(request):
         logger = logging.getLogger(__name__)
         if form.is_valid():
             api_url = settings.API_URL
+
             post_values = {
                 'appid': settings.API_KEY,
                 'user': form.cleaned_data['email'],
@@ -36,7 +37,6 @@ def landing(request):
 
     return render(request, 'Landing_Page.html', {'form': form, })
 
-
 def account(request, user_id):
     rest = restAPI(user_id)
     name = rest.get_name()
@@ -45,4 +45,5 @@ def account(request, user_id):
     return render(request, 'Accounts.html', {'name': name,
                                              'balance': balance,
                                              'stash': stash})
+
 

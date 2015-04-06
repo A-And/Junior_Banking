@@ -1,5 +1,4 @@
-body		{background-image: url("../images/login/background_signup.jpg");
-		background-size: 100%;
+body		{background-size: 100%;
 		background-repeat: no-repeat;
 		background-position: fixed;
 		background-color: #D0CECE;
@@ -10,12 +9,10 @@ body		{background-image: url("../images/login/background_signup.jpg");
 			height: 89px;
 			width: 100%;
 			min-width: 1000px;
-			background-image:url("../images/general/lloyds_group_logo.png");
 			background-position: left;
 			background-size: 190px 100px;
 			background-repeat: no-repeat;
 			margin: -8px;
-			border: 1px solid transparent;
 			z-index: 9999;
 			position: fixed;}
 #nav_bar ul	{text-align: right;
@@ -49,10 +46,8 @@ body		{background-image: url("../images/login/background_signup.jpg");
 			height: 700px;
 			margin: 0px auto;
 			padding-top: 50px;
-			background-color: #FFFFFF;
-			background-image: url("../images/general/lloyds_group_logo.png");
-			background-size: 22% 11%;
-			background-repeat: no-repeat;}
+			background: RGBA(255, 255, 255, 1) url("/static/login/lloyds_group_logo.png") no-repeat;
+			background-size: 18% 11%;}
 			
 #form	{width: 850px;
 		height: 600px;

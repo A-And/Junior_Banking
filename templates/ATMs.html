@@ -2,7 +2,11 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" type="text/css" href="ATMs-CSS.css" />
+	<link rel="stylesheet" type="text/css" href={% static 'atms/ATMs-CSS.css' %} />
+	<style>
+		body {background-image: url('{% static "general\background_kids.jpg" %}') ;}
+		#nav_bar {background-image: url('{% static "general\lloyds_group_logo.png" %}') ;}
+	</style>
 	<title>ATMs</title>
 </head>
 
@@ -22,7 +26,8 @@
 </div>
 
 <div id="banner">
-	<img src="../images/ATMs/ATMs_1.png" alt="ATMs" title="ATMs" width="1055" height="191" />
+	<img src="{% static 'atms/ATMs_1.png' %}" alt="ATMs" title="ATMs" width="1055" height="191" />
+	<img  src="{% static 'general/logout_1.png' %}" width="140px" height="70px" alt="Logout" id="logout" onClick="window.location.href='Landing_page.html'">
 </div>
 
 <div id="content">

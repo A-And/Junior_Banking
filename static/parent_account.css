@@ -3,13 +3,18 @@ body		{background-color: #262626;}
 
 #content	{background-color: #262626;
 			margin: 0% auto;}
+			
+#logout	{float: right;
+		margin: 7px;}
+#logout:hover	{background-color: RGBA(255, 255, 255, 0.7);
+				border-radius: 3px;}
+#logout:active	{background-color: RGBA(208, 206, 206, 0.7);}
 /**---------------------------------------------------------------------*/	
 	
 /**---------------------------------------------------------------------*/	
 #nav_bar	{background-color: #D0CECE;
 			position: relative;
 			height: 85px;
-			background-image: url("../images/general/lloyds_group_logo.png");
 			background-position: left;
 			background-size: 157px 85px;
 			background-repeat: no-repeat;}
@@ -63,38 +68,52 @@ p.title	{font-family: Century Gothic;
 /**---------------------------------------------------------------------*/	
 form#manage_child_account p	{font-family: Century Gothic;
 							font-weight: bold;
-							font-size: 30px;
+							font-size: 25px;
 							margin: 30px;}	
 							
-#child_accounts, #transfer	{width: 450px;
-							float: left;
-							margin-left: 50px;}
+#child_accounts, #transfer, #set_limit	{width: 470px;
+										float: left;}
 							
-#child_accounts	{position: relative;
-				top: 60px;}	
+#child_accounts	{margin-top: 60px;}	
 											
 #transfer	{height: 300px;
-			border-left: 3px solid #0B8C52;}											
+			border-left: 3px solid #0B8C52;
+			border-right: 3px solid #0B8C52;}											
 
 #transfer	p	{position: relative;
-				top: 20px;
+				top: 10px;
+				right: 60px;
 				text-align: right;}
+
+#transfer input.make_tranfser	{width: 310px;
+							margin-left: 70px;
+							margin-top: 10px;
+							background-color: #0B8C52;
+							height: 35px;
+							font-family: Century Gothic;
+							font-size: 20px;
+							font-style: italic;
+							font-weight: bold;
+							color: #FFFFFF;}
 										
 #transfer p input	{height: 30px;
 				width: 200px;
 				vertical-align: middle;}
-								
-#transfer input.make_tranfser	{background-color: #0B8C52;
-							width: 305px;
-							height: 45px;
+
+#set_limit {margin: 15px;}				
+				
+#set_limit p input	{height: 30px;
+				width: 300px;
+				margin: 10px;
+				vertical-align: middle;}							
+				
+#set_limit input.set_limit	{background-color: #0B8C52;
+							height: 35px;
 							font-family: Century Gothic;
-							font-size: 30px;
+							font-size: 20px;
 							font-style: italic;
 							font-weight: bold;
-							color: #FFFFFF;
-							position: relative;
-							top: -130px;
-							left: 530px;}
+							color: #FFFFFF;}
 /**---------------------------------------------------------------------*/	
 
 /**---------------------------------------------------------------------*/	
@@ -103,29 +122,18 @@ form#set_goals p	{font-family: Century Gothic;
 				font-size: 25px;
 				margin: 30px;}
 				
-#set_limit, #completed_goals, #new_goal	{width: 480px;
-										height: 300px;
-										float: left;
-										/*border: 1px solid black;*/}
-										
-#set_limit p input	{height: 29px;
-					margin: 10px;
-					width: 300px;
-					vertical-align: middle;}	
-					
-#set_limit input.set_limit	{background-color: #0B8C52;
-							height: 35px;
-							font-family: Century Gothic;
-							font-size: 20px;
-							font-style: italic;
-							font-weight: bold;
-							color: #FFFFFF;}
+#completed_goals	{width: 800px;}
+#new_goal			{width: 550px;}
+				
+#completed_goals, #new_goal	{height: 300px;
+							float: left;}
 							
 #completed_goals textarea	{margin: 5px 90px;}
 #completed_goals	{border-left: 4px solid #0B8C52;
 					border-right: 4px solid #0B8C52;}
 
-#new_goal	p {text-align: right;}
+#new_goal	p {text-align: right;
+			  margin-left: 30px;}
 
 #new_goal p input	{height: 30px;
 				width: 230px;
@@ -140,8 +148,8 @@ form#set_goals p	{font-family: Century Gothic;
 							font-weight: bold;
 							color: #FFFFFF;}
 
-#set_limit p, #completed_goals textarea, #new_goal p	{position: relative;
-													top: 30px;}
+#completed_goals textarea, #new_goal p	{position: relative;
+									top: 30px;}
 /**---------------------------------------------------------------------*/	
 
 /**---------------------------------------------------------------------*/	

@@ -1,6 +1,5 @@
 /**---------------------------------------------------------------------*/
-body		{background-image: url("../images/general/background_kids.jpg");
-		background-size: 100%;}
+body		{background-size: 100%;}
 
 #content	{background-color: #FFFFFF;
 			width: 1055px;
@@ -10,13 +9,19 @@ body		{background-image: url("../images/general/background_kids.jpg");
 #banner	{width: 1055px;
 		height: 191px;
 		margin: 0% auto;}
+		
+#logout	{position: relative;
+		top: -85px;
+		left: 905px;}
+#logout:hover	{background-color: RGBA(255, 255, 255, 0.7);
+				border-radius: 3px;}
+#logout:active	{background-color: RGBA(208, 206, 206, 0.7);}
 /**---------------------------------------------------------------------*/	
 	
 /**---------------------------------------------------------------------*/	
 #nav_bar	{background-color: #FFFFFF;
 			height: 80px;
 			width: 1055px;
-			background-image:url("../images/general/lloyds_group_logo.png");
 			background-position: left;
 			background-size: 157px 85px;
 			background-repeat: no-repeat;
@@ -78,6 +83,12 @@ body		{background-image: url("../images/general/background_kids.jpg");
 		text-align: right;
 		color: #FFFFFF;
 		font-size: 15px;}
+		
+.bar_wrappers	{height: 25px;
+				width: 900px;
+				margin-bottom: 10px;}
+				
+.bars, .horse	{float: left;}
 	
 .finish	{width: 25px;
 		height: 25px;

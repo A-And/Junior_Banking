@@ -6,6 +6,11 @@
 	<title>{% block title %}Lloyds NetBanking{% endblock %} </title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" type="text/css" href={% static "accounts/Accounts.css" %}/>
+	<link rel="stylesheet" type="text/css" href={% static 'accounts/Accounts.css' %}/>
+	<style>
+		body {background-image: url('{% static "general\background_kids.jpg" %}') ;}
+		#nav_bar {background-image: url('{% static "general\lloyds_group_logo.png" %}') ;}
+	</style>
 </head>
 <body>
 
@@ -23,6 +28,8 @@
 
 <div id="banner">
 	<img  src={% static "accounts/Accounts_1.png" %} width="1055px" height="191px" alt="Accounts Banner">
+	<img  src="{% static 'accounts/Accounts_1.png' %}" width="1055px" height="191px" alt="Accounts Banner">
+	<img  src="{% static 'general/logout_1.png' %}" width="140px" height="70px" alt="Logout" id="logout" onClick="window.location.href='Landing_page.html'">
 </div>
 
 <div id="content">
@@ -41,11 +48,13 @@
 
 	<div id="leftarrow">
 		<img src={% static "accounts/left_arrow.png" %} alt="Left Arrow">
+		<img src="{% static 'accounts/left_arrow.png' %}" alt="Left Arrow">
 		<input type="text" value="  ￡" />
 	</div>
 
 	<div id="rightarrow">
 		<img src={% static "accounts/right_arrow.png" %}alt="Right Arrow">
+		<img src="{% static 'accounts/right_arrow.png' %}" alt="Right Arrow">
 		<input type="text" value="  ￡" />
 	</div> 
 
