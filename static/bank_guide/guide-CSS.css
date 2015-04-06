@@ -11,6 +11,13 @@ body		{background-size: 100%;}
 			margin: 0px auto;
 			padding-top: 4px;
 			padding-bottom: 80px;}
+			
+#logout	{position: relative;
+		top: -85px;
+		left: 905px;}
+#logout:hover	{background-color: RGBA(255, 255, 255, 0.7);
+				border-radius: 3px;}
+#logout:active	{background-color: RGBA(208, 206, 206, 0.7);}
 /**---------------------------------------------------------------------*/
 
 
