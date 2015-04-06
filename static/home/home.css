@@ -48,7 +48,8 @@ body		{background-image: url("../images/general/background_kids.jpg");
 			text-decoration: none;
 			color: #FFFFFF;}
 			
-.buttons:hover	{border: 10px solid #FFFFFF;}
+.buttons:hover	{border: 10px solid #FFFFFF;
+			background-color: #097243;}
 
 img#photo	{border-radius: 125px;
 			margin-top: 30px;}
