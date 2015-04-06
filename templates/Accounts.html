@@ -3,7 +3,7 @@
 <head>
 	<title>Lloyds NetBanking</title>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" type="text/css" href="Accounts.css"/>
+	<link rel="stylesheet" type="text/css" href={% static 'accounts/Accounts.css' %}/>
 </head>
 <body>
 
@@ -20,7 +20,7 @@
 </div>
 
 <div id="banner">
-	<img  src="../images/accounts/Accounts_1.png" width="1055px" height="191px" alt="Accounts Banner">
+	<img  src={% static 'accounts/Accounts_1.png' %} width="1055px" height="191px" alt="Accounts Banner">
 </div>
 
 <div id="content">
@@ -38,12 +38,12 @@
 	</div>
 
 	<div id="leftarrow">
-		<img src="../images/accounts/left_arrow.png" alt="Left Arrow">
+		<img src={% static 'accounts/left_arrow.png' %} alt="Left Arrow">
 		<input type="text" value="  ￡" />
 	</div>
 
 	<div id="rightarrow">
-		<img src="../images/accounts/right_arrow.png" alt="Right Arrow">
+		<img src={% static 'accounts/right_arrow.png' %} alt="Right Arrow">
 		<input type="text" value="  ￡" />
 	</div> 
 
