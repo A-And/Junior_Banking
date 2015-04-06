@@ -3,7 +3,7 @@
 <head> 
  <meta http-equiv="content-type" 
  content="text/html;charset=utf-8"/> 
- <link rel="stylesheet" type="text/css" href="parent_account.css"/>
+ <link rel="stylesheet" type="text/css" href= {% static 'parent_account.css' %}/>
  <title>Parent Account</title> 
 </head> 
 
@@ -29,13 +29,7 @@
 			<p>Amount <input type="text" name="amount" /></p>
 			<input class="make_tranfser" type="button" value="MAKE TRANSFER" onClick="" />
 		</div>
-	</form>		
-</div>
-
-
-<div id="box2">
-	<p class="title">Set and Review Goals</p>
-	<form id="set_goals">
+		
 		<div id="set_limit">
 			<p>Maximum Amount to be spent per week</p>
 			<p>
@@ -43,9 +37,15 @@
 				<input class="set_limit" type="button" value="SET LIMIT" onClick="" />
 			</p>
 		</div>
-		
+	</form>		
+</div>
+
+
+<div id="box2">
+	<p class="title">Set and Review Goals</p>
+	<form id="set_goals">
 		<div id="completed_goals">
-			<textarea class="complete_goals" name="complete_goals" rows="15" cols="40" />Your Child has completed these goals</textarea>
+			<textarea class="complete_goals" name="complete_goals" rows="15" cols="75" />Your Child has completed these goals</textarea>
 		</div>
 		
 		<div id="new_goal">
