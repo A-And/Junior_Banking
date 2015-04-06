@@ -78,6 +78,12 @@ body		{background-image: url("../images/general/background_kids.jpg");
 		text-align: right;
 		color: #FFFFFF;
 		font-size: 15px;}
+		
+.bar_wrappers	{height: 25px;
+				width: 900px;
+				margin-bottom: 10px;}
+				
+.bars, .horse	{float: left;}
 	
 .finish	{width: 25px;
 		height: 25px;
