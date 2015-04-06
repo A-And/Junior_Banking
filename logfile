@@ -1,4 +1,4 @@
-[27/Mar/2015 14:05:23] DEBUG [login.views:23] {'APIKEY': '.UG-z.qi=Pk:*j_.;*+.;;~*x~~NhDuq_W++;H+j.|^.+h=::|Jj+-6~hA.**;uB', 'email': 'dasdsa', 'key': '.UG-z.qi=Pk:*j_.;*+.;;~*x~~NhDuq_W++;H+j.|^.+h=::|Jj+-6~hA.**;uB', 'password': 'KJG'}
+ [27/Mar/2015 14:05:23] DEBUG [login.views:23] {'APIKEY': '.UG-z.qi=Pk:*j_.;*+.;;~*x~~NhDuq_W++;H+j.|^.+h=::|Jj+-6~hA.**;uB', 'email': 'dasdsa', 'key': '.UG-z.qi=Pk:*j_.;*+.;;~*x~~NhDuq_W++;H+j.|^.+h=::|Jj+-6~hA.**;uB', 'password': 'KJG'}
 [27/Mar/2015 14:05:23] DEBUG [login.views:25] b'APIKEY=.UG-z.qi%3DPk%3A%2Aj_.%3B%2A%2B.%3B%3B%7E%2Ax%7E%7ENhDuq_W%2B%2B%3BH%2Bj.%7C%5E.%2Bh%3D%3A%3A%7CJj%2B-6%7EhA.%2A%2A%3BuB&email=dasdsa&key=.UG-z.qi%3DPk%3A%2Aj_.%3B%2A%2B.%3B%3B%7E%2Ax%7E%7ENhDuq_W%2B%2B%3BH%2Bj.%7C%5E.%2Bh%3D%3A%3A%7CJj%2B-6%7EhA.%2A%2A%3BuB&password=KJG'
 [27/Mar/2015 14:06:40] DEBUG [login.views:22] {'password': 'aEsfd', 'key': '.UG-z.qi=Pk:*j_.;*+.;;~*x~~NhDuq_W++;H+j.|^.+h=::|Jj+-6~hA.**;uB', 'email': 'dasdsa'}
 [27/Mar/2015 14:06:40] DEBUG [login.views:24] b'password=aEsfd&key=.UG-z.qi%3DPk%3A%2Aj_.%3B%2A%2B.%3B%3B%7E%2Ax%7E%7ENhDuq_W%2B%2B%3BH%2Bj.%7C%5E.%2Bh%3D%3A%3A%7CJj%2B-6%7EhA.%2A%2A%3BuB&email=dasdsa'
@@ -6,3 +6,19 @@
 [27/Mar/2015 14:26:23] DEBUG [login.views:22] {'user': 'dasdsa', 'password': 'dsa', 'appid': '.UG-z.qi=Pk:*j_.;*+.;;~*x~~NhDuq_W++;H+j.|^.+h=::|Jj+-6~hA.**;uB'}
 [27/Mar/2015 14:26:23] DEBUG [login.views:24] b'user=dasdsa&password=dsa&appid=.UG-z.qi%3DPk%3A%2Aj_.%3B%2A%2B.%3B%3B%7E%2Ax%7E%7ENhDuq_W%2B%2B%3BH%2Bj.%7C%5E.%2Bh%3D%3A%3A%7CJj%2B-6%7EhA.%2A%2A%3BuB'
 [27/Mar/2015 14:26:23] DEBUG [login.views:26] http://teddi.eu/api/cdata/request
+[27/Mar/2015 16:36:10] DEBUG [login.views:22] {'user': 'dasdsa', 'password': 'dsadas', 'appid': '.UG-z.qi=Pk:*j_.;*+.;;~*x~~NhDuq_W++;H+j.|^.+h=::|Jj+-6~hA.**;uB'}
+[27/Mar/2015 16:36:10] DEBUG [login.views:24] b'user=dasdsa&password=dsadas&appid=.UG-z.qi%3DPk%3A%2Aj_.%3B%2A%2B.%3B%3B%7E%2Ax%7E%7ENhDuq_W%2B%2B%3BH%2Bj.%7C%5E.%2Bh%3D%3A%3A%7CJj%2B-6%7EhA.%2A%2A%3BuB'
+[27/Mar/2015 16:36:10] DEBUG [login.views:26] http://teddi.eu/api/v1.0/cdata/request
+[30/Mar/2015 16:39:46] DEBUG [login.views:22] {'appid': '.UG-z.qi=Pk:*j_.;*+.;;~*x~~NhDuq_W++;H+j.|^.+h=::|Jj+-6~hA.**;uB', 'password': 'dsadas', 'user': 'dsadas'}
+[30/Mar/2015 16:39:46] DEBUG [login.views:24] b'appid=.UG-z.qi%3DPk%3A%2Aj_.%3B%2A%2B.%3B%3B%7E%2Ax%7E%7ENhDuq_W%2B%2B%3BH%2Bj.%7C%5E.%2Bh%3D%3A%3A%7CJj%2B-6%7EhA.%2A%2A%3BuB&password=dsadas&user=dsadas'
+[30/Mar/2015 16:39:46] DEBUG [login.views:26] http://teddi.eu/api/v1.0/cdata/request
+[30/Mar/2015 16:39:46] DEBUG [login.views:29] b'{"data": {}, "status": 5}'
+[01/Apr/2015 19:45:08] DEBUG [login.views:22] {'password': 'dsadsa', 'appid': '.UG-z.qi=Pk:*j_.;*+.;;~*x~~NhDuq_W++;H+j.|^.+h=::|Jj+-6~hA.**;uB', 'user': 'dsadsa'}
+[01/Apr/2015 19:45:08] DEBUG [login.views:24] b'password=dsadsa&appid=.UG-z.qi%3DPk%3A%2Aj_.%3B%2A%2B.%3B%3B%7E%2Ax%7E%7ENhDuq_W%2B%2B%3BH%2Bj.%7C%5E.%2Bh%3D%3A%3A%7CJj%2B-6%7EhA.%2A%2A%3BuB&user=dsadsa'
+[01/Apr/2015 19:45:08] DEBUG [login.views:26] http://teddi.eu/api/v1.0/cdata/request
+[05/Apr/2015 15:48:24] DEBUG [login.views:23] {'user': 'dsadas', 'password': 'dsada', 'appid': '.UG-z.qi=Pk:*j_.;*+.;;~*x~~NhDuq_W++;H+j.|^.+h=::|Jj+-6~hA.**;uB'}
+[05/Apr/2015 15:48:24] DEBUG [login.views:25] b'user=dsadas&password=dsada&appid=.UG-z.qi%3DPk%3A%2Aj_.%3B%2A%2B.%3B%3B%7E%2Ax%7E%7ENhDuq_W%2B%2B%3BH%2Bj.%7C%5E.%2Bh%3D%3A%3A%7CJj%2B-6%7EhA.%2A%2A%3BuB'
+[05/Apr/2015 15:48:24] DEBUG [login.views:27] http://teddi.eu/api/v1.0/cdata/request
+[05/Apr/2015 15:50:29] DEBUG [login.views:23] {'appid': '.UG-z.qi=Pk:*j_.;*+.;;~*x~~NhDuq_W++;H+j.|^.+h=::|Jj+-6~hA.**;uB', 'user': 'dsadas', 'password': 'dsa'}
+[05/Apr/2015 15:50:29] DEBUG [login.views:25] b'appid=.UG-z.qi%3DPk%3A%2Aj_.%3B%2A%2B.%3B%3B%7E%2Ax%7E%7ENhDuq_W%2B%2B%3BH%2Bj.%7C%5E.%2Bh%3D%3A%3A%7CJj%2B-6%7EhA.%2A%2A%3BuB&user=dsadas&password=dsa'
+[05/Apr/2015 15:50:29] DEBUG [login.views:27] http://teddi.eu/api/v1.0/cdata/request
