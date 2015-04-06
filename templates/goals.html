@@ -4,6 +4,10 @@
  <meta http-equiv="content-type" 
  content="text/html;charset=utf-8"/> 
  <link rel="stylesheet" type="text/css" href={% static 'goals/goals.css' %}/>
+ <style>
+	body{background-image: url('{% static "login\background_kids.jpg" %}') ;}
+	#nav_bar{background-image: url('{% static "login\lloyds_group_logo.png" %}') ;}
+</style>
  <script type="text/javascript" src={% static 'goals/goals.js' %}></script>
  <title>Goals</title> 
 </head> 
@@ -24,7 +28,7 @@
 </div>
 
 <div id="banner">
-<img src={% static 'goals/Goals_1.png" width="1055px" height="191px" alt="Goals Banner">
+<img src="{% static 'goals/Goals_1.png' %}" width="1055px" height="191px" alt="Goals Banner">
 </div>
 
 <div id="content">
@@ -45,33 +49,33 @@ Bar RIGHTCLICK = auto-fill the corresponding From (goal) field.">
 <div id="chart">
 	<div class="bar_wrappers">
 		<div id="bar1" class="bars" oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);"></div>
-		<img src={% static 'goals/horse.png' %} width="40px" height="25px" style="background-color: transparent" class="horse" id="horse1"
+		<img src="{% static 'goals/horse.png' %}" width="40px" height="25px" style="background-color: transparent" class="horse" id="horse1"
 									 oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);">
 	</div>
 
 	<div class="bar_wrappers">
 		<div id="bar2" class="bars" oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);"></div>
-		<img src={% static 'goals/horse.png' %} width="40px" height="25px" style="background-color: transparent" class="horse" id="horse2"
+		<img src="{% static 'goals/horse.png' %}" width="40px" height="25px" style="background-color: transparent" class="horse" id="horse2"
 									 oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);">	</div>
 	
 	<div class="bar_wrappers">
 		<div id="bar3" class="bars" oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);"></div>
-		<img src={% static 'goals/horse.png' %} width="40px" height="25px" style="background-color: transparent" class="horse" id="horse3"
+		<img src="{% static 'goals/horse.png' %}" width="40px" height="25px" style="background-color: transparent" class="horse" id="horse3"
 									 oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);">
 	</div>
 	
 	<div class="bar_wrappers">
 		<div id="bar4" class="bars" oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);"></div>
-		<img src={% static 'goals/horse.png' %} width="40px" height="25px" style="background-color: transparent" class="horse" id="horse4"
+		<img src="{% static 'goals/horse.png' %}" width="40px" height="25px" style="background-color: transparent" class="horse" id="horse4"
 									 oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);">
 	</div>
 </div>
 
 <div id="finish">
-	<div class="finish"><img src={% static 'goals/finish_sign.png' %} width="25px" height="25px" alt="finish sign"></div>
-	<div class="finish"><img src={% static 'goals/finish_sign.png' %} width="25px" height="25px" alt="finish sign"></div>
-	<div class="finish"><img src={% static 'goals/finish_sign.png' %} width="25px" height="25px" alt="finish sign"></div>
-	<div class="finish"><img src={% static 'goals/finish_sign.png' %} width="25px" height="25px" alt="finish sign"></div>
+	<div class="finish"><img src="{% static 'goals/finish_sign.png' %}" width="25px" height="25px" alt="finish sign"></div>
+	<div class="finish"><img src="{% static 'goals/finish_sign.png' %}" width="25px" height="25px" alt="finish sign"></div>
+	<div class="finish"><img src="{% static 'goals/finish_sign.png' %}" width="25px" height="25px" alt="finish sign"></div>
+	<div class="finish"><img src="{% static 'goals/finish_sign.png' %}" width="25px" height="25px" alt="finish sign"></div>
 </div>
 </div>
 
