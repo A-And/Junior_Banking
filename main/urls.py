@@ -10,3 +10,5 @@ urlpatterns = patterns('',
 
 
 )
+# Default 404 override
+handler404 = 'login.views.http404'

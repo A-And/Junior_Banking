@@ -39,6 +39,7 @@ def landing(request):
 
     return render(request, 'Landing_Page.html', {'form': form, })
 
+
 def account(request, user_id):
     rest = restAPI(user_id)
     name = rest.get_name()
@@ -48,4 +49,7 @@ def account(request, user_id):
                                              'balance': balance,
                                              'stash': stash})
 
+
+def http404(request):
+    return render_to_response('404.html')
 

@@ -1,0 +1,29 @@
+<!DOCTYPE html >
+{% load staticfiles %}
+<html>
+<head> 
+	<meta http-equiv="content-type" 
+	content="text/html;charset=utf-8"/> 
+	<link rel="stylesheet" type="text/css" href={% static "errors/404.css" %} />
+	<style>
+		body {background-image: url({% static "general/background_kids.jpg" %});}
+	</style>
+	<title>{% block title %}Error 404: Lloyds NetBanking{% endblock %} </title>
+</head> 
+
+
+<body>
+
+<div id="content">
+	<h1>404 Error</h1>
+	<p>Page not found</p>
+</div>
+
+
+<div id="footer">
+		<p>Page Footer</p>
+</div>
+
+</div>
+</body>
+</html>

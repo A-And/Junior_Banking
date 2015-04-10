@@ -1,0 +1,30 @@
+body		{background-size: 100%;
+		background-position: 0px -200px;
+		background-repeat: no-repeat;
+		background-color: #D0CECE;}
+		
+#content	{margin: 0px auto;
+			padding: 40px 0px;
+			background-color: #FFFFFF;
+			margin: 200px -8px;}	
+
+h1, p	{font-family: Century Gothic;
+		color: #0B8C52;
+		text-align: center;
+		margin: 0px auto;}	
+		
+h1	{font-weight: normal;
+	font-size: 150px;}
+	
+p	{font-size: 79px;}
+	
+/**---------------------------------------------------------------------*/	
+
+
+/**---------------------------------------------------------------------*/				
+#footer	{background-color: #D0CECE;
+		margin: 0px -8px;
+		padding-top: 40px;
+		padding-bottom: 40px;}	
+#footer p	{font-size: 25px;}	
+/**---------------------------------------------------------------------*/			
