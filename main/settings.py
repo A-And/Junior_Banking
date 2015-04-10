@@ -54,7 +54,7 @@ ROOT_URLCONF = 'main.urls'
 
 WSGI_APPLICATION = 'main.wsgi.application'
 API_URL = 'http://teddi.eu/api/v1.0/'
-API_URL = 'http://teddi.eu/api/v1.0' 
+API_URL = 'http://teddi.eu/api/v1.0'
 API_KEY = '.UG-z.qi=Pk:*j_.;*+.;;~*x~~NhDuq_W++;H+j.|^.+h=::|Jj+-6~hA.**;uB'
 
 

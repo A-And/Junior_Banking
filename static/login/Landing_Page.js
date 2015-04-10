@@ -2,6 +2,7 @@ $(function()
 {
 	$('a.smoothScroll').on('click',function()
 	{
+
 		var $link = $(this);
 		var $destination = $($link.attr('href'));
 		var destination_position = $destination.position().top;
@@ -15,7 +16,7 @@ $(function()
 	});
 });
 
-var images = new Array("../images/login/pages/100.png","../images/login/pages/101.png","../images/login/pages/102.png","../images/login/pages/103.png","../images/login/pages/104.png");
+var images = new Array("pages/100.png","pages/101.png","pages/102.png","pages/103.png","pages/104.png");
 
 function rotateLeft() 
 {

@@ -21,6 +21,8 @@ def landing(request):
                 'user': form.cleaned_data['email'],
                 'password': form.cleaned_data['password']
             }
+
+            """ THIS IS WHERE THE MAGIC HAPPENS. Commented out, so that it doesn't throw errors when the API isn't up. Cookie is assigned an arbitrary value"""
             # logger.debug(post_values)
             # post_data = urllib.parse.urlencode(post_values).encode('ascii')
             # logger.debug(post_data)
