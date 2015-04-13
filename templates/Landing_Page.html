@@ -25,11 +25,10 @@
         <!--<li><a href="SignUp.html">Sign Up</a></li> -->
 	</ul>
 </div>
-	dj
 <div id="main">
 	<img src={% static 'login/title.png' %} alt="finish sign" id="title">
     <div id="login">
-	<form action = "." id="j_login" method="POST">
+	<!--<form action = "." id="j_login" method="POST">
 
 			<p>Junior Login</p>
             {% csrf_token %}
@@ -37,9 +36,9 @@
 			<input class="login_button" type="submit" value="Sign In" id="j_log" onclick="window.location.href='home.html'" />
 
 
-	</form>
+	</form>-->
 	<form action ="/user/auth" id="p_login" method="POST">
-			<p>Parent Login</p>
+			<p>Login</p>
             {% csrf_token %}
             {{form.as_p}}
 			<input class="login_button" type="submit" value="Sign In" id="p_log" onclick="window.location.href='home.html'" />
