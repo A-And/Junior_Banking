@@ -37,11 +37,11 @@
 
 
 	</form>-->
-	<form action ="/user/auth" id="p_login" method="POST">
+	<form action ="." id="p_login" method="POST">
 			<p>Login</p>
             {% csrf_token %}
             {{form.as_p}}
-			<input class="login_button" type="submit" value="Sign In" id="p_log" onclick="window.location.href='home.html'" />
+			<input class="login_button" type="submit" value="Sign In" id="j_log" onclick="window.location.href='home.html'" />
 
 	</form>
         </div>
@@ -145,7 +145,8 @@
 	</p>
 	
 	
-	<div id="brands_logos">
+	<div id="brands_logos_container">
+		<div id="brands_logo_holder">
 		<img src={% static 'login/bank_of_scotland.png' %} alt="bank_of_scotland" class="logos"/>
 		<img src={% static 'login/birmingham_midshares.png' %} alt="birmingham_midshares" class="logos"/>
 		<img src={% static 'login/black_horse.png' %} alt="black_horse" class="logos"/>
@@ -155,6 +156,7 @@
 		<img src={% static 'login/lloyds_autolease.png' %} alt="lloyds_autolease" class="logos"/>
 		<img src={% static 'login/lloyds_bank.png' %} alt="lloyds_bank" class="logos"/>
 		<img src={% static 'login/scottish_widows.png' %} alt="scottish_widows" class="logos"/>
+		</div>
 	</div>
 </div>
 		
