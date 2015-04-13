@@ -110,7 +110,7 @@ body		{
     background-color: #0B8C52;
 	height: 35px;
 	width: 100px;
-	margin-top: 10px;
+	margin:0 auto;
 	font-family: Century Gothic;
 	font-size: 20px;
 	font-weight: bold;
@@ -172,7 +172,6 @@ body		{
 				margin-bottom: -8px;}	
 				
 #footer_message	{width: 500px;
-				height: 100px;
 				font-family: Century Gothic;
 				font-size: 25px;
 				color: #262626;
@@ -184,12 +183,16 @@ body		{
 #register		{width: 180px;
 				font-family: Century Gothic;
 				font-size: 20px;
+				text-align: center;
 				color: #FFFFFF;
 				padding: 10px;
 				background-color: #0B8C52;
 				border-radius: 10px;
 				border: none;
-				margin: 30px;}				
+				display:block;
+				margin-left:auto;
+				margin-right:auto;
+}				
 				
 #brands_logos	{width: 100%;
 				background-color: #FFFFFF;}			
