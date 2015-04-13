@@ -1,0 +1,80 @@
+/**---------------------------------------------------------------------*/
+body		{background-image: url("../images/general/background_kids.jpg");
+		background-size: 100%;}
+
+#content	{background-color: #FFFFFF;
+			width: 1055px;
+			margin: 0px auto;
+			padding: 10px 0px 40px 0px;}
+			
+#banner	{width: 1055px;
+		height: 191px;
+		margin: 0px auto;}
+#logout	{position: relative;
+		top: -85px;
+		left: 905px;}
+#logout:hover	{background-color: RGBA(255, 255, 255, 0.7);
+				border-radius: 3px;}
+#logout:active	{background-color: RGBA(208, 206, 206, 0.7);}
+/**---------------------------------------------------------------------*/	
+
+	
+/**---------------------------------------------------------------------*/	
+#nav_bar	{background-color: #FFFFFF;
+			height: 80px;
+			width: 1055px;
+			background-image:url("../images/general/lloyds_group_logo.png");
+			background-position: left;
+			background-size: 157px 85px;
+			background-repeat: no-repeat;
+			margin: 0% auto;}
+#nav_bar ul	{text-align: right;
+			padding: 25px 0px;}
+#nav_bar ul li	{display: inline;
+			font-family: Century Gothic;
+			font-size: 25px;
+			font-style: italic;
+			color: #0B8C52;
+			padding: 25px 10px;}
+#nav_bar li a	{text-decoration:none;
+			color: #0B8C52;}
+#nav_bar li:hover	a {color: #FFFFFF;}
+#nav_bar li:hover	{background-color: #0B8C52;}
+/**---------------------------------------------------------------------*/	
+
+
+/**---------------------------------------------------------------------*/		
+p	{font-family: Century Gothic;
+	font-size: 16px;
+	margin: 20px;
+	color: #262626;
+	padding: 5px;}
+	
+.section_title	{color: #0B8C52;
+				font-size: 20px;}
+				
+.site_links	{text-decoration: none;
+			color: #262626;}
+.site_links:hover	{color: #0B8C52;
+					font-style: italic;}
+					
+hr	{border: 2px solid #D0CECE;}
+/**---------------------------------------------------------------------*/	
+
+
+/**---------------------------------------------------------------------*/			 
+#footer	{background-color: #D0CECE;
+		height: 80px;
+		width: 1055px;
+		text-align: center;
+		padding-top: 40px;
+		margin: 0% auto;}	
+#footer p	{width: 200px;
+			margin: auto;
+			font-family: Century Gothic;
+			color: #0B8C52;
+			font-size: 25px;}
+#footer p a	{text-decoration: none;
+			color: #0B8C52;}	
+#footer p a:hover		{font-style: italic;}			
+/**---------------------------------------------------------------------*/
