@@ -1,4 +1,8 @@
+import requests
+from django.conf import settings
+
 __author__ = 'Andon'
+
 
 
 class restAPI:
@@ -10,6 +14,15 @@ class restAPI:
         TODO get REST connection
         """
         self.cookieID = cookieID
+
+
+    def get_profile(self, userID):
+        print('getting profile..')
+        data = requests.post(settings.API_URL, data={'user':userID, 'appid': settings.API_KEY}) 
+        print('profile get!')
+        return data.json()['data']
+
+
 
     def get_name(self):
         """

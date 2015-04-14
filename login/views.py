@@ -1,5 +1,4 @@
-import urllib.parse
-import urllib.request
+import requests
 import logging
 import json
 from django.shortcuts import render_to_response, render, redirect
@@ -12,29 +11,41 @@ from main.restAPI import restAPI
 def landing(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
-        logger = logging.getLogger(__name__)
         if form.is_valid():
             api_url = settings.API_URL
 
             post_values = {
                 'appid': settings.API_KEY,
-                'user': form.cleaned_data['email'],
+                'username': form.cleaned_data['email'],
                 'password': form.cleaned_data['password']
             }
 
+            print(post_values)
+
             """ THIS IS WHERE THE MAGIC HAPPENS. Commented out, so that it doesn't throw errors when the API isn't up. Cookie is assigned an arbitrary value"""
             LOGIN_URL = 'login'
-            logger.debug(post_values)
-            post_data = urllib.parse.urlencode(post_values).encode('ascii')
-            logger.debug(post_data)
-            req = urllib.request.Request(api_url + LOGIN_URL, post_data)
-            logger.debug(api_url + LOGIN_URL)
-            response = urllib.request.urlopen(req)
-            page = response.read()
-            data = json.load(page)
+            requestedData = requests.post(api_url+LOGIN_URL, data=post_values)
+            print(api_url + LOGIN_URL)
+            print(requestedData.status_code)
+
+            if requestedData.status_code != 200:
+                form = LoginForm()
+                return render(request, 'Landing_Page.html', {'form': form, })
+
+            print(requestedData)
+
+            print(requestedData.json())
+
+            if requestedData.json()['status'] == 3:
+                form = LoginForm()
+                return render(request, 'Landing_Page.html', {'form': form, })
+
+
+
+            data = requestedData.json()['data']
+            print(data) 
             cookieID = data['sessionID']
             request.session['sessionID'] = cookieID
-            logger.debug(page)
             return redirect(account, user_id=cookieID)
 
     else:
@@ -45,9 +56,11 @@ def landing(request):
 
 def account(request, user_id):
     rest = restAPI(user_id)
-    name = rest.get_name()
-    balance = rest.get_balance()
-    stash = rest.get_stash()
+    profile = rest.get_profile(user_id)
+    
+    name = profile.name
+    balance = profile.balance
+    stash = 0
     return render(request, 'Accounts.html', {'name': name,
                                              'balance': balance,
                                              'stash': stash})
