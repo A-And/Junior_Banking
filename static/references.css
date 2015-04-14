@@ -23,7 +23,7 @@ body		{background-image: url("/static/general/background_kids.jpg");
 #nav_bar	{background-color: #FFFFFF;
 			height: 80px;
 			width: 1055px;
-			background-image:url("../images/general/lloyds_group_logo.png");
+			background-image:url("/static/general/lloyds_group_logo.png");
 			background-position: left;
 			background-size: 157px 85px;
 			background-repeat: no-repeat;
