@@ -1,5 +1,5 @@
 /**---------------------------------------------------------------------*/
-body		{background-image: url("../images/general/background_kids.jpg");
+body		{background-image: url("/static/general/background_kids.jpg");
 		background-size: 100%;}
 
 #content	{background-color: #FFFFFF;
