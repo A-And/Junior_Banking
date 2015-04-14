@@ -21,32 +21,33 @@ def landing(request):
             }
 
             print(post_values)
-
+            logger = logging.getLogger(__name__)
             """ THIS IS WHERE THE MAGIC HAPPENS. Commented out, so that it doesn't throw errors when the API isn't up. Cookie is assigned an arbitrary value"""
             LOGIN_URL = 'login'
             requestedData = requests.post(api_url+LOGIN_URL, data=post_values)
-            print(api_url + LOGIN_URL)
-            print(requestedData.status_code)
+            logger.debug(api_url + LOGIN_URL)
+            logger.debug(requestedData.status_code)
 
             if requestedData.status_code != 200:
                 form = LoginForm()
                 return render(request, 'Landing_Page.html', {'form': form, })
 
-            print(requestedData)
+            logger.debug(requestedData)
 
-            print(requestedData.json())
+            logger.debug(requestedData.json())
 
             if requestedData.json()['status'] == 3:
                 form = LoginForm()
                 return render(request, 'Landing_Page.html', {'form': form, })
 
 
-
+            # TODO
             data = requestedData.json()['data']
             print(data) 
             cookieID = data['sessionID']
+            userID = data['userID']
             request.session['sessionID'] = cookieID
-            return redirect(account, user_id=cookieID)
+            return redirect(account, user_id=userID)
 
     else:
         form = LoginForm()
@@ -55,15 +56,23 @@ def landing(request):
 
 
 def account(request, user_id):
-    rest = restAPI(user_id)
+    rest = restAPI(request.session['sessionID'])
     profile = rest.get_profile(user_id)
-    
-    name = profile.name
-    balance = profile.balance
+    print(profile)
+    name = profile['forename'] + " " + profile['surname']
+    balance = profile['balance']
     stash = 0
     return render(request, 'Accounts.html', {'name': name,
                                              'balance': balance,
                                              'stash': stash})
+
+def profile(request, user_id):
+    rest = restAPI(user_id)
+    name = restAPI.get_name(user_id)
+    return render(request, 'profile.html', {
+        'name': name,
+    })
+
 
 
 def http404(request):
