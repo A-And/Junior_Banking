@@ -1,7 +1,7 @@
 import urllib.parse
 import urllib.request
 import logging
-from django.http import HttpResponseRedirect
+import json
 from django.shortcuts import render_to_response, render, redirect
 from django.template import loader, RequestContext
 from django.conf import settings
@@ -23,16 +23,19 @@ def landing(request):
             }
 
             """ THIS IS WHERE THE MAGIC HAPPENS. Commented out, so that it doesn't throw errors when the API isn't up. Cookie is assigned an arbitrary value"""
-            # logger.debug(post_values)
-            # post_data = urllib.parse.urlencode(post_values).encode('ascii')
-            # logger.debug(post_data)
-            # req = urllib.request.Request(api_url + 'cdata/request', post_data)
-            # logger.debug(api_url + 'cdata/request')
-            # response = urllib.request.urlopen(req)
-            # page = response.read()
-            # logger.debug(page)
-            cookie = 'tempC1'
-            return redirect(account, user_id=cookie)
+            LOGIN_URL = 'login'
+            logger.debug(post_values)
+            post_data = urllib.parse.urlencode(post_values).encode('ascii')
+            logger.debug(post_data)
+            req = urllib.request.Request(api_url + LOGIN_URL, post_data)
+            logger.debug(api_url + LOGIN_URL)
+            response = urllib.request.urlopen(req)
+            page = response.read()
+            data = json.load(page)
+            cookieID = data['sessionID']
+            request.session['sessionID'] = cookieID
+            logger.debug(page)
+            return redirect(account, user_id=cookieID)
 
     else:
         form = LoginForm()
