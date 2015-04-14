@@ -119,17 +119,17 @@
 	</div>
 </div>
 
-<div class="white">
+<div class="white" id="profile">
 	<div class="ABOUT_content" id="profiles_text">
 		<p class="site_info">Customise your profile colour preferences</p>
 	</div>	
 	
 	<div class="ABOUT_content" id="profiles_pics">	
-		<img src={% static 'login/pages/100.png' %} width="250px" height="210px" alt="home" class="page_sample"/>
-		<img src={% static 'login/pages/101.png' %} width="250px" height="210px" alt="home" class="page_sample"/>
-		<img src={% static 'login/pages/102.png' %} width="250px" height="210px" alt="home" class="page_sample"/>
-		<img src={% static 'login/pages/103.png' %} width="250px" height="210px" alt="home" class="page_sample"/>
-		<img src={% static 'login/pages/104.png' %} width="250px" height="210px" alt="home" class="page_sample"/>
+	
+		<img src={% static 'login/left_arrow_1.png' %} alt="previous" id="left_arrow" onclick="rotateLeft();" class="page_sample">
+		<div id="image_container" class="page_sample"><img src={% static 'login/pages/100.png' %} alt="profile samples" id="profile_image"></div>
+		<img src={% static 'login/right_arrow.png' %} alt="next" id="right_arrow" onclick="rotateRight();" class="page_sample">
+		
 	</div>	
 </div>
 
@@ -145,18 +145,18 @@
 	</p>
 	
 	
-	<div id="brands_logos_container">
-		<div id="brands_logo_holder">
-		<img src={% static 'login/bank_of_scotland.png' %} alt="bank_of_scotland" class="logos"/>
-		<img src={% static 'login/birmingham_midshares.png' %} alt="birmingham_midshares" class="logos"/>
-		<img src={% static 'login/black_horse.png' %} alt="black_horse" class="logos"/>
-		<img src={% static 'login/colleys.png' %} alt="colleys" class="logos"/>
-		<img src={% static 'login/halifax.png' %} alt="halifax" class="logos"/>
-		<img src={% static 'login/ldc.png' %} alt="ldc" class="logos"/>
-		<img src={% static 'login/lloyds_autolease.png' %} alt="lloyds_autolease" class="logos"/>
-		<img src={% static 'login/lloyds_bank.png' %} alt="lloyds_bank" class="logos"/>
-		<img src={% static 'login/scottish_widows.png' %} alt="scottish_widows" class="logos"/>
-		</div>
+	<div id="partners">
+	<div id="brands_logos">
+		<img src={% static 'login/bank_of_scotland.png' %} alt="bank_of_scotland" class="logos">
+		<img src={% static 'login/birmingham_midshares.png' %} alt="birmingham_midshares" class="logos">
+		<img src={% static 'login/black_horse.png' %} alt="black_horse" class="logos">
+		<img src={% static 'login/colleys.png' %} alt="colleys" class="logos">
+		<img src={% static 'login/halifax.png' %} alt="halifax" class="logos">
+		<img src={% static 'login/ldc.png' %} alt="ldc" class="logos">
+		<img src={% static 'login/lloyds_autolease.png' %} alt="lloyds_autolease" class="logos">
+		<img src={% static 'login/lloyds_bank.png' %} alt="lloyds_bank" class="logos">
+		<img src={% static 'login/scottish_widows.png' %} alt="scottish_widows" class="logos">
+	</div>
 	</div>
 </div>
 		
