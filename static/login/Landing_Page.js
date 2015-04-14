@@ -16,12 +16,12 @@ $(function()
 	});
 });
 
-var images = new Array("pages/100.png","pages/101.png","pages/102.png","pages/103.png","pages/104.png");
+var images = new Array({% static 'pages/100.png' %},{% static 'pages/101.png' %},{% static 'pages/102.png' %},{% static 'pages/103.png' %},{% static 'pages/104.png' %});
 
 function rotateLeft() 
 {
     var current_image = document.getElementById("profile_image").src;
-	var i = current_image.charAt(current_image.length-5);
+	var i = current_image.charAt(current_image.length-9);
 	
 	if (i == 0) { prev = 4; }
 	else{ prev = i-1; }
@@ -38,7 +38,7 @@ function rotateLeft()
 function rotateRight() 
 {
     var current_image = document.getElementById("profile_image").src;
-	var i = current_image.charAt(current_image.length-5);	
+	var i = current_image.charAt(current_image.length-9);	
 	
     if (i == 4) { i = 0; }
 	else{ i++; }
