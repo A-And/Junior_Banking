@@ -161,7 +161,26 @@ body		{
 
 #guide, #profiles_pics	{margin-top: 5px;}	
 #profiles_text	{margin-bottom: 5px;}	
-#profiles_text p	{width: auto;}							
+#profiles_text p	{width: auto;
+				background-color: RGBA(255, 255, 255, 0.7);
+				padding: 10px;
+				border-radius: 10px;}	
+
+#profile_image	{width: 320px;
+				height: 280px;
+				position: absolute;
+				left: 0px;
+				-webkit-transition: 2s;
+				transition: 2s;}
+				
+#image_container	{width: 320px;
+					height: 280px;
+					overflow: hidden;}
+
+#left_arrow,
+#right_arrow	{width: 60px;
+				height: 60px;
+				margin: 110px 70px;}										
 /**---------------------------------------------------------------------*/
 				
 /**---------------------------------------------------------------------*/
