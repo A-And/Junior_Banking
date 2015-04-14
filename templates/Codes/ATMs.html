@@ -4,10 +4,57 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="ATMs-CSS.css" />
 	<title>ATMs</title>
+	<script
+	src="http://maps.googleapis.com/maps/api/js">
+	</script>
+
+<script>
+ var geocoder;
+  var map;
+function initialise(){
+  geocoder = new google.maps.Geocoder();
+  var latlng = new google.maps.LatLng(54.9831,-1.5879);
+
+  var mapProp = {
+  zoom:11,
+  center:latlng
+  }
+
+   map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+	function codeAddress() {
+  	var address = document.getElementById('address').value;
+  	geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+  }
+  function codeAddress2() {
+  	var address = document.getElementById('address2').value;
+  	geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+  }
+</script>
 </head>
 
 
-<body>
+<body onLoad="initialise(); codeAddress(); codeAddress2()">
 
 <div id="nav_bar">
 <ul>	
@@ -37,11 +84,16 @@
 	</ul>
 
 	<hr/>
-	
+	<div>
+          <input id="address" type="textbox" value="Newcastle Haymarket">
+          <input id="address2" type="textbox" value="Newcastle Northumbland Street">
+          <input type="button" value="Geocode" onClick="codeAddress()">
+          <input type="button" value="Geocode" onClick="codeAddress2()">
+
+        </div>
 	<div id="location"> 
-		<object type="text/html" data="http://www.nearestcashpoint.co.uk/search/cash-points-in-newcastle-upon-tyne-tyne-and-wear" width="1055px" height="600px" style="overflow:auto;border:0px; border:#006600">
-		</object>
-	</div>
+        <div id="googleMap" style="width:500px;height:380px;"></div>
+
 </div>
 
 <div id="footer">
