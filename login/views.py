@@ -26,15 +26,15 @@ def landing(request):
             LOGIN_URL = 'login'
             requestedData = requests.post(api_url+LOGIN_URL, data=post_values)
             logger.debug(api_url + LOGIN_URL)
-            logger.debug(requestedData.status_code)
+            print(requestedData.status_code)
 
             if requestedData.status_code != 200:
                 form = LoginForm()
                 return render(request, 'Landing_Page.html', {'form': form, })
 
-            logger.debug(requestedData)
+            print(requestedData)
 
-            logger.debug(requestedData.json())
+            print(requestedData.json())
 
             if requestedData.json()['status'] == 3:
                 form = LoginForm()
@@ -77,4 +77,6 @@ def profile(request, user_id):
 
 def http404(request):
     return render_to_response('404.html')
+
+
 
