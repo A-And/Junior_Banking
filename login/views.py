@@ -127,7 +127,7 @@ def goals(request):
 def guide(request):
     user_id = request.session['userID']
     rest = restAPI(user_id)
-    return render(request, 'Guide.html', {
+    return render(request, 'guide.html', {
     })
 
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html >
 <html>
+{% load staticfiles %}
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href={% static 'bank_guide/guide-CSS.css' %} />
@@ -7,23 +8,69 @@
 		body {background-image: url('{% static "general\background_kids.jpg" %}') ;}
 		#nav_bar {background-image: url('{% static "general\lloyds_group_logo.png" %}') ;}
 	</style>
+    <script type="text/javascript">
+
+
+function myFunction4(){
+	document.getElementById("what_is_banking").style.display = 'block';
+	document.getElementById("banking_glossary").style.display = 'none';
+	document.getElementById("banking_tips").style.display = 'none';
+
+	document.getElementById("what_is_bankingv2").style.display = 'none';
+	document.getElementById("banking_glossaryv2").style.display = 'block';
+	document.getElementById("banking_tipsv2").style.display = 'block';
+
+	document.getElementById("banking_glossary_box").style.display = 'none';
+	document.getElementById("what_is_banking_box").style.display = 'block';
+	document.getElementById("banking_tips_box").style.display = 'none';
+}
+function myFunction5(){
+	document.getElementById("what_is_banking").style.display = 'none';
+	document.getElementById("banking_glossary").style.display = 'block';
+	document.getElementById("banking_tips").style.display = 'none';
+
+	document.getElementById("what_is_bankingv2").style.display = 'block';
+	document.getElementById("banking_glossaryv2").style.display = 'none';
+	document.getElementById("banking_tipsv2").style.display = 'block';
+
+	document.getElementById("banking_glossary_box").style.display = 'block';
+	document.getElementById("what_is_banking_box").style.display = 'none';
+	document.getElementById("banking_tips_box").style.display = 'none';
+}
+function myFunction6(){
+	document.getElementById("what_is_banking").style.display = 'none';
+	document.getElementById("banking_glossary").style.display = 'none';
+	document.getElementById("banking_tips").style.display = 'block';
+
+	document.getElementById("what_is_bankingv2").style.display = 'block';
+	document.getElementById("banking_glossaryv2").style.display = 'block';
+	document.getElementById("banking_tipsv2").style.display = 'none';
+
+	document.getElementById("banking_glossary_box").style.display = 'none';
+	document.getElementById("what_is_banking_box").style.display = 'none';
+	document.getElementById("banking_tips_box").style.display = 'block';
+}
+function myFunction7(){
+	document.getElementById("what_is_banking").style.display = 'none';
+	document.getElementById("banking_glossary").style.display = 'none';
+	document.getElementById("banking_tips").style.display = 'none';
+
+	document.getElementById("what_is_bankingv2").style.display = 'block';
+	document.getElementById("banking_glossaryv2").style.display = 'block';
+	document.getElementById("banking_tipsv2").style.display = 'block';
+
+	document.getElementById("banking_glossary_box").style.display = 'none';
+	document.getElementById("what_is_banking_box").style.display = 'none';
+	document.getElementById("banking_tips_box").style.display = 'none';
+}
+</script>
 	<title>Banking guide</title>
 </head>
 
 
 <body>
 
-<div id="nav_bar">
-<ul>	
-    <li> <a href="home.html">Home</a></li>
-    <li> <a href="index.html">Profile</a></li>
-    <li> <a href="Accounts.html">Accounts </a></li>
-    <li> <a href="goals.html">Goals</a></li>
-    <li> <a href="collection.html">Collection</a></li>
-    <li> <a href="ATMs.html">ATMs</a></li>
-    <li> <a href="Guide.html">Banking Guide</a></li>
-</ul>
-</div>
+{% include 'nav_bar.html' %}
 
 <div id="banner">
 	<img src={% static 'bank_guide/banking_guide_1.png' %} alt="Baking guide" title="Banking guide" width="1055" height="191" />
@@ -106,62 +153,7 @@
 	{% include 'footer.html' %}
 </div>
 
-<script type="text/javascript">
 
-	
-function myFunction4(){
-	document.getElementById("what_is_banking").style.display = 'block';
-	document.getElementById("banking_glossary").style.display = 'none';
-	document.getElementById("banking_tips").style.display = 'none';
-	
-	document.getElementById("what_is_bankingv2").style.display = 'none';
-	document.getElementById("banking_glossaryv2").style.display = 'block';
-	document.getElementById("banking_tipsv2").style.display = 'block';
-	
-	document.getElementById("banking_glossary_box").style.display = 'none';
-	document.getElementById("what_is_banking_box").style.display = 'block';
-	document.getElementById("banking_tips_box").style.display = 'none';
-}
-function myFunction5(){
-	document.getElementById("what_is_banking").style.display = 'none';
-	document.getElementById("banking_glossary").style.display = 'block';
-	document.getElementById("banking_tips").style.display = 'none';
-	
-	document.getElementById("what_is_bankingv2").style.display = 'block';
-	document.getElementById("banking_glossaryv2").style.display = 'none';
-	document.getElementById("banking_tipsv2").style.display = 'block';
-
-	document.getElementById("banking_glossary_box").style.display = 'block';
-	document.getElementById("what_is_banking_box").style.display = 'none';
-	document.getElementById("banking_tips_box").style.display = 'none';
-}
-function myFunction6(){
-	document.getElementById("what_is_banking").style.display = 'none';
-	document.getElementById("banking_glossary").style.display = 'none';
-	document.getElementById("banking_tips").style.display = 'block';
-	
-	document.getElementById("what_is_bankingv2").style.display = 'block';
-	document.getElementById("banking_glossaryv2").style.display = 'block';
-	document.getElementById("banking_tipsv2").style.display = 'none';
-	
-	document.getElementById("banking_glossary_box").style.display = 'none';
-	document.getElementById("what_is_banking_box").style.display = 'none';
-	document.getElementById("banking_tips_box").style.display = 'block';
-}
-function myFunction7(){
-	document.getElementById("what_is_banking").style.display = 'none';
-	document.getElementById("banking_glossary").style.display = 'none';
-	document.getElementById("banking_tips").style.display = 'none';
-	
-	document.getElementById("what_is_bankingv2").style.display = 'block';
-	document.getElementById("banking_glossaryv2").style.display = 'block';
-	document.getElementById("banking_tipsv2").style.display = 'block';
-	
-	document.getElementById("banking_glossary_box").style.display = 'none';
-	document.getElementById("what_is_banking_box").style.display = 'none';
-	document.getElementById("banking_tips_box").style.display = 'none';
-}
-</script>
 
 
 </body>

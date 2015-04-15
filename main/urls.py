@@ -8,7 +8,8 @@ urlpatterns = patterns('',
                        url(r'^home/$', 'login.views.home', name='home'),
                        url(r'^account/$', 'login.views.account', name='account'),
                        url(r'^goals/$', 'login.views.goals', name='goals'),
-                       url(r'^guide/(?P<user_id>[\w]+)?/$', 'login.views.guide', name='guide'),
+                       url(r'^guide/$', 'login.views.guide', name='guide'),
+                       url(r'^profile/$', 'login.views.profile', name='profile'),
                        url(r'^admin/', include(admin.site.urls)),
 
 

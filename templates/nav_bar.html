@@ -1,11 +1,11 @@
 <div id="nav_bar">
 <ul>
-    <li> <a href="home.html">Home</a></li>
+    <li> <a href={% url 'home' %}>Home</a></li>
     <li> <a href="index.html">Profile</a></li>
-    <li> <a href={{ login.views.account }}>Accounts </a></li>
+    <li> <a href={% url 'account' %}>Accounts </a></li>
     <li> <a href={% url 'goals' %}>Goals</a></li>
     <li> <a href="collection.html">Collection</a></li>
     <li> <a href="ATMs.html">ATMs</a></li>
-    <li> <a href="Guide.html">Banking Guide</a></li>
+    <li> <a href={% url 'guide' %}>Banking Guide</a></li>
 </ul>
 </div>
