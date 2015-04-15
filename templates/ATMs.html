@@ -1,6 +1,7 @@
 <!DOCTYPE html >
 <html>
 <head>
+{% load staticfiles %}
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href={% static 'atms/ATMs-CSS.css' %} />
 	<style>
@@ -10,20 +11,8 @@
 	<title>ATMs</title>
 </head>
 
-
 <body>
-
-<div id="nav_bar">
-<ul>	
-    <li> <a href="home.html">Home</a></li>
-    <li> <a href="index.html">Profile</a></li>
-    <li> <a href="Accounts.html">Accounts </a></li>
-    <li> <a href="goals.html">Goals</a></li>
-    <li> <a href="collection.html">Collection</a></li>
-    <li> <a href="ATMs.html">ATMs</a></li>
-    <li> <a href="guide.html">Banking Guide</a></li>
-</ul>
-</div>
+{% include 'nav_bar.html' %}
 
 <div id="banner">
 	<img src={% static 'atms/ATMs_1.png' %} alt="ATMs" title="ATMs" width="1055" height="191" />
@@ -49,8 +38,8 @@
 	</div>
 </div>
 
-<div id="footer">
-		<p>Page Footer</p>
+<div>
+	{% include 'footer.html' %}
 </div>
 
 </body>
