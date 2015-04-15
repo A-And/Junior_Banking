@@ -1,5 +1,7 @@
+
 <!DOCTYPE html >
 <html>
+{% load staticfiles %}
 <head> 
  <meta http-equiv="content-type" 
  content="text/html;charset=utf-8"/> 
@@ -8,7 +10,7 @@
 	body {background-image: url('{% static "general\background_kids.jpg" %}') ;}
 	#nav_bar {background-image: url('{% static "general\lloyds_group_logo.png" %}') ;}
 </style>
- <script type="text/javascript" src={% static 'goals/goals.js' %}></script>
+ {% include 'goal_render.html' %}
  <title>Goals</title> 
 </head> 
 
@@ -121,9 +123,7 @@ Bar RIGHTCLICK = auto-fill the corresponding From (goal) field.">
 	</div>
 </form>
 
-<div id="footer">
-		<p>Page Footer</p>
-</div>
+{% include 'footer.html' %}
 
 </div>
 </body>

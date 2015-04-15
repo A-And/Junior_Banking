@@ -1,3 +1,4 @@
+
 import logging
 from django.http import Http404
 
@@ -87,7 +88,11 @@ def profile(request, user_id):
     })
 
 def goals(request, user_id):
-        return render(request, 'goals.html', {})
+    rest = restAPI(request.session['sessionID'])
+    print(user_id)
+    returned_goals = rest.get_goals(user_id)
+    print(returned_goals['data'])
+    return render(request, 'goals.html', {'goals': returned_goals['data']})
 
 def http404(request):
     return render_to_response('404.html')
