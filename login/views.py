@@ -88,6 +88,11 @@ def profile(request, user_id):
 
 def goals(request, user_id):
         return render(request, 'goals.html', {})
+        
+def guide(request, user_id):
+    rest = restAPI(user_id)
+    return render(request, 'Guide.html', {
+    })
 
 def http404(request):
     return render_to_response('404.html')
