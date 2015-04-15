@@ -17,7 +17,7 @@
 
 
 	<div id="greeting_box">
-		<p>Hi Name!</p>
+		<p id="name"> Hi {{ name }}! </p>
 	</div>
 	
 		<div id="nav_panel">
@@ -60,9 +60,8 @@
 	</div>
 	
 	<div id="footer">
-			<p>Page Footer</p>
+		{% include 'footer.html' %}
 	</div>
-	
-	</div>
+</div>
 </body>
 </html>
