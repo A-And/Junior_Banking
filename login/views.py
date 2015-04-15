@@ -67,8 +67,11 @@ def account(request):
         if form.is_valid():
             print('valid form')
             print(form.cleaned_data)
-            b_to_s = form.cleaned_data['balance_to_stash']
-            s_to_b = form.cleaned_data['stash_to_balance']
+            b_to_s = form.cleaned_data['balance_to_stash'] or 0
+            s_to_b = form.cleaned_data['stash_to_balance'] or 0
+            print('YOU WANT THIS')
+            print(b_to_s)
+            print(s_to_b)
             rest.balance_stash_transfer(user_id, float(b_to_s), float(s_to_b))
 
         profile = rest.get_profile(user_id)

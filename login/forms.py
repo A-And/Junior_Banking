@@ -16,5 +16,5 @@ class LoginForm(forms.Form):
 class TransferForm(forms.Form):
 
     decimal = re.compile(r'[^\d.]+')
-    stash_to_balance = forms.FloatField(widget = forms.TextInput(attrs={'name': 'stash-to-balance', 'placeholder': '￡' }))
-    balance_to_stash = forms.FloatField(widget = forms.TextInput(attrs={'name': 'balance-to-stash', 'placeholder': '￡'}))
+    stash_to_balance = forms.FloatField(required=False,widget = forms.TextInput(attrs={'name': 'stash-to-balance', 'placeholder': '￡' }))
+    balance_to_stash = forms.FloatField(required=False,widget = forms.TextInput(attrs={'name': 'balance-to-stash', 'placeholder': '￡'}))

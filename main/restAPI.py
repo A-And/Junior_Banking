@@ -20,7 +20,6 @@ class restAPI:
         data = requests.post(settings.API_URL + 'cdata/request', data={'user':user_id,'sessionID':self.cookie_id, 'appid': settings.API_KEY, })
         print('profile get!')
         print(data)
-        print(settings.API_URL + 'request')
         response = parse_response(data)
         return response
 
@@ -67,23 +66,24 @@ class restAPI:
         # Check the result of attempted transfers
         if balance_to_stash_amount > 0:
             response['balance_to_stash'] = self.balance_to_stash(user_id, balance_to_stash_amount)
-        else:
+        elif balance_to_stash_amount < 0:
             response['balance_to_stash'] = 'Please enter a valid amount'
         if stash_to_balance_amount > 0:
             response['stash_to_balance'] = self.stash_to_balance(user_id, stash_to_balance_amount)
 
-        else:
+        elif stash_to_balance_amount < 0:
             response['stash_to_balance'] = 'Please enter a valid amount.'
         print(response)
         return response
 
     def stash_to_balance(self, user_id, transfer_amount):
-        data = requests.post(settings.API_URL + 'cdata/stashtobalance', data={'user':user_id,'sessionID':self.cookie_id,
-                                                                               'amount':transfer_amount, 'appid': settings.API_KEY, })
-        response = parse_response(data)
-        print('Stash to balance response: ')
-        print(response)
-        return response
+
+            data = requests.post(settings.API_URL + 'cdata/stashtobalance', data={'user':user_id,'sessionID':self.cookie_id,
+                                                                                   'amount':transfer_amount, 'appid': settings.API_KEY, })
+            response = parse_response(data)
+            print('Stash to balance response: ')
+            print(response)
+            return response
 
     def balance_to_stash(self, user_id, transfer_amount):
         print(transfer_amount)
@@ -113,6 +113,9 @@ def parse_response(data):
         return not_found_error()
     elif data == '403':
         return login_error()
+    elif data == '500':
+        print('YEAAAAAAAAAAAAAAAAAAAAAAH')
+        return server_error()
     else:
         response = data.json()
         if isinstance(response, dict) and 'data' in response:
@@ -121,11 +124,16 @@ def parse_response(data):
             return str(response)
 
 
-def not_found_error(self):
+def not_found_error():
     return {'Status': 'Error',
             'Error': '404', }
 
 
-def login_error(self):
+def login_error():
     return {'Status': 'Error',
             'Error': '403', }
+
+
+def server_error():
+        return {'Status': 'Error',
+                'Error': '500', }
