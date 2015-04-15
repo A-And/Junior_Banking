@@ -96,7 +96,7 @@ STATICFILES_DIRS = (
 )
 # Template directory
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR,  'templates'),
+    os.path.join(BASE_DIR, 'templates'),
 )
 # Image and other media directory
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

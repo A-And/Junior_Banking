@@ -1,10 +1,11 @@
-import requests
 import logging
-import json
+from django.http import Http404
+
+import requests
 from django.shortcuts import render_to_response, render, redirect
-from django.template import loader, RequestContext
 from django.conf import settings
-from login.forms import LoginForm
+
+from login.forms import LoginForm, TransferForm
 from main.restAPI import restAPI
 
 
@@ -57,14 +58,26 @@ def landing(request):
 
 def account(request, user_id):
     rest = restAPI(request.session['sessionID'])
+    if request.method == 'POST':
+        form = TransferForm(request.POST)
+        if form.is_valid():
+            print('valid form')
+            b_to_s = request.GET.get('balance-to-stash')
+            s_to_b = request.GET.get('stash-to-balance')
+            rest.balance_stash_transfer(user_id, b_to_s, s_to_b)
+
+
     profile = rest.get_profile(user_id)
     print(profile)
     name = profile['forename'] + " " + profile['surname']
     balance = profile['balance']
     stash = 0
+    form = TransferForm()
     return render(request, 'Accounts.html', {'name': name,
                                              'balance': balance,
-                                             'stash': stash})
+                                             'stash': stash,
+                                             'form': form,})
+
 
 def profile(request, user_id):
     rest = restAPI(user_id)

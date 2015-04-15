@@ -13,17 +13,7 @@
 </head>
 <body>
 
-<div id="nav_bar">
-<ul>
-    <li> <a href="home.html">Home</a></li>
-    <li> <a href="index.html">Profile</a></li>
-    <li> <a href={{ login.views.account }}>Accounts </a></li>
-    <li> <a href="goals.html">Goals</a></li>
-    <li> <a href="collection.html">Collection</a></li>
-    <li> <a href="ATMs.html">ATMs</a></li>
-    <li> <a href="Guide.html">Banking Guide</a></li>
-</ul>
-</div>
+{% include 'nav_bar.html' %}
 
 
 <div id="banner">
@@ -36,29 +26,29 @@
 <div id="transfer_area">
 
 	<div id="pocket">
-		<span class="box_title">POCKET</span>
-		<p id="pocket_balance">Balance: ￡{{ balance }} </p>
+		<span class="box_title">Pocket</span>
+		<p id="pocket_balance">￡{{ balance }} </p>
 	</div>
 
 	<div id="stash">
-		<span class="box_title">STASH</span>
-		<p id="stash_balance">Balance: ￡{{ stash }} </p>
+		<span class="box_title">Stash</span>
+		<p id="stash_balance">￡{{ stash }} </p>
 	</div>
-
-	<div id="leftarrow">
+    <form action ="." id="transfer" method="POST">
+            {% csrf_token %}
+        <div id="leftarrow">
 		<img src={% static "accounts/left_arrow.png" %} alt="Left Arrow">
-		<!-- <img src="{% static 'accounts/left_arrow.png' %}" alt="Left Arrow">-->
-		<input type="text" value="  ￡" />
+        {{ form.balance_to_stash }}
 	</div>
 
 	<div id="rightarrow">
 		<img src={% static "accounts/right_arrow.png" %} alt="Right Arrow">
 		<!-- <img src="{% static 'accounts/right_arrow.png' %}" alt="Right Arrow"> -->
-		<input type="text" value="  ￡" />
+         {{ form.stash_to_balance }}
 	</div> 
 
-	<input class="make_transfer" type="button" value="MAKE TRANSFER" onClick=" " />
-
+	<input class="make_transfer" type="submit" value="Transfer" id="transfer" />
+    </form>
 </div>
 
 <hr/>
