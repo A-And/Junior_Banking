@@ -86,7 +86,8 @@ def profile(request, user_id):
         'name': name,
     })
 
-
+def goals(request, user_id):
+        return render(request, 'goals.html', {})
 
 def http404(request):
     return render_to_response('404.html')
