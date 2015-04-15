@@ -49,6 +49,7 @@ def landing(request):
             cookieID = data['sessionID']
             userID = data['userID']
             request.session['sessionID'] = cookieID
+            # TODO Add check for parent account type
             return redirect(account, user_id=userID)
 
     else:
@@ -78,36 +79,44 @@ def account(request, user_id):
                                              'stash': stash,
                                              'form': form,})
 
+
 def home(request, user_id):
     rest = restAPI(request.session['sessionID'])
     profile = rest.get_profile(user_id)
     print(profile)
     name = profile['forename'] + " " + profile['surname']
-    return render(request, 'home.html', {'name': name
-    })
+    return render(request, 'home.html', {'name': name})
 
 
 def profile(request, user_id):
     rest = restAPI(user_id)
     name = restAPI.get_name(user_id)
+    if 'Error' in name:
+        error = name['error']
     return render(request, 'profile.html', {
         'name': name,
     })
+
 
 def goals(request, user_id):
     rest = restAPI(request.session['sessionID'])
     print(user_id)
     returned_goals = rest.get_goals(user_id)
-    print(returned_goals['data'])
-    return render(request, 'goals.html', {'goals': returned_goals['data']})
+    print(returned_goals)
+    return render(request, 'goals.html', {'goals': returned_goals})
+
 
 def guide(request, user_id):
     rest = restAPI(user_id)
     return render(request, 'Guide.html', {
     })
 
+
 def http404(request):
     return render_to_response('404.html')
+
+def http403(request):
+    return
 
 
 

@@ -21,7 +21,8 @@ class restAPI:
         print('profile get!')
         print(data)
         print(settings.API_URL + 'request')
-        return data.json()['data']
+        response = parse_response(data)
+        return response
 
     def get_name(self, user_id):
         data = self.get_profile(user_id)
@@ -35,14 +36,8 @@ class restAPI:
         data = requests.post(settings.API_URL + 'cdata/transfermoney', data={'user':sender_id,'sessionID':self.cookie_id,
                                                                              'target':target_id, 'amount':amount,
                                                                              'appid': settings.API_KEY, })
-        response = data.json()
-        if 'Error' in response:
-            return {
-                'Status': 'Error',
-                'Error': response['Error'], }
-        else:
-            response['Status'] = 'Success'
-            return response
+        response = parse_response(data)
+        return response
 
     def register_child(self, user_id, forename, surname, date_of_birth,):
 
@@ -62,14 +57,8 @@ class restAPI:
     def get_children(self, user_id):
         data = requests.post(settings.API_URL + 'cdata/requestchildren', data={'user':user_id,'sessionID':self.cookie_id,
                                                                                'appid': settings.API_KEY, })
-        response = data.json()
-        if 'Error' in response:
-            return {
-                'Status': 'Error',
-                'Error': response['Error'], }
-        else:
-            response['Status'] = 'Success'
-            return response
+        response = parse_response(data)
+        return response
 
     def balance_stash_transfer(self, user_id, balance_to_stash_amount, stash_to_balance_amount):
         # Initialize dictionary to use in view for errors and/or success.
@@ -87,28 +76,15 @@ class restAPI:
     def stash_to_balance(self, user_id, transfer_amount):
         data = requests.post(settings.API_URL + 'cdata/stashtobalance ', data={'user':user_id,'sessionID':self.cookie_id,
                                                                                'amount':transfer_amount, 'appid': settings.API_KEY, })
-
-        response = data.json()
-        if 'Error' in response:
-            return {
-                'Status': 'Error',
-                'Error': response['Error'], }
-        else:
-            response['Status'] = 'Success'
-            return response
+        response = parse_response(data)
+        return response
 
     def balance_to_stash(self, user_id, transfer_amount):
         data = requests.post(settings.API_URL + 'cdata/balancetostash ', data={'user':user_id,'sessionID':self.cookie_id,
                                                                                'amount':transfer_amount, 'appid': settings.API_KEY, })
 
-        response = data.json()
-        if 'Error' in response:
-            return {
-                'Status': 'Error',
-                'Error': response['Error'], }
-        else:
-            response['Status'] = 'Success'
-            return response
+        response = parse_response(data)
+        return response
 
     def logout(self):
         data = requests.post(settings.API_URL + 'cdata/logout', data={'sessionID': self.cookie_id,
@@ -117,23 +93,21 @@ class restAPI:
     def get_goals(self, user_id):
         data = requests.post(settings.API_URL + 'goals/load', data={'sessionID': self.cookie_id,
                                                                           'user':user_id, 'appid': settings.API_KEY, })
-        print(data)
+        response = parse_response(data)
+        return response
 
 
 
-def parse_response(self, response):
-        if response == '404':
+def parse_response(data):
+        if data == '404':
             return not_found_error()
-        elif response == '403':
+        elif data == '403':
             return login_error()
         else:
-            data = response.json()
-            if 'Error' in response:
-                return {
-                    'Status': 'Error',
-                    'Error': response['Error'], }
+            response = data.json()
+            if 'data' in response:
+                return response['data']
             else:
-                response['Status'] = 'Success'
                 return response
 
 def not_found_error(self):
