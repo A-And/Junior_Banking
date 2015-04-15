@@ -72,7 +72,7 @@ def account(request):
             print('YOU WANT THIS')
             print(b_to_s)
             print(s_to_b)
-            rest.balance_stash_transfer(user_id, float(b_to_s), float(s_to_b))
+            rest.balance_stash_transfer(user_id, float(s_to_b), float(b_to_s))
 
         profile = rest.get_profile(user_id)
         print(profile)

@@ -114,7 +114,6 @@ def parse_response(data):
     elif data == '403':
         return login_error()
     elif data == '500':
-        print('YEAAAAAAAAAAAAAAAAAAAAAAH')
         return server_error()
     else:
         response = data.json()
