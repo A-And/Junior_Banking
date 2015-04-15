@@ -53,7 +53,7 @@ def landing(request):
 
 
 def account(request):
-	
+
 	user_id = request.session['userID']
 	rest = restAPI(request.session['sessionID'])
 	if request.method == 'POST':
@@ -101,7 +101,8 @@ def home(request):
 	user_id = request.session['userID']
 	rest = restAPI(request.session['sessionID'])
 	profile = rest.get_profile(user_id)
-	print(profile)
+	if profile == 403 or profile == 500:
+		return redirect(landing)
 	name = profile['forename'] + " " + profile['surname']
 	return render(request, 'home.html', {'name': name})
 
@@ -110,6 +111,7 @@ def profile(request):
 	user_id = request.session['userID']
 	rest = restAPI(user_id)
 	name = restAPI.get_name(user_id)
+	print(name)
 	if 'Error' in name:
 		error = name['error']
 	return render(request, 'profile.html', {
@@ -122,6 +124,8 @@ def goals(request):
 	rest = restAPI(request.session['sessionID'])
 	print(user_id)
 	returned_goals = rest.get_goals(user_id)
+	if returned_goals == 403 or returned_goals == 500:
+		return redirect(landing)
 	print(returned_goals)
 	return render(request, 'goals.html', {'goals': returned_goals})
 
@@ -141,6 +145,7 @@ def ATMs(request):
 def collection(request):
 	user_id = request.session['userID']
 	rest = restAPI(user_id)
+	
 	return render(request, 'collection.html', {
 	})
 
