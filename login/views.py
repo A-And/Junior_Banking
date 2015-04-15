@@ -66,6 +66,13 @@ def account(request, user_id):
             s_to_b = request.GET.get('stash-to-balance')
             rest.balance_stash_transfer(user_id, b_to_s, s_to_b)
 
+def home(request, user_id):
+    rest = restAPI(request.session['sessionID'])
+    profile = rest.get_profile(user_id)
+    print(profile)
+    name = profile['forename'] + " " + profile['surname']
+    return render(request, 'home.html', {'name': name
+    })
 
     profile = rest.get_profile(user_id)
     print(profile)
