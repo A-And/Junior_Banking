@@ -10,6 +10,8 @@ urlpatterns = patterns('',
                        url(r'^goals/$', 'login.views.goals', name='goals'),
                        url(r'^guide/$', 'login.views.guide', name='guide'),
                        url(r'^profile/$', 'login.views.profile', name='profile'),
+                       url(r'^ATMs/$', 'login.views.ATMs', name='ATMs'),
+                       url(r'^collection/$', 'login.views.collection', name='collection'),
                        url(r'^admin/', include(admin.site.urls)),
 
 
