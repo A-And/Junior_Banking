@@ -53,7 +53,7 @@ def landing(request):
 
 
 def account(request):
-<<<<<<< HEAD
+	
 	user_id = request.session['userID']
 	rest = restAPI(request.session['sessionID'])
 	if request.method == 'POST':
