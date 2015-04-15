@@ -45,12 +45,11 @@ def landing(request):
 
             # TODO
             data = requestedData.json()['data']
-            print(data) 
-            cookieID = data['sessionID']
-            userID = data['userID']
-            request.session['sessionID'] = cookieID
+            print(data)
+            request.session['sessionID'] = data['sessionID']
+            request.session['userID'] = data['userID']
             # TODO Add check for parent account type
-            return redirect(account, user_id=userID)
+            return redirect(account)
 
     else:
         form = LoginForm()
@@ -58,15 +57,19 @@ def landing(request):
     return render(request, 'Landing_Page.html', {'form': form, })
 
 
-def account(request, user_id):
+def account(request):
+    user_id = request.session['userID']
     rest = restAPI(request.session['sessionID'])
     if request.method == 'POST':
         form = TransferForm(request.POST)
+        print('ITS HERE')
+        print(form.is_valid())
         if form.is_valid():
             print('valid form')
-            b_to_s = form.cleaned_data['balance-to-stash']
-            s_to_b = form.cleaned_data['stash-to-balance']
-            rest.balance_stash_transfer(user_id, b_to_s, s_to_b)
+            print(form.cleaned_data)
+            b_to_s = form.cleaned_data['balance_to_stash']
+            s_to_b = form.cleaned_data['stash_to_balance']
+            rest.balance_stash_transfer(user_id, float(b_to_s), float(s_to_b))
 
         profile = rest.get_profile(user_id)
         print(profile)
@@ -92,7 +95,8 @@ def account(request, user_id):
                                              'form': form,})
 
 
-def home(request, user_id):
+def home(request):
+    user_id = request.session['userID']
     rest = restAPI(request.session['sessionID'])
     profile = rest.get_profile(user_id)
     print(profile)
@@ -100,7 +104,8 @@ def home(request, user_id):
     return render(request, 'home.html', {'name': name})
 
 
-def profile(request, user_id):
+def profile(request):
+    user_id = request.session['userID']
     rest = restAPI(user_id)
     name = restAPI.get_name(user_id)
     if 'Error' in name:
@@ -110,7 +115,8 @@ def profile(request, user_id):
     })
 
 
-def goals(request, user_id):
+def goals(request):
+    user_id = request.session['userID']
     rest = restAPI(request.session['sessionID'])
     print(user_id)
     returned_goals = rest.get_goals(user_id)
@@ -118,7 +124,8 @@ def goals(request, user_id):
     return render(request, 'goals.html', {'goals': returned_goals})
 
 
-def guide(request, user_id):
+def guide(request):
+    user_id = request.session['userID']
     rest = restAPI(user_id)
     return render(request, 'Guide.html', {
     })

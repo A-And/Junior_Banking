@@ -1,7 +1,6 @@
 
 # -*- coding: utf-8 -*-
 import re
-from django.core.validators import RegexValidator
 
 __author__ = 'Andon'
  
@@ -17,8 +16,5 @@ class LoginForm(forms.Form):
 class TransferForm(forms.Form):
 
     decimal = re.compile(r'[^\d.]+')
-    numerical_validator = RegexValidator(regex = '[^\d.]+$',
-                                         message = 'Please enter valid amount',
-                                         code = 'invalid_amount')
-    stash_to_balance = forms.CharField(max_length = 5, validators=[numerical_validator], widget = forms.TextInput(attrs={'name': 'stash-to-balance', 'placeholder': '￡' }))
-    balance_to_stash = forms.CharField(max_length = 5, validators=[numerical_validator], widget = forms.TextInput(attrs={'name': 'balance-to-stash', 'placeholder': '￡'}))
+    stash_to_balance = forms.IntegerField(widget = forms.TextInput(attrs={'name': 'stash-to-balance', 'placeholder': '￡' }))
+    balance_to_stash = forms.IntegerField(widget = forms.TextInput(attrs={'name': 'balance-to-stash', 'placeholder': '￡'}))
