@@ -114,20 +114,33 @@ class restAPI:
         data = requests.post(settings.API_URL + 'cdata/logout', data={'sessionID': self.cookie_id,
                                                                                'appid': settings.API_KEY,})
 
-
-
     def get_goals(self, user_id):
         data = requests.post(settings.API_URL + 'goals/load', data={'sessionID': self.cookie_id,
                                                                           'user':user_id, 'appid': settings.API_KEY, })
-        response = data.json()
-        if 'Error' in response:
-            return {
-                'Status': 'Error',
-                'Error': response['Error'], }
-        else:
-            response['Status'] = 'Success'
-            return response
+        print(data)
 
-    def serverError(self):
-        return {'Status': 'Error',
-                'Error': '404', }
+
+
+def parse_response(self, response):
+        if response == '404':
+            return not_found_error()
+        elif response == '403':
+            return login_error()
+        else:
+            data = response.json()
+            if 'Error' in response:
+                return {
+                    'Status': 'Error',
+                    'Error': response['Error'], }
+            else:
+                response['Status'] = 'Success'
+                return response
+
+def not_found_error(self):
+    return {'Status': 'Error',
+            'Error': '404', }
+
+
+def login_error(self):
+    return {'Status': 'Error',
+            'Error': '403', }

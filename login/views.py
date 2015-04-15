@@ -66,6 +66,17 @@ def account(request, user_id):
             b_to_s = request.GET.get('balance-to-stash')
             s_to_b = request.GET.get('stash-to-balance')
             rest.balance_stash_transfer(user_id, b_to_s, s_to_b)
+    else:
+        profile = rest.get_profile(user_id)
+        print(profile)
+        name = profile['forename'] + " " + profile['surname']
+        balance = profile['balance']
+        stash = 0
+        form = TransferForm()
+        return render(request, 'Accounts.html', {'name': name,
+                                             'balance': balance,
+                                             'stash': stash,
+                                             'form': form,})
 
 def home(request, user_id):
     rest = restAPI(request.session['sessionID'])
@@ -74,17 +85,6 @@ def home(request, user_id):
     name = profile['forename'] + " " + profile['surname']
     return render(request, 'home.html', {'name': name
     })
-
-    profile = rest.get_profile(user_id)
-    print(profile)
-    name = profile['forename'] + " " + profile['surname']
-    balance = profile['balance']
-    stash = 0
-    form = TransferForm()
-    return render(request, 'Accounts.html', {'name': name,
-                                             'balance': balance,
-                                             'stash': stash,
-                                             'form': form,})
 
 
 def profile(request, user_id):
@@ -100,7 +100,7 @@ def goals(request, user_id):
     returned_goals = rest.get_goals(user_id)
     print(returned_goals['data'])
     return render(request, 'goals.html', {'goals': returned_goals['data']})
-        
+
 def guide(request, user_id):
     rest = restAPI(user_id)
     return render(request, 'Guide.html', {

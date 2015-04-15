@@ -81,7 +81,6 @@ function initialize()
 	data = [
         {% for key, value in goals.items %}{title: "{{ value.desc }}", total_value: {{ value.target }}, current_value: {{ value.progress }}},
         {% endfor %}
-        {title: "Ice Cream Maker", total_value: 600, current_value: 300}
 	];
 	points_limit = 200;
 	drawChart();
