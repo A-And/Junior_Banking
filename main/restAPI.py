@@ -60,6 +60,7 @@ class restAPI:
         response = parse_response(data)
         return response
 
+    # A single function to use for the accounts view
     def balance_stash_transfer(self, user_id, balance_to_stash_amount, stash_to_balance_amount):
         # Initialize dictionary to use in view for errors and/or success.
         response = dict()
@@ -73,17 +74,22 @@ class restAPI:
         else:
             response['stash_to_balance'] = 'Please enter a valid amount.'
 
+        return response
+
     def stash_to_balance(self, user_id, transfer_amount):
         data = requests.post(settings.API_URL + 'cdata/stashtobalance ', data={'user':user_id,'sessionID':self.cookie_id,
                                                                                'amount':transfer_amount, 'appid': settings.API_KEY, })
         response = parse_response(data)
+        print('Stash to balance response: ' + response)
         return response
 
     def balance_to_stash(self, user_id, transfer_amount):
+        print(transfer_amount)
         data = requests.post(settings.API_URL + 'cdata/balancetostash ', data={'user':user_id,'sessionID':self.cookie_id,
                                                                                'amount':transfer_amount, 'appid': settings.API_KEY, })
 
         response = parse_response(data)
+        print('Balance to stash response: ' + response)
         return response
 
     def logout(self):

@@ -64,15 +64,27 @@ def account(request, user_id):
         form = TransferForm(request.POST)
         if form.is_valid():
             print('valid form')
-            b_to_s = request.GET.get('balance-to-stash')
-            s_to_b = request.GET.get('stash-to-balance')
+            b_to_s = form.cleaned_data['balance-to-stash']
+            s_to_b = form.cleaned_data['stash-to-balance']
             rest.balance_stash_transfer(user_id, b_to_s, s_to_b)
+
+        profile = rest.get_profile(user_id)
+        print(profile)
+        name = profile['forename'] + " " + profile['surname']
+        balance = profile['balance']
+        stash = profile['stash']
+        return render(request, 'Accounts.html', {'name': name,
+                                             'balance': balance,
+                                             'stash': stash,
+                                             'form': form,})
+
+
     else:
         profile = rest.get_profile(user_id)
         print(profile)
         name = profile['forename'] + " " + profile['surname']
         balance = profile['balance']
-        stash = 0
+        stash = profile['stash']
         form = TransferForm()
         return render(request, 'Accounts.html', {'name': name,
                                              'balance': balance,
