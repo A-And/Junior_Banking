@@ -18,10 +18,7 @@
 <body>
 <div id="content">
 
-    <div id="nav_bar">
-        {% include 'logout_button.html' %}
-    </div>
-
+    {% include 'parent_nav.html' %}
     <div class="child_name">{{ value.forename }} {{ value.surname }}</div>
     <div class="management_panel">
         <p class="title">Manage Your Child's Account</p>

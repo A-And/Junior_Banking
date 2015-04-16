@@ -8,31 +8,34 @@ body {
 
 
 /**---------------------------------------------------------------------*/
-
-/**---------------------------------------------------------------------*/
 #nav_bar {
     background-color: #FFFFFF;
-    position: relative;
-    height: 85px;
-    background-position: left;
-    background-size: 157px 85px;
-    background-repeat: no-repeat;
+    height: 89px;
     width: 100%;
+    min-width: 1000px;
+    background-position: left;
+    background-size: 190px 100px;
+    background-repeat: no-repeat;
+    margin: -7px;
+    z-index: 9999;
+    position: fixed;
+    background-image: url('/static/login/lloyds_group_logo.png');
 }
 
 #nav_bar ul {
-    margin: 5px;
     text-align: right;
-    position: relative;
-    top: 20px;
+    margin-top: 23px;
+    width: 850px;
+    float: right;
 }
 
 #nav_bar ul li {
     display: inline;
     font-family: Century Gothic;
-    font-size: 30px;
-    text-decoration: bold;
-    margin: 10px;
+    font-size: 35px;
+    font-style: italic;
+    font-weight: bold;
+    padding: 24px 20px;
 }
 
 #nav_bar li a {
@@ -40,8 +43,12 @@ body {
     color: #000000;
 }
 
-#nav_bar li a:hover {
-    color: #000000;
+#nav_bar li:hover a {
+    color: #FFFFFF;
+}
+
+#nav_bar li:hover {
+    background-color: #0B8C52;
 }
 
 /**---------------------------------------------------------------------*/

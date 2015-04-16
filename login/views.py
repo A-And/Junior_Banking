@@ -249,8 +249,7 @@ def signup(request):
         form = ChildRegistrationForm(request.POST)
         if form.is_valid():
             rest = restAPI(request.session['sessionID'])
-            hashed = hashlib.sha224(form.cleaned_data['password'].encode('utf-8')).hexdigest()
-            response = rest.register_child(request.session['userID'],form.cleaned_data['first_name'], form.cleaned_data['last_name'], form.cleaned_data['dob'], form.cleaned_data['username'], hashed)
+            response = rest.register_child(request.session['userID'],form.cleaned_data['first_name'], form.cleaned_data['last_name'], form.cleaned_data['dob'], form.cleaned_data['username'], form.cleaned_data['password'])
             redirect(landing)
     form = ChildRegistrationForm()
     return render(request,'sign_up.html',{'form':form})
