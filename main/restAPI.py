@@ -105,6 +105,12 @@ class restAPI:
         response = parse_response(data)
         return response
 
+    def get_atms(self, user_id):
+        data = requests.post(settings.API_URL + 'atms/load', data={'sessionID': self.cookie_id,
+                                                                          'user':user_id, 'appid': settings.API_KEY, })
+        response = parse_response(data)
+        return response
+
 
 
 def parse_response(data):

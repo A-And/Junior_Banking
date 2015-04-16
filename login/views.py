@@ -146,20 +146,17 @@ def goals(request):
 
 
 def guide(request):
-    user_id = request.session['userID']
-    rest = restAPI(user_id)
     return render(request, 'guide.html', {
     })
 
 def ATMs(request):
     user_id = request.session['userID']
-    rest = restAPI(user_id)
-    return render(request, 'ATMs.html', {
+    rest = restAPI(request.seession['sessionID'])
+    atms = rest.get_atms(user_id)
+    return render(request, 'ATMs.html', {'atm_list':atms,
     })
 	
 def collection(request):
-    user_id = request.session['userID']
-    rest = restAPI(user_id)
     return render(request, 'collection.html', {
     })
 
