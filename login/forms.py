@@ -12,6 +12,18 @@ class LoginForm(forms.Form):
     password = forms.CharField(label='Password', max_length=50,
                                widget=forms.PasswordInput(attrs={'required': 'required', 'class': "input_field"}))
 
+class ChildRegister(forms.Form):
+	email(ID) = forms.CharField(label='Email(ID), max_length=50,
+widget=forms.TextInput(attrs={'required':'required', 'class': "input_field"}))
+    password = forms.CharField(label='Password', max_length=50, widget=forms.PasswordInput(attrs={'required':'required','class': "input_field"}))
+name = forms.CharField(label='Full Name', max_length=50, widget=forms.PasswordInput(attrs={'required':'required','class': "input_field"}))
+dob_year = forms.CharField(label='Date of Birth', max_length=4, widget=forms.PasswordInput(attrs={'required':'required','class': "input_field"}))
+dob_month = forms.CharField(label='Date of Birth', max_length=2, widget=forms.PasswordInput(attrs={'required':'required','class': "input_field"}))
+dob_day = forms.CharField(label='Date of Birth', max_length=2, widget=forms.PasswordInput(attrs={'required':'required','class': "input_field"}))
+accountNumber = forms.CharField(label='Account Number', max_length=8, widget=forms.PasswordInput(attrs={'required':'required','class': "input_field"}))
+Address = forms.CharField(label='Address', max_length=100, widget=forms.PasswordInput(attrs={'required':'required','class': "input_field"}))
+
+
 
 class TransferForm(forms.Form):
     stash_to_balance = forms.FloatField(required=False,
