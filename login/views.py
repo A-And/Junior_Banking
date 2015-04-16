@@ -4,7 +4,7 @@ from django.core.exceptions import PermissionDenied
 
 from django.shortcuts import render_to_response, render, redirect
 
-from login.forms import LoginForm, TransferForm, ParentChildTransferForm, CreateGoalForm
+from login.forms import LoginForm, TransferForm, ParentChildTransferForm, CreateGoalForm, ChildRegistrationForm
 
 from main.restAPI import restAPI
 
@@ -160,6 +160,36 @@ def guide(request):
     })
 
 
+def ATMs(request):
+    user_id = request.session['userID']
+    rest = restAPI(request.session['sessionID'])
+    atms = rest.get_atms(user_id)
+    return render(request, 'ATMs.html', {'atms': atms,
+    })
+
+
+def collection(request):
+    if request.GET.get('logout'):
+        restAPI(request.session['sessionID']).logout()
+        redirect(landing(request))
+
+    rest = restAPI(request.session['sessionID'])
+    user_id = request.session['userID']
+    child_data = rest.get_allgoals(user_id)
+
+    counter = 0
+    completedTable = {}
+
+    for goal in child_data.items():
+        if int(goal[1]['completed']) == 1:
+            counter += 1
+            completedTable[len(completedTable) + 1] = {'desc': goal[1]['desc'],
+                                                       'date': date.fromtimestamp(goal[1]['date'])}
+
+    return render(request, 'collection.html', {'goalscounter': counter, 'goalscompleted': completedTable
+    })
+
+# PARENT VIEWS
 def parent(request):
     if 'userID' not in request.session or 'sessionID' not in request.session:
         raise PermissionDenied()
@@ -217,35 +247,9 @@ def parent(request):
     return render(request, 'parent_account.html', {'child_data': child_data, 'parent_data': parent_data, 'goalscompleted':completed_table,'userID':user_id, 'form':form})
 
 
-def ATMs(request):
-    user_id = request.session['userID']
-    rest = restAPI(request.session['sessionID'])
-    atms = rest.get_atms(user_id)
-    return render(request, 'ATMs.html', {'atms': atms,
-    })
-
-
-def collection(request):
-    if request.GET.get('logout'):
-        restAPI(request.session['sessionID']).logout()
-        redirect(landing(request))
-
-    rest = restAPI(request.session['sessionID'])
-    user_id = request.session['userID']
-    child_data = rest.get_allgoals(user_id)
-
-    counter = 0
-    completedTable = {}
-
-    for goal in child_data.items():
-        if int(goal[1]['completed']) == 1:
-            counter += 1
-            completedTable[len(completedTable) + 1] = {'desc': goal[1]['desc'],
-                                                       'date': date.fromtimestamp(goal[1]['date'])}
-
-    return render(request, 'collection.html', {'goalscounter': counter, 'goalscompleted': completedTable
-    })
-
+def signup(request):
+    form = ChildRegistrationForm()
+    return render(request,'sign_up.html',{'form':form})
 
 def http404(request):
     return render_to_response('404.html')
