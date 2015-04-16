@@ -85,14 +85,10 @@ Bar RIGHTCLICK = auto-fill the corresponding From (goal) field.">
 		<p>Total : {{ total }}</p>
 		<p id="unused"></p>
 	</div>
-	{% for key, value in goals.items %}{title: "{{ value.desc }}", total_value: {{ value.target }}, current_value: {{ value.progress }}},
-    {% if value.target - value.progress <= 0 %}
 	<div class="winner">
 		<p class="heading">Goals reached</p>
 		<p id="wining_goal"></p>
 	</div>
-    {% endif %}
-	{% endfor %}
 	<input class="claim_prize" type="button" value="CLAIM PRIZE" onClick="goalIsComplete();" />
 </div>
 

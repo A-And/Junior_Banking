@@ -123,14 +123,8 @@ def goals(request):
     rest = restAPI(request.session['sessionID'])
     print(user_id)
     returned_goals = rest.get_goals(user_id)
-    stash = rest.get_profile(user_id)['stash']
-    total_goal_balance = 0.0
-    for goal in returned_goals.values():
-        total_goal_balance += float(goal['progress'])
-    total = stash + total_goal_balance
-    unused = stash - total_goal_balance
-    print(total)
-    return render(request, 'goals.html', {'goals': returned_goals, 'total': total, 'unused': unused,})
+    print(returned_goals)
+    return render(request, 'goals.html', {'goals': returned_goals})
 
 
 def guide(request):
@@ -142,7 +136,8 @@ def guide(request):
 def ATMs(request):
     user_id = request.session['userID']
     rest = restAPI(user_id)
-    return render(request, 'ATMs.html', {})
+    return render(request, 'ATMs.html', {
+    })
 	
 def collection(request):
     user_id = request.session['userID']

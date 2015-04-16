@@ -109,12 +109,13 @@ class restAPI:
 
 def parse_response(data):
     print('DATA GOTTEN IS ' + str(data))
-    if data == '404':
-        return not_found_error()
-    elif data == '403':
-        return login_error()
-    elif data == '500':
-        return server_error()
+    if data.status_code == 404:
+        return 404
+    elif data.status_code == 403:
+        return 403
+    elif data.status_code == 500:
+        print('YEAAAAAAAAAAAAAAAAAAAAAAH')
+        return 500
     else:
         response = data.json()
         if isinstance(response, dict) and 'data' in response:
