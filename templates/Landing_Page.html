@@ -33,11 +33,13 @@
             {% csrf_token %}
             {{form.as_p}}
 			<input class="login_button" type="submit" value="Sign In" id="j_log" onclick="window.location.href='home.html'" />
-
-
 	</form>-->
+
         <form action="." id="p_login" method="POST">
             <p>Login</p>
+                {% if error %}
+                    <div class='pageError' style='font-size: 20px; margin-top:-20px; margin-bottom:-15px;'>Invalid Username or Password!</div>
+               {% endif %}
             {% csrf_token %}
             {{ form.as_p }}
             <input class="login_button" type="submit" value="Sign In" id="j_log"/>
