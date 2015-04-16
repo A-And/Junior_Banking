@@ -29,8 +29,8 @@
 			<p class="pocket">Pocket Account : $ {{ value.balance }}</p>
 			<p class="stash">Stash Account : $ {{ value.stash }}</p>
 		</div>
-	
-		<form action="." class="transfer" method="post">
+	    {% csrf_token %}
+		<!--<form action="." class="transfer" method="post">
 			<p><label for="from">From </label> <select type="text" name="from" required="true">
                 <option value="" selected="selected">-</option>
                 <option value='{{ parent_data.accountID }}0'>{{ parent_data.accountID }}ID: Type{{ parent_data.accountType }}</option>
@@ -43,7 +43,8 @@
             </select></p>
 			<p><label for="number">Amount</label> <input type="number" name="amount" step="0.01"/></p>
 			<input class="make_tranfser" type="submit" value="Transfer" onClick="" />
-		</form>
+            </form>-->
+            {{ form.as_p }}
 		
 		<div class="set_limit">
 			<p>Maximum Amount to be spent per week</p>

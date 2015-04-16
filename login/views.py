@@ -3,7 +3,8 @@ import logging
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render_to_response, render, redirect
 
-from login.forms import LoginForm, TransferForm
+from login.forms import LoginForm, TransferForm, ParentChildTransferForm
+
 from main.restAPI import restAPI
 from login.utils import validate_response
 from datetime import date
@@ -107,8 +108,10 @@ def home(request):
 
 def profile(request):
     user_id = request.session['userID']
-    rest = restAPI(user_id)
-    name = restAPI.get_name(user_id)
+    rest = restAPI(request.session['sessionID'])
+    print("REST IS")
+    print(rest)
+    name = rest.get_name(user_id)
     validate_response(name)
     if 'Error' in name:
         error = name['error']
@@ -163,6 +166,8 @@ def parent(request):
     rest = restAPI(request.session['sessionID'])
     if rest.is_child(user_id):
         raise PermissionDenied()
+    if request.method == 'POST':
+        print(request.POST)
     child_data = rest.get_children(user_id)
     parent_data = rest.get_profile(user_id)
     validate_response(child_data)
@@ -170,7 +175,12 @@ def parent(request):
     print(parent_data)
     request.session['childID'] = child_data
     print(child_data.items())
-    return render(request, 'parent_account.html', { 'child_data': child_data, 'parent_data':parent_data})
+    accounts = [user_id, ]
+    for key, value in child_data.items():
+        accounts.append(value['accountID'])
+    print(accounts)
+    form = ParentChildTransferForm(accounts)
+    return render(request, 'parent_account.html', { 'child_data': child_data, 'parent_data':parent_data, 'form': form})
 
 
 def ATMs(request):
@@ -241,10 +251,10 @@ def http403(request):
             rest = restAPI(data['sessionID'])
 
             # TODO Add check for parent account type
-            if  rest.is_child(data['userID']):
-                return redirect(parent)
-            else:
+            if rest.is_child(data['userID']):
                 return redirect(account)
+            else:
+                return redirect(parent)
 
     else:
         form = LoginForm()
