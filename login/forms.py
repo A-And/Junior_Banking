@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 import re
+from django.forms import DateInput
 
 __author__ = 'Andon'
 
 from django import forms
+from functools import partial
 
 
 class LoginForm(forms.Form):
@@ -14,10 +16,12 @@ class LoginForm(forms.Form):
 
 
 class ChildRegistrationForm(forms.Form):
-    email = forms.EmailField(label='Email', max_length=50,widget=forms.TextInput(attrs={'required':'required', 'class': "input_field"}))
+    DateInput = partial(forms.DateInput, {'class': 'datepicker input_field'})
+    username = forms.CharField(label='Usernamegit ', max_length=50,widget=forms.TextInput(attrs={'required':'required', 'class': "input_field"}))
     password = forms.CharField(label='Password', max_length=50,widget=forms.PasswordInput(attrs={'required':'required', 'class': "input_field"}))
     first_name = forms.CharField(label='First Name', max_length=50,widget=forms.TextInput(attrs={'required':'required', 'class': "input_field"}))
     last_name = forms.CharField(label='Last Name', max_length=50,widget=forms.TextInput(attrs={'required':'required', 'class': "input_field"}))
+    dob = forms.DateField(label='Date of Birth', widget=DateInput())
 
 
 class TransferForm(forms.Form):

@@ -26,6 +26,10 @@
 
         {% csrf_token %}
         {{ form.as_p }}
+
+                {% if error %}
+                    <div class='pageError' style='font-size: 20px; margin-top:-20px; margin-bottom:-15px;'>Invalid Username or Password!</div>
+               {% endif %}
         <input class="login_button" type="submit" value="Sign In" id="j_log"/>
     </form>
 </div>

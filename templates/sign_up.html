@@ -4,8 +4,15 @@
 <head>
 	<title>Lloyds Junior Banking - Register</title>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" type="text/css" href="../css/SignUp.css"/>
     <link rel="stylesheet" type="text/css" href= {% static 'login/SignUp.css' %} />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+      <script>
+  $(function() {
+    $( ".datepicker" ).datepicker();
+  });
+  </script>
 	<style>
 		body {background-image: url('{% static "login\background_signup.jpg" %}') ;}
 		#nav_bar {background-image: url('{% static "login\lloyds_group_logo.png" %}') ;}
@@ -23,28 +30,15 @@
 <img src={% static "login\title.png" %} alt="finish sign" id="title">
 
 <div id="register">
-		
-	<form id="form">
-		<p id="form_title">Register</p>
 
-		<p class="field_title">Email(ID) <input type="text" class="input_field"/></p>
+	<form id="form" method="post" action=".">
+    <p id="form_title">Register</p>
+    {% csrf_token %}
+		{% for field in form %}
+        <p class="field_title">{{ field.label_tag }} {{ field }}</p>
+        {% endfor %}
 
-		<p class="field_title">Password <input type="text" class="input_field"/></p>
 
-		<p class="field_title">Full Name <input type="text" class="input_field"/></p>
-
-		<p class="field_title">Date of Birth
-			<input id="day" maxlength="2"/> /
-			<input id="month" maxlength="2"/> /
-			<input id="year" maxlength="4"/>
-		</p>
-
-		<p class="field_title">Account Number <input type="text" class="input_field"/></p>
-
-		<p class="field_title">Address <input type="text" class="input_field" id="address"/></p>
-
-		<p class="field_title">Upload Photo <button id="upload_photo">Browse</button></p>
-		
 		<input id="register_button" type="submit" value="Register" id="j_log" onclick="" />
 	</form>
 </div>

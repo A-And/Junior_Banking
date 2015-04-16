@@ -1,3 +1,4 @@
+import hashlib
 import logging
 
 from django.core.exceptions import PermissionDenied
@@ -36,7 +37,6 @@ def landing(request):
                 return render(request, 'Landing_Page.html', {'form': form, })
 
 
-            # TODO
             data = requestedData.json()['data']
             print('THIS IS IT')
             print(data)
@@ -248,6 +248,13 @@ def parent(request):
 
 
 def signup(request):
+    if request.method == 'POST':
+        form = ChildRegistrationForm(request.POST)
+        if form.is_valid():
+            rest = restAPI(request.session['sessionID'])
+            hashed = hashlib.sha224(form.cleaned_data['password'].encode('utf-8')).hexdigest()
+            response = rest.register_child(request.session['userID'],form.cleaned_data['first_name'], form.cleaned_data['last_name'], form.cleaned_data['dob'], form.cleaned_data['username'], hashed)
+            redirect(landing)
     form = ChildRegistrationForm()
     return render(request,'sign_up.html',{'form':form})
 
