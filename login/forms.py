@@ -33,7 +33,9 @@ class ParentChildTransferForm(forms.Form):
         self.fields['to_account'].choices = names
 
 class CreateGoalForm(forms.Form):
-    goal_title = email = forms.CharField(label='Username', max_length=50,
-                            widget=forms.TextInput(attrs={'required': 'required', 'class': "input_field"}))
-    goal_amount =  forms.FloatField(required=True,
-                                        widget=forms.TextInput(attrs={'name': 'balance-to-stash', 'placeholder': '￡'}))
+
+    goal_description = forms.CharField(label='Description', max_length=50,
+                            widget=forms.TextInput(attrs={'required': 'required', 'class': "input_field", 'name': 'goal_description'}))
+
+    goal_amount = forms.FloatField(required=True,label='Goal Points',
+                                        widget=forms.TextInput(attrs={'required': 'required', 'class': "input_field", 'name': 'goal_amount'}))

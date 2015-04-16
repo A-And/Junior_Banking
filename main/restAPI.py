@@ -137,10 +137,17 @@ class restAPI:
         response = parse_response(data)
         return response
 
-
     def complete_goal(self, user_id, goal_id):
         data = requests.post(settings.API_URL + 'goals/load', data={'sessionID': self.cookie_id,
                                                                           'user':user_id, 'appid': settings.API_KEY, })
+        response = parse_response(data)
+        return response
+
+    def create_goal(self, user_id, target_id, desc, amount):
+
+        data = requests.post(settings.API_URL + 'goals/create', data={'sessionID': self.cookie_id,
+                                                                          'user':user_id, 'target':target_id, 'description':desc, 'amount': amount,
+                                                                          'appid': settings.API_KEY, })
         response = parse_response(data)
         return response
 

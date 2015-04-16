@@ -39,7 +39,7 @@
 
             {% endfor %}
 
-            <form action="." class="transfer" method="post">
+            <form action="." id="transfer" method="post">
             {% csrf_token %}
                 <p class ='input'><label for="from">From </label>
                     <select type="text" name="from" required="true">
@@ -94,13 +94,17 @@
             {% endfor %}
             </table>
             </div>
-         <form id="set_goals">
+         <form action="." id="set_goals" method="post">
             <div id="new_goal">
-                <p>Goal Title : <input type="text" name="goal_title"/></p>
-
-                <p>Goal Points : <input type="text" name="goal_points"/></p>
-
-                <p><input class="set_new_goal" type="button" value="SET NEW GOAL" onClick=""/></p>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <p><label for="goal_target">For: </label><select type="text" name="goal_target" required="true">
+                    <option value="" selected="selected">-</option>
+                    {% for key, value in child_data.items %}
+                    <option value="{{ value.accountID }}">{{ value.forename }}</option>
+                {% endfor %}
+                </select></p>
+                <p><input class="set_new_goal" type="submit" value="Set goal" onClick=""/></p>
             </div>
         </form>
     </div>

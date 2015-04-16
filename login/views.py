@@ -4,7 +4,7 @@ from django.core.exceptions import PermissionDenied
 
 from django.shortcuts import render_to_response, render, redirect
 
-from login.forms import LoginForm, TransferForm, ParentChildTransferForm
+from login.forms import LoginForm, TransferForm, ParentChildTransferForm, CreateGoalForm
 
 from main.restAPI import restAPI
 
@@ -65,16 +65,11 @@ def account(request):
 
     if request.method == 'POST':
         form = TransferForm(request.POST)
-        print('ITS HERE')
         print(form.is_valid())
         if form.is_valid():
-            print('valid form')
-            print(form.cleaned_data)
             b_to_s = form.cleaned_data['balance_to_stash'] or 0
             s_to_b = form.cleaned_data['stash_to_balance'] or 0
-            print('YOU WANT THIS')
-            print(b_to_s)
-            print(s_to_b)
+
             rest.balance_stash_transfer(user_id, float(b_to_s), float(s_to_b))
 
         profile = rest.get_profile(user_id)
@@ -170,12 +165,27 @@ def parent(request):
         raise PermissionDenied()
     user_id = request.session['userID']
     rest = restAPI(request.session['sessionID'])
+    # Check if the logged in user is a child. If not they don't have permission
     if rest.is_child(user_id):
         raise PermissionDenied()
+    # Check the post paramaters
     if request.method == 'POST':
-        print("here-----------------------------------------------------------------------------------------")
-        response = rest.transfer_money(request.POST['from'], request.POST['to'], request.POST['amount'])
-        print(response)
+        print('-----------------------------------------------------')
+        origin_id = request.POST.get('from', False)
+        target_id = request.POST.get('to', False)
+        amount = request.POST.get('amount', False)
+        if origin_id and target_id and amount:
+            response = rest.transfer_money(origin_id, target_id, amount)
+            print(response)
+        else:
+
+            form = CreateGoalForm(request.POST)
+            goal_target = request.POST.get('goal_target', False)
+            print(form.is_valid())
+            if form.is_valid() and goal_target is not False:
+                response = rest.create_goal(user_id, goal_target, form.cleaned_data['goal_description'], form.cleaned_data['goal_amount'])
+                print(response)
+
     child_data = rest.get_children(user_id)
     parent_data = rest.get_profile(user_id)
     validate_response(child_data)
@@ -203,8 +213,8 @@ def parent(request):
                 completed_table[len(completed_table) + 1] = {'desc': goal[1]['desc'],
                                                            'date': date.fromtimestamp(goal[1]['date']),
                                                            'name': rest.get_name(child_id)}
-
-    return render(request, 'parent_account.html', {'child_data': child_data, 'parent_data': parent_data, 'goalscompleted':completed_table,'userID':user_id})
+    form = CreateGoalForm()
+    return render(request, 'parent_account.html', {'child_data': child_data, 'parent_data': parent_data, 'goalscompleted':completed_table,'userID':user_id, 'form':form})
 
 
 def ATMs(request):

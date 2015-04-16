@@ -130,7 +130,7 @@ body {
     margin: 30px;
 }
 
-.child_accounts, .transfer, .set_limit {
+.child_accounts, #transfer, .set_limit {
     display: block;
     width: 450px;
     float: left;
@@ -143,20 +143,20 @@ body {
     border-left: 3px solid #0B8C52;
 }
 
-.transfer {
+#transfer {
     height: 300px;
     border-left: 3px solid #0B8C52;
     border-right: 3px solid #0B8C52;
 }
 
-.transfer p {
+#transfer p {
     position: relative;
     top: 10px;
     right: 60px;
     text-align: right;
 }
 
-.transfer input.make_transfer {
+#transfer input.make_transfer {
     width: 310px;
     margin-left: 70px;
     margin-top: 10px;
@@ -169,7 +169,7 @@ body {
     color: #FFFFFF;
 }
 
-.transfer p input {
+#transfer p input {
     height: 30px;
     width: 200px;
     vertical-align: middle;
