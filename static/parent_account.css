@@ -1,204 +1,298 @@
 /**---------------------------------------------------------------------*/
-body		{background-color: #262626;}
-
-#content	{background-color: #262626;
-			margin: 0% auto;}
-			
-#logout	{float: right;
-		margin: 7px;}
-#logout:hover	{background-color: RGBA(255, 255, 255, 0.7);
-				border-radius: 3px;}
-#logout:active	{background-color: RGBA(208, 206, 206, 0.7);}
-/**---------------------------------------------------------------------*/	
-	
-/**---------------------------------------------------------------------*/	
-#nav_bar	{background-color: #D0CECE;
-			position: relative;
-			height: 85px;
-			background-position: left;
-			background-size: 157px 85px;
-			background-repeat: no-repeat;
-            width:100%;}
-#nav_bar ul	{margin: 5px;
-			text-align: right;
-			position: relative;
-			top: 20px;}
-#nav_bar ul li	{display: inline;
-			font-family: Century Gothic;
-			font-size: 30px;
-			text-decoration: bold;
-			margin: 10px;}
-			
-#nav_bar li a
-{
-	text-decoration:none;
-	color: #000000;
+body {
+    background-color: #262626;
 }
 
-#nav_bar li a:hover{
-	color:#000000;
-}
-/**---------------------------------------------------------------------*/		
-
-/**---------------------------------------------------------------------*/	
-.management_panel, .goal_panel, .atms_panel	{width: 1450px;
-					height: 400px;
-					margin: 100px auto;
-					color: #FFFFFF;
-					/*border: 1px solid black;*/}
-
-.title	{font-family: Century Gothic;
-		font-size: 40px;
-		font-weight: bold;
-		color: #FFFFFF;
-		background-color: #0B8C52;
-		margin-bottom: 0px;
-		padding: 5px 20px;
-		width: 400px;
-		height: 100px;}
-.child_name{font-family: Century Gothic;
-        text-aligh:center;
-		font-size: 40px;
-		font-weight: bold;
-		color: #FFFFFF;
-		background-color: #0B8C52;
-		margin-bottom: 0px;
-        margin-left:auto;
-        margin-right:auto;
-		padding: 5px 20px;
-		width: match-parent;
-		height: 100px;
-
+#content {
+    background-color: #262626;
+    margin: 0% auto;
 }
 
+#logout {
+    float: right;
+    margin: 7px;
+}
 
-.manage_child_account, #set_goals, #choose_atms	{width: 1450px;
-												height: 300px;
-												background-color: #5B6562;
-												border: 5px solid #0B8C52;}
-												
-.manage_child_account	{vertical-align: middle;}
+#logout:hover {
+    background-color: RGBA(255, 255, 255, 0.7);
+    border-radius: 3px;
+}
 
-/**---------------------------------------------------------------------*/	
+#logout:active {
+    background-color: RGBA(208, 206, 206, 0.7);
+}
 
-/**---------------------------------------------------------------------*/	
-.manage_child_account p	{font-family: Century Gothic;
-							font-weight: bold;
-							font-size: 25px;
-							margin: 30px;}	
-							
-.child_accounts, .transfer, .set_limit	{width: 470px;
-										float: left;}
-							
-.child_accounts	{margin-top: 60px;}
-											
-.transfer	{height: 300px;
-			border-left: 3px solid #0B8C52;
-			border-right: 3px solid #0B8C52;}											
+/**---------------------------------------------------------------------*/
 
-.transfer	p	{position: relative;
-				top: 10px;
-				right: 60px;
-				text-align: right;}
+/**---------------------------------------------------------------------*/
+#nav_bar {
+    background-color: #D0CECE;
+    position: relative;
+    height: 85px;
+    background-position: left;
+    background-size: 157px 85px;
+    background-repeat: no-repeat;
+    width: 100%;
+}
 
-.transfer input.make_tranfser	{width: 310px;
-							margin-left: 70px;
-							margin-top: 10px;
-							background-color: #0B8C52;
-							height: 35px;
-							font-family: Century Gothic;
-							font-size: 20px;
-							font-style: italic;
-							font-weight: bold;
-							color: #FFFFFF;}
-										
-.transfer p input	{height: 30px;
-				width: 200px;
-				vertical-align: middle;}
+#nav_bar ul {
+    margin: 5px;
+    text-align: right;
+    position: relative;
+    top: 20px;
+}
 
-.set_limit {margin: 15px;}
-				
-.set_limit p input	{height: 30px;
-				width: 300px;
-				margin: 10px;
-				vertical-align: middle;}							
-				
-.set_limit input.set_limit	{background-color: #0B8C52;
-							height: 35px;
-							font-family: Century Gothic;
-							font-size: 20px;
-							font-style: italic;
-							font-weight: bold;
-							color: #FFFFFF;}
-/**---------------------------------------------------------------------*/	
+#nav_bar ul li {
+    display: inline;
+    font-family: Century Gothic;
+    font-size: 30px;
+    text-decoration: bold;
+    margin: 10px;
+}
 
-/**---------------------------------------------------------------------*/	
-form#set_goals p	{font-family: Century Gothic;
-				font-weight: bold;
-				font-size: 25px;
-				margin: 30px;}
-				
-#completed_goals	{width: 800px;}
-#new_goal			{width: 550px;}
-				
-#completed_goals, #new_goal	{height: 300px;
-							float: left;}
-							
-#completed_goals textarea	{margin: 5px 90px;}
-#completed_goals	{border-left: 4px solid #0B8C52;
-					border-right: 4px solid #0B8C52;}
+#nav_bar li a {
+    text-decoration: none;
+    color: #000000;
+}
 
-#new_goal	p {text-align: right;
-			  margin-left: 30px;}
+#nav_bar li a:hover {
+    color: #000000;
+}
 
-#new_goal p input	{height: 30px;
-				width: 230px;
-				vertical-align: middle;}
-				
-#new_goal input.set_new_goal	{background-color: #0B8C52;
-							height: 40px;
-							width: 400px;
-							font-family: Century Gothic;
-							font-size: 25px;
-							font-style: italic;
-							font-weight: bold;
-							color: #FFFFFF;}
+/**---------------------------------------------------------------------*/
 
-#completed_goals textarea, #new_goal p	{position: relative;
-									top: 30px;}
-/**---------------------------------------------------------------------*/	
+/**---------------------------------------------------------------------*/
+.management_panel, .goal_panel, .atms_panel {
+    width: 1450px;
+    height: 400px;
+    margin: 100px auto;
+    color: #FFFFFF;
+    /*border: 1px solid black;*/
+}
 
-/**---------------------------------------------------------------------*/	
-form#choose_atms p	{font-family: Century Gothic;
-					font-size: 25px;
-					margin: 70px 55px;
-					float: left;}
-form#choose_atms p.prompt	{font-weight: bold;
-							position: relative;
-							top: 80px;}
+.title {
+    font-family: Century Gothic;
+    font-size: 40px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #0B8C52;
+    margin-bottom: 0px;
+    padding: 5px 20px;
+    width: 400px;
+    height: 100px;
+}
 
-input.select_atms	{background-color: #0B8C52;
-				height: 40px;
-				width: 350px;
-				font-family: Century Gothic;
-				font-size: 25px;
-				font-style: italic;
-				font-weight: bold;
-				color: #FFFFFF;
-				position: relative;
-				top: 60px;}
+.child_name {
+    font-family: Century Gothic;
+    text-aligh: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #0B8C52;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 20px;
+    width: match-parent;
+    height: 100px;
 
-/**---------------------------------------------------------------------*/	
+}
 
-/**---------------------------------------------------------------------*/			 
-#footer	{background-color: #D0CECE;
-		margin: 10px auto;
-		height: 30px;
-		font-size: 90%;}
-#footer ul	{text-align: right;}
-#footer ul li	{display: inline;
-			font-family: Century Gothic;
-			font-size: 20px;
-			color: #395835;
-			margin: 10px;}			 
+.manage_child_account, #set_goals, #choose_atms {
+    width: 1450px;
+    height: 300px;
+    background-color: #5B6562;
+    border: 5px solid #0B8C52;
+}
+
+.manage_child_account {
+    vertical-align: middle;
+}
+
+/**---------------------------------------------------------------------*/
+
+/**---------------------------------------------------------------------*/
+.manage_child_account p {
+    font-family: Century Gothic;
+    font-weight: bold;
+    font-size: 25px;
+    margin: 30px;
+}
+
+.child_accounts, .transfer, .set_limit {
+    display: block;
+    width: 450px;
+    float: left;
+    height: 300px;
+}
+
+.child_accounts {
+    margin-top: 0px;
+    width: 250px;
+    border-left: 3px solid #0B8C52;
+}
+
+.transfer {
+    height: 300px;
+    border-left: 3px solid #0B8C52;
+    border-right: 3px solid #0B8C52;
+}
+
+.transfer p {
+    position: relative;
+    top: 10px;
+    right: 60px;
+    text-align: right;
+}
+
+.transfer input.make_tranfser {
+    width: 310px;
+    margin-left: 70px;
+    margin-top: 10px;
+    background-color: #0B8C52;
+    height: 35px;
+    font-family: Century Gothic;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.transfer p input {
+    height: 30px;
+    width: 200px;
+    vertical-align: middle;
+}
+
+.set_limit {
+    margin: 15px;
+}
+
+.set_limit p input {
+    height: 30px;
+    width: 300px;
+    margin: 10px;
+    vertical-align: middle;
+}
+
+.set_limit input.set_limit {
+    background-color: #0B8C52;
+    height: 35px;
+    font-family: Century Gothic;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+/**---------------------------------------------------------------------*/
+
+/**---------------------------------------------------------------------*/
+form#set_goals p {
+    font-family: Century Gothic;
+    font-weight: bold;
+    font-size: 25px;
+    margin: 30px;
+}
+
+#completed_goals {
+    width: 800px;
+}
+
+#new_goal {
+    width: 550px;
+}
+
+#completed_goals, #new_goal {
+    height: 300px;
+    float: left;
+}
+
+#completed_goals textarea {
+    margin: 5px 90px;
+}
+
+#completed_goals {
+    border-left: 4px solid #0B8C52;
+    border-right: 4px solid #0B8C52;
+}
+
+#new_goal p {
+    text-align: right;
+    margin-left: 30px;
+}
+
+#new_goal p input {
+    height: 30px;
+    width: 230px;
+    vertical-align: middle;
+}
+
+#new_goal input.set_new_goal {
+    background-color: #0B8C52;
+    height: 40px;
+    width: 400px;
+    font-family: Century Gothic;
+    font-size: 25px;
+    font-style: italic;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+#completed_goals textarea, #new_goal p {
+    position: relative;
+    top: 30px;
+}
+
+/**---------------------------------------------------------------------*/
+
+/**---------------------------------------------------------------------*/
+form#choose_atms p {
+    font-family: Century Gothic;
+    font-size: 25px;
+    margin: 70px 55px;
+    float: left;
+}
+
+form#choose_atms p.prompt {
+    font-weight: bold;
+    position: relative;
+    top: 80px;
+}
+
+input.select_atms {
+    background-color: #0B8C52;
+    height: 40px;
+    width: 350px;
+    font-family: Century Gothic;
+    font-size: 25px;
+    font-style: italic;
+    font-weight: bold;
+    color: #FFFFFF;
+    position: relative;
+    top: 60px;
+}
+
+/**---------------------------------------------------------------------*/
+
+/**---------------------------------------------------------------------*/
+#footer {
+    background-color: #D0CECE;
+    margin: 10px auto;
+    height: 30px;
+    font-size: 90%;
+}
+
+#footer ul {
+    text-align: right;
+}
+
+#footer ul li {
+    display: inline;
+    font-family: Century Gothic;
+    font-size: 20px;
+    color: #395835;
+    margin: 10px;
+}
+
 /**---------------------------------------------------------------------*/

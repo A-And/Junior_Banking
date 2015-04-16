@@ -1,45 +1,52 @@
 <!DOCTYPE html >
 <html>
 <head>
-{% load staticfiles %}
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" type="text/css" href={% static 'atms/ATMs-CSS.css' %} />
-	<style>
-		body {background-image: url('{% static "general\background_kids.jpg" %}') ;}
-		#nav_bar {background-image: url('{% static "general\lloyds_group_logo.png" %}') ;}
-	</style>
-	<title>ATMs</title>
+    {% load staticfiles %}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href={% static 'atms/ATMs-CSS.css' %}/>
+    <style>
+        body {
+            background-image: url('{% static "general\background_kids.jpg" %}');
+        }
+
+        #nav_bar {
+            background-image: url('{% static "general\lloyds_group_logo.png" %}');
+        }
+    </style>
+    <title>ATMs</title>
 </head>
 
 <body>
 {% include 'nav_bar.html' %}
 
 <div id="banner">
-	<img src={% static 'atms/ATMs_1.png' %} alt="ATMs" title="ATMs" width="1055" height="191" />
-	{% include 'logout_button.html' %}
+    <img src={% static 'atms/ATMs_1.png' %} alt="ATMs" title="ATMs" width="1055" height="191"/>
+    {% include 'logout_button.html' %}
 </div>
 
 <div id="content">
-	<div id="prompt">
-		<p>You can withdraw the money at...</p>
-	</div>
-	
-	<ul id="atm_list">	
+    <div id="prompt">
+        <p>You can withdraw the money at...</p>
+    </div>
+
+    <ul id="atm_list">
         <li>Newcastle Haymarket</li>
         <li>Newcastle Northumberland Street</li>
         <li>Newcastle South Gosforth</li>
-	</ul>
+    </ul>
 
-	<hr/>
-	
-	<div id="location"> 
-		<object type="text/html" data="http://www.nearestcashpoint.co.uk/search/cash-points-in-newcastle-upon-tyne-tyne-and-wear" width="1055px" height="600px" style="overflow:auto;border:0px; border:#006600">
-		</object>
-	</div>
+    <hr/>
+
+    <div id="location">
+        <object type="text/html"
+                data="http://www.nearestcashpoint.co.uk/search/cash-points-in-newcastle-upon-tyne-tyne-and-wear"
+                width="1055px" height="600px" style="overflow:auto;border:0px; border:#006600">
+        </object>
+    </div>
 </div>
 
 <div>
-	{% include 'footer.html' %}
+    {% include 'footer.html' %}
 </div>
 
 </body>

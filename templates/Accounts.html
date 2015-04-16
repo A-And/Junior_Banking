@@ -3,13 +3,18 @@
 
 {% load staticfiles %}
 <head>
-	<title>{% block title %}Lloyds NetBanking{% endblock %} </title>
-	<meta charset="utf-8" />
-	<link rel="stylesheet" type="text/css" href={% static 'accounts/Accounts.css' %}/>
-	<style>
-		body {background-image: url('{% static "general\background_kids.jpg" %}') ;}
-		#nav_bar {background-image: url('{% static "general\lloyds_group_logo.png" %}') ;}
-	</style>
+    <title>{% block title %}Lloyds NetBanking{% endblock %} </title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href={% static 'accounts/Accounts.css' %}/>
+    <style>
+        body {
+            background-image: url('{% static "general\background_kids.jpg" %}');
+        }
+
+        #nav_bar {
+            background-image: url('{% static "general\lloyds_group_logo.png" %}');
+        }
+    </style>
 </head>
 <body>
 
@@ -17,100 +22,122 @@
 
 
 <div id="banner">
-	<img  src={% static "accounts/Accounts_1.png" %} width="1055px" height="191px" alt="Accounts Banner">
-	{% include 'logout_button.html' %}
+    <img src={% static "accounts/Accounts_1.png" %} width="1055px" height="191px" alt="Accounts Banner">
+    {% include 'logout_button.html' %}
 </div>
 
 <div id="content">
 
-<div id="transfer_area">
+    <div id="transfer_area">
 
-	<div id="pocket">
-		<span class="box_title">Pocket</span>
-		<p id="pocket_balance">￡{{ balance }} </p>
-	</div>
+        <div id="pocket">
+            <span class="box_title">Pocket</span>
 
-	<div id="stash">
-		<span class="box_title">Stash</span>
-		<p id="stash_balance">￡{{ stash }} </p>
-	</div>
-    <form action ="." id="transfer" method="POST">
+            <p id="pocket_balance">￡{{ balance }} </p>
+        </div>
+
+        <div id="stash">
+            <span class="box_title">Stash</span>
+
+            <p id="stash_balance">￡{{ stash }} </p>
+        </div>
+        <form action="." id="transfer" method="POST">
             {% csrf_token %}
-        <div id="leftarrow">
-		<img src={% static "accounts/left_arrow.png" %} alt="Left Arrow">
-        {{ form.balance_to_stash }}
-	</div>
+            <div id="leftarrow">
+                <img src={% static "accounts/left_arrow.png" %} alt="Left Arrow">
+                {{ form.balance_to_stash }}
+            </div>
 
-	<div id="rightarrow">
-		<img src={% static "accounts/right_arrow.png" %} alt="Right Arrow">
-		<!-- <img src="{% static 'accounts/right_arrow.png' %}" alt="Right Arrow"> -->
-         {{ form.stash_to_balance }}
-	</div> 
+            <div id="rightarrow">
+                <img src={% static "accounts/right_arrow.png" %} alt="Right Arrow">
+                <!-- <img src="{% static 'accounts/right_arrow.png' %}" alt="Right Arrow"> -->
+                {{ form.stash_to_balance }}
+            </div>
 
-	<input class="make_transfer" type="submit" value="Transfer" id="transfer" />
-    </form>
+            <input class="make_transfer" type="submit" value="Transfer" id="transfer"/>
+        </form>
+    </div>
+
+    <hr/>
+
+    <div id="history_area">
+
+        <div id="pocket_statements">
+            <table border="0">
+                <caption>POCKET: Payment History</caption>
+                <tr>
+                    <th>Date</th>
+                    <th>Transaction</th>
+                    <th>Amount</th>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="stash_statements">
+            <table border="0">
+                <caption>STASH: Payment History</caption>
+                <tr>
+                    <th>Date</th>
+                    <th>Transaction</th>
+                    <th>Amount</th>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
 </div>
 
-<hr/>
-	
-<div id="history_area">
-	
-	<div id="pocket_statements">
-		<table border="0">
-			<caption>POCKET: Payment History</caption>
-			<tr>
-				<th>Date</th><th>Transaction</th><th>Amount</th>
-			</tr>
-			
-			<tr>
-				<td> </td><td> </td><td> </td>
-			</tr>
-			
-			<tr>
-				<td> </td><td> </td><td> </td>
-			</tr>
-			
-			<tr>
-				<td> </td><td> </td><td> </td>
-			</tr>
-			
-			<tr>
-				<td> </td><td> </td><td> </td>
-			</tr>
-		</table>
-	</div>	
-
-	<div id="stash_statements">
-		<table border="0">
-			<caption>STASH: Payment History</caption>
-			<tr>
-				<th>Date</th><th>Transaction</th><th>Amount</th>
-			</tr>
-			
-			<tr>
-				<td> </td><td> </td><td> </td>
-			</tr>
-			
-			<tr>
-				<td> </td><td> </td><td> </td>
-			</tr>
-			
-			<tr>
-				<td> </td><td> </td><td> </td>
-			</tr>
-			
-			<tr>
-				<td> </td><td> </td><td> </td>
-			</tr>
-		</table>
-	</div>
-
-</div>	
-
-</div>
-
-	{% include 'footer.html' %}
+{% include 'footer.html' %}
 
 
-	</body>
+</body>
 </html>

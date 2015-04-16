@@ -1,17 +1,16 @@
-
 {% block nav %}
-<div id="nav_bar">
-<ul>
-    <li> {% block nav-home %}<a href="{% url 'home' %}">Home</a>{% endblock %}</li>
-    <li> {% block nav-profile %}<a href="{% url 'profile' %}">Profile</a>{% endblock %}</li>
-    <li> {% block nav-account %}<a href="{% url 'account' %}">Accounts</a>{% endblock %}</li>
-    <li> {% block nav-goals %}<a href="{% url 'goals' %}">Goals</a>{% endblock %}</li>
-    <li> {% block nav-collection %}<a href="{% url 'collection' %}">Collection</a>{% endblock %}</li>
-    <li> {% block nav-ATMs %}<a href="{% url 'ATMs' %}">ATMs</a>{% endblock %}</li>
-    <li> {% block nav-guide %}<a href="{% url 'guide' %}"gi>Banking Guide</a>{% endblock %}</li>
-</ul>
+    <div id="nav_bar">
+        <ul>
+            <li> {% block nav-home %}<a href="{% url 'home' %}">Home</a>{% endblock %}</li>
+            <li> {% block nav-profile %}<a href="{% url 'profile' %}">Profile</a>{% endblock %}</li>
+            <li> {% block nav-account %}<a href="{% url 'account' %}">Accounts</a>{% endblock %}</li>
+            <li> {% block nav-goals %}<a href="{% url 'goals' %}">Goals</a>{% endblock %}</li>
+            <li> {% block nav-collection %}<a href="{% url 'collection' %}">Collection</a>{% endblock %}</li>
+            <li> {% block nav-ATMs %}<a href="{% url 'ATMs' %}">ATMs</a>{% endblock %}</li>
+            <li> {% block nav-guide %}<a href="{% url 'guide' %}" gi>Banking Guide</a>{% endblock %}</li>
+        </ul>
 
-</div>
+    </div>
 {% endblock %}
 
 

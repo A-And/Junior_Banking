@@ -1,63 +1,74 @@
 <!DOCTYPE html >
 <html>
 {% load staticfiles %}
-<head> 
- <meta http-equiv="content-type" 
- content="text/html;charset=utf-8"/> 
- <link rel="stylesheet" type="text/css" href= {% static 'home/home.css' %} />
- <style>
-	body {background-image: url('{% static "general\background_kids.jpg" %}') ;}
-	#greeting_box {background-image: url('{% static "general\lloyds_group_logo.png" %}') ;}
-</style>
- <title>Home</title> 
-</head> 
+<head>
+    <meta http-equiv="content-type"
+          content="text/html;charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href={% static 'home/home.css' %}/>
+    <style>
+        body {
+            background-image: url('{% static "general\background_kids.jpg" %}');
+        }
+
+        #greeting_box {
+            background-image: url('{% static "general\lloyds_group_logo.png" %}');
+        }
+    </style>
+    <title>Home</title>
+</head>
 
 
 <body>
 
 
-	<div id="greeting_box">
-		<p id="name"> Hi {{ name }}! </p>
-	</div>
-	
-		<div id="nav_panel">
-	
-			<div id="frame">	
-				<a href={% url 'account' %} class="buttons">
-					<img src={% static 'home/piggy_bank_1.png' %} width="230px" height="230px" alt="Accounts">
-					<p>Accounts</p>
-				</a>
-				
-				<a href={% url 'goals' %} class="buttons">
-					<img src={% static 'home/goblet_1.png' %} width="230px" height="230px" alt="Goals">
-					<p>Goals</p>
-				</a>
-				
-				<a href={% url 'ATMs' %} class="buttons">
-					<img src={% static 'home/map_1.png' %} width="230px" height="230px" alt="ATMs">
-					<p>ATMs</p>
-				</a>
-				
-				<a href={% url 'profile' %} class="buttons">
-					<img src={% static 'home/photo.jpg' %} width="200px" height="200px" alt="Profile" id="photo">
-					<p>Profile</p>
-				</a>
-				
-				<a href={% url 'collection' %} class="buttons">
-					<img src={% static 'home/cards_1.png' %} width="230px" height="230px" alt="Collection">
-					<p>Collection</p>
-				</a>
-				
-				<a href={% url 'guide' %} class="buttons">
-					<img src={% static 'home/book_1.png' %} width="230px" height="230px" alt="Banking Guide">
-					<p>Banking Guide</p>
-				</a>
-			</div>
+<div id="greeting_box">
+    <p id="name"> Hi {{ name }}! </p>
+</div>
 
-	
-	<div id="footer">
-		{% include 'footer.html' %}
-	</div>
+<div id="nav_panel">
+
+    <div id="frame">
+        <a href={% url 'account' %} class="buttons">
+            <img src={% static 'home/piggy_bank_1.png' %} width="230px" height="230px" alt="Accounts">
+
+            <p>Accounts</p>
+        </a>
+
+        <a href={% url 'goals' %} class="buttons">
+            <img src={% static 'home/goblet_1.png' %} width="230px" height="230px" alt="Goals">
+
+            <p>Goals</p>
+        </a>
+
+        <a href={% url 'ATMs' %} class="buttons">
+            <img src={% static 'home/map_1.png' %} width="230px" height="230px" alt="ATMs">
+
+            <p>ATMs</p>
+        </a>
+
+        <a href={% url 'profile' %} class="buttons">
+            <img src={% static 'home/photo.jpg' %} width="200px" height="200px" alt="Profile" id="photo">
+
+            <p>Profile</p>
+        </a>
+
+        <a href={% url 'collection' %} class="buttons">
+            <img src={% static 'home/cards_1.png' %} width="230px" height="230px" alt="Collection">
+
+            <p>Collection</p>
+        </a>
+
+        <a href={% url 'guide' %} class="buttons">
+            <img src={% static 'home/book_1.png' %} width="230px" height="230px" alt="Banking Guide">
+
+            <p>Banking Guide</p>
+        </a>
+    </div>
+
+
+    <div id="footer">
+        {% include 'footer.html' %}
+    </div>
 </div>
 </body>
 </html>

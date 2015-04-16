@@ -1,148 +1,206 @@
 /**---------------------------------------------------------------------*/
-body		{background-image: url("../images/general/background_kids.jpg");
-		background-size: 100%;}
+body {
+    background-image: url("../images/general/background_kids.jpg");
+    background-size: 100%;
+}
 
-#content	{background-color: #FFFFFF;
-			width: 1055px;
-			margin: 0px auto;
-			padding-top: 10px;}
-			
-#banner	{width: 1055px;
-		height: 191px;
-		margin: 0% auto;}
-/**---------------------------------------------------------------------*/	
+#content {
+    background-color: #FFFFFF;
+    width: 1055px;
+    margin: 0px auto;
+    padding-top: 10px;
+}
 
-
-/**---------------------------------------------------------------------*/	
-#nav_bar	{background-color: #FFFFFF;
-			height: 80px;
-			width: 1055px;
-			background-image:url("../images/general/lloyds_group_logo.png");
-			background-position: left;
-			background-size: 157px 85px;
-			background-repeat: no-repeat;
-			margin: 0% auto;}
-#nav_bar ul	{text-align: right;
-			padding: 25px 0px;}
-#nav_bar ul li	{display: inline;
-			font-family: Century Gothic;
-			font-size: 25px;
-			font-style: italic;
-			color: #0B8C52;
-			padding: 25px 10px;}
-#nav_bar li a	{text-decoration:none;
-			color: #0B8C52;}
-#nav_bar li:hover	a {color: #FFFFFF;}
-#nav_bar li:hover	{background-color: #0B8C52;}
-/**---------------------------------------------------------------------*/		
-
-
-/**---------------------------------------------------------------------*/		
-#transfer_area	{width: 1055px;
-				height: 370px;}
-				
-#pocket, #stash	{height: 190px;
-				width: 325px;
-				background-color: #0B8C52;
-				font-family: Century Gothic;
-				color: #FFFFFF;
-				padding: 15px;
-				float: left;
-				margin: 30px 85px;
-				text-align: left;}
-
-.box_title	{font-weight: bold;
-			font-size: 50px;}	
-
-#pocket_balance, #stash_balance	{width: 300px;
-								font-size: 30px;
-								color: #0B8C52;
-								padding-left: 5px;
-								background-color: #FFFFFF;
-								margin-top: 40px;}	
-
-#leftarrow img, #rightarrow img	{width: 170px;
-								height: 100px;
-								position: relative;
-								bottom: 240px;
-								left: 440px;}								
-
-#leftarrow input,	
-#rightarrow input	{height: 25px;
-				width: 100px;
-				background-color: white;
-				font-family: Century Gothic;
-				font-weight: bold;
-				font-size: 15px;
-				position: relative;
-				bottom: 285px;}
-#leftarrow input	{left: 330px;}	
-#rightarrow input	{left: 270px;}	
-
-input.make_transfer	{background-color: #D0CECE;
-					height: 60px;
-					width: 250px;
-					font-family: Century Gothic;
-					font-size: 25px;
-					font-style: italic;
-					font-weight: bold;
-					color: #0B8C52;
-					position: relative;
-					bottom: 220px;
-					left: 85px;}			
-/**---------------------------------------------------------------------*/
-
-
-/**---------------------------------------------------------------------*/
-hr	{border: 5px solid #D0CECE;}
-
-#history_area	{width: 1055px;
-				height: 250px;}
-
-#pocket_statements,	
-#stash_statements	{height: 220px;
-					float: left;
-					margin: 25px;}
-
-table	{width: 470px;
-	font-family: Century Gothic;
-	background-color: #0B8C52;}
-	
-table caption	{background-color: #0B8C52;
-			height: 35x;
-			color: #FFFFFF;
-			font-size: 25px;
-			padding: 10px;}
-			
-table tr th	{height: 30px;
-		background-color: #D0CECE;
-		color: #0B8C52;
-		font-size: 20px;
-		text-align: left;
-		padding-left: 5px;}
-
-table td	{background-color: #D0CECE;
-		height: 20px;}
-
+#banner {
+    width: 1055px;
+    height: 191px;
+    margin: 0% auto;
+}
 
 /**---------------------------------------------------------------------*/
 
+/**---------------------------------------------------------------------*/
+#nav_bar {
+    background-color: #FFFFFF;
+    height: 80px;
+    width: 1055px;
+    background-image: url("../images/general/lloyds_group_logo.png");
+    background-position: left;
+    background-size: 157px 85px;
+    background-repeat: no-repeat;
+    margin: 0% auto;
+}
 
+#nav_bar ul {
+    text-align: right;
+    padding: 25px 0px;
+}
 
+#nav_bar ul li {
+    display: inline;
+    font-family: Century Gothic;
+    font-size: 25px;
+    font-style: italic;
+    color: #0B8C52;
+    padding: 25px 10px;
+}
 
-/**---------------------------------------------------------------------*/			 
-#footer	{background-color: #D0CECE;
-		height: 80px;
-		width: 1055px;
-		font-family: Century Gothic;
-		color: #0B8C52;
-		font-size: 25px;
-		text-align: center;
-		padding-top: 40px;
-		margin: 0% auto;}	
-		
-#footer p	{width: 200px;
-			margin: auto;}		
+#nav_bar li a {
+    text-decoration: none;
+    color: #0B8C52;
+}
+
+#nav_bar li:hover a {
+    color: #FFFFFF;
+}
+
+#nav_bar li:hover {
+    background-color: #0B8C52;
+}
+
+/**---------------------------------------------------------------------*/
+
+/**---------------------------------------------------------------------*/
+#transfer_area {
+    width: 1055px;
+    height: 370px;
+}
+
+#pocket, #stash {
+    height: 190px;
+    width: 325px;
+    background-color: #0B8C52;
+    font-family: Century Gothic;
+    color: #FFFFFF;
+    padding: 15px;
+    float: left;
+    margin: 30px 85px;
+    text-align: left;
+}
+
+.box_title {
+    font-weight: bold;
+    font-size: 50px;
+}
+
+#pocket_balance, #stash_balance {
+    width: 300px;
+    font-size: 30px;
+    color: #0B8C52;
+    padding-left: 5px;
+    background-color: #FFFFFF;
+    margin-top: 40px;
+}
+
+#leftarrow img, #rightarrow img {
+    width: 170px;
+    height: 100px;
+    position: relative;
+    bottom: 240px;
+    left: 440px;
+}
+
+#leftarrow input,
+#rightarrow input {
+    height: 25px;
+    width: 100px;
+    background-color: white;
+    font-family: Century Gothic;
+    font-weight: bold;
+    font-size: 15px;
+    position: relative;
+    bottom: 285px;
+}
+
+#leftarrow input {
+    left: 330px;
+}
+
+#rightarrow input {
+    left: 270px;
+}
+
+input.make_transfer {
+    background-color: #D0CECE;
+    height: 60px;
+    width: 250px;
+    font-family: Century Gothic;
+    font-size: 25px;
+    font-style: italic;
+    font-weight: bold;
+    color: #0B8C52;
+    position: relative;
+    bottom: 220px;
+    left: 85px;
+}
+
+/**---------------------------------------------------------------------*/
+
+/**---------------------------------------------------------------------*/
+hr {
+    border: 5px solid #D0CECE;
+}
+
+#history_area {
+    width: 1055px;
+    height: 250px;
+}
+
+#pocket_statements,
+#stash_statements {
+    height: 220px;
+    float: left;
+    margin: 25px;
+}
+
+table {
+    width: 470px;
+    font-family: Century Gothic;
+    background-color: #0B8C52;
+}
+
+table caption {
+    background-color: #0B8C52;
+    height: 35x;
+    color: #FFFFFF;
+    font-size: 25px;
+    padding: 10px;
+}
+
+table tr th {
+    height: 30px;
+    background-color: #D0CECE;
+    color: #0B8C52;
+    font-size: 20px;
+    text-align: left;
+    padding-left: 5px;
+}
+
+table td {
+    background-color: #D0CECE;
+    height: 20px;
+}
+
+/**---------------------------------------------------------------------*/
+
+/**---------------------------------------------------------------------*/
+#footer {
+    background-color: #D0CECE;
+    height: 80px;
+    width: 1055px;
+    font-family: Century Gothic;
+    color: #0B8C52;
+    font-size: 25px;
+    text-align: center;
+    padding-top: 40px;
+    margin: 0% auto;
+}
+
+#footer p {
+    width: 200px;
+    margin: auto;
+}
+
 /**---------------------------------------------------------------------*/
 
 /*body{

@@ -1,20 +1,23 @@
 import logging
 
 from django.core.exceptions import PermissionDenied
+
 from django.shortcuts import render_to_response, render, redirect
 
 from login.forms import LoginForm, TransferForm, ParentChildTransferForm
 
 from main.restAPI import restAPI
+
 from login.utils import validate_response
 from datetime import date
+
 
 def landing(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
             rest = restAPI("")
-            requestedData = rest.login( form.cleaned_data['email'], form.cleaned_data['password'])
+            requestedData = rest.login(form.cleaned_data['email'], form.cleaned_data['password'])
 
             logger = logging.getLogger(__name__)
 
@@ -79,9 +82,9 @@ def account(request):
         balance = profile['balance']
         stash = profile['stash']
         return render(request, 'Accounts.html', {'name': name,
-                                             'balance': balance,
-                                             'stash': stash,
-                                             'form': form,})
+                                                 'balance': balance,
+                                                 'stash': stash,
+                                                 'form': form, })
 
     else:
         profile = rest.get_profile(user_id)
@@ -91,9 +94,9 @@ def account(request):
         stash = profile['stash']
         form = TransferForm()
         return render(request, 'Accounts.html', {'name': name,
-                                             'balance': balance,
-                                             'stash': stash,
-                                             'form': form,})
+                                                 'balance': balance,
+                                                 'stash': stash,
+                                                 'form': form, })
 
 
 def home(request):
@@ -144,7 +147,8 @@ def goals(request):
     total = stash + total_goal_progress
     available = stash - total_goal_progress
     print(returned_goals)
-    return render(request, 'goals.html', {'goals': returned_goals, 'total': total, 'available': available, 'sorted_goals':sorted(returned_goals.items())})
+    return render(request, 'goals.html', {'goals': returned_goals, 'total': total, 'available': available,
+                                          'sorted_goals': sorted(returned_goals.items())})
 
 
 def logout(request):
@@ -175,12 +179,13 @@ def parent(request):
     print(parent_data)
     request.session['childID'] = child_data
     print(child_data.items())
-    accounts = [user_id, ]
+    accounts = []
+    accounts.append(user_id)
     for key, value in child_data.items():
         accounts.append(value['accountID'])
     print(accounts)
     form = ParentChildTransferForm(accounts)
-    return render(request, 'parent_account.html', { 'child_data': child_data, 'parent_data':parent_data, 'form': form})
+    return render(request, 'parent_account.html', {'child_data': child_data, 'parent_data': parent_data, 'form': form})
 
 
 def ATMs(request):
@@ -207,22 +212,23 @@ def collection(request):
     for goal in child_data.items():
         if int(goal[1]['completed']) == 1:
             counter += 1
-            completedTable[len(completedTable)+1]={'desc':goal[1]['desc'],'date':date.fromtimestamp(goal[1]['date'])}
+            completedTable[len(completedTable) + 1] = {'desc': goal[1]['desc'],
+                                                       'date': date.fromtimestamp(goal[1]['date'])}
 
-
-    return render(request, 'collection.html', {'goalscounter': counter, 'goalscompleted':completedTable
+    return render(request, 'collection.html', {'goalscounter': counter, 'goalscompleted': completedTable
     })
 
 
 def http404(request):
     return render_to_response('404.html')
 
+
 def http403(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
             rest = restAPI("")
-            requestedData = rest.login( form.cleaned_data['email'], form.cleaned_data['password'])
+            requestedData = rest.login(form.cleaned_data['email'], form.cleaned_data['password'])
             validate_response(requestedData)
             logger = logging.getLogger(__name__)
 

@@ -1,58 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Lloyds Junior Banking - Register</title>
-	<meta charset="utf-8" />
-	<link rel="stylesheet" type="text/css" href="../css/SignUp.css"/>
-	<style>
-		body {background-image: url('{% static "login\background_signup.jpg" %}') ;}
-		#nav_bar {background-image: url('{% static "login\lloyds_group_logo.png" %}') ;}
-	</style>
+    <title>Lloyds Junior Banking - Register</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="../css/SignUp.css"/>
+    <style>
+        body {
+            background-image: url('{% static "login\background_signup.jpg" %}');
+        }
+
+        #nav_bar {
+            background-image: url('{% static "login\lloyds_group_logo.png" %}');
+        }
+    </style>
 </head>
 
 <body>
 
 <div id="nav_bar">
-	<ul>	
+    <ul>
         <li><a href="Landing_Page.html">Main Website</a></li>
         <li><a href="Landing_Page.html#p1">About Junior Banking</a></li>
         <!--<li><a href="SignUp.html">Sign Up</a></li> -->
-	</ul>
+    </ul>
 </div>
 
 <div id="main">
-<img src={% static "login\title.png" %} alt="finish sign" id="title">
+    <img src={% static "login\title.png" %} alt="finish sign" id="title">
 
-<div id="register">
-		
-	<div id="form">
-		<p id="form_title">Register</p>
-			
-		<p class="field_title">Email(ID) <input type="text" class="input_field"/></p>
-			
-		<p class="field_title">Password <input type="text" class="input_field"/></p> 
-		
-		<p class="field_title">Full Name <input type="text" class="input_field"/></p>
-		
-		<p class="field_title">Date of Birth 
-			<input id="day" maxlength="2"/> /
-			<input id="month" maxlength="2"/> /
-			<input id="year" maxlength="4"/>
-		</p> 
-		
-		<p class="field_title">Account Number <input type="text" class="input_field"/></p>
-		
-		<p class="field_title">Address <input type="text" class="input_field" id="address"/></p>
-		
-		<p class="field_title">Upload Photo <button id="upload_photo">Browse</button></p>
-		
-		<input id="register_button" type="button" value="REGISTER" id="j_log" onclick="" />
-	</div>
-</div>
+    <div id="register">
+
+        <div id="form">
+            <p id="form_title">Register</p>
+
+            <p class="field_title">Email(ID) <input type="text" class="input_field"/></p>
+
+            <p class="field_title">Password <input type="text" class="input_field"/></p>
+
+            <p class="field_title">Full Name <input type="text" class="input_field"/></p>
+
+            <p class="field_title">Date of Birth
+                <input id="day" maxlength="2"/> /
+                <input id="month" maxlength="2"/> /
+                <input id="year" maxlength="4"/>
+            </p>
+
+            <p class="field_title">Account Number <input type="text" class="input_field"/></p>
+
+            <p class="field_title">Address <input type="text" class="input_field" id="address"/></p>
+
+            <p class="field_title">Upload Photo
+                <button id="upload_photo">Browse</button>
+            </p>
+
+            <input id="register_button" type="button" value="REGISTER" id="j_log" onclick=""/>
+        </div>
+    </div>
 </div>
 
 <div id="footer">
-		<p>Page Footer</p>
+    <p>Page Footer</p>
 </div>
 
 

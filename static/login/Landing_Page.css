@@ -1,226 +1,289 @@
-body		{
-		background-repeat: no-repeat;
-		background-color: #D0CECE;
-		min-width: 500px;
-		background-size: 100%;
-		background-image: url('/static/login/background_signup.jpg') ;
+body {
+    background-repeat: no-repeat;
+    background-color: #D0CECE;
+    min-width: 500px;
+    background-size: 100%;
+    background-image: url('/static/login/background_signup.jpg');
 }
-		
-#page-header-wrapper { margin-top: 180px; }
+
+#page-header-wrapper {
+    margin-top: 180px;
+}
+
 /**---------------------------------------------------------------------*/
-#nav_bar	{
+#nav_bar {
     background-color: #FFFFFF;
-	height: 89px;
-	width: 100%;
-	min-width: 1000px;
-	background-position: left;
-	background-size: 190px 100px;
-	background-repeat: no-repeat;
-	margin: -8px;
-	z-index: 9999;
-	position: fixed;
-	background-image: url('/static/login/lloyds_group_logo.png') ;
-}
-#nav_bar ul	{
-    text-align: right;
-	margin-top: 23px;
-	width: 850px;
-	float: right;
-}
-#nav_bar ul li	{
-    display: inline;
-	font-family: Century Gothic;
-	font-size: 35px;
-	font-style:  italic;
-	font-weight: bold;
-	padding: 24px 20px;}
-#nav_bar li a	{
-    text-decoration:none;
-	color: #000000;}
-#nav_bar li:hover	a {color: #FFFFFF;}
-#nav_bar li:hover	{background-color: #0B8C52;}
-/**---------------------------------------------------------------------*/
-
-/**---------------------------------------------------------------------*/
-#main	{
+    height: 89px;
     width: 100%;
-	background-color: transparent;
-	text-align: center;}
-		
-#title	{
-    max-width: 75%;
-	max-height: 40%;
-	min-width: 30%;
-	min-height: 14%;
-	margin-top: 100px;}
+    min-width: 1000px;
+    background-position: left;
+    background-size: 190px 100px;
+    background-repeat: no-repeat;
+    margin: -8px;
+    z-index: 9999;
+    position: fixed;
+    background-image: url('/static/login/lloyds_group_logo.png');
+}
 
-#login	{
+#nav_bar ul {
+    text-align: right;
+    margin-top: 23px;
+    width: 850px;
+    float: right;
+}
+
+#nav_bar ul li {
+    display: inline;
+    font-family: Century Gothic;
+    font-size: 35px;
+    font-style: italic;
+    font-weight: bold;
+    padding: 24px 20px;
+}
+
+#nav_bar li a {
+    text-decoration: none;
+    color: #000000;
+}
+
+#nav_bar li:hover a {
+    color: #FFFFFF;
+}
+
+#nav_bar li:hover {
+    background-color: #0B8C52;
+}
+
+/**---------------------------------------------------------------------*/
+
+/**---------------------------------------------------------------------*/
+#main {
+    width: 100%;
+    background-color: transparent;
+    text-align: center;
+}
+
+#title {
+    max-width: 75%;
+    max-height: 40%;
+    min-width: 30%;
+    min-height: 14%;
+    margin-top: 100px;
+}
+
+#login {
     width: 560px;
-	height: 370px;
-    padding-left:5%;
+    height: 370px;
+    padding-left: 5%;
     margin: 0px auto 250px;
     background: RGBA(255, 255, 255, 0.7) url("/static/login/lloyds_group_logo.png") no-repeat;
-	background-size: 20% 20%;
+    background-size: 20% 20%;
 }
 
-		
-#j_login, #p_login	{
+#j_login, #p_login {
     float: left;
-	margin: 12px 0px 0px 120px;
-	width: 230px;
-	height: 200px;
-	font-family: Century Gothic;
-	font-size: 25px;
-	font-weight: bold;
-	color: #0B8C52;}
-					
-#j_login	{
-    border-right: 2px solid #0B8C52;
-	margin-left: 15px;
-}
-#p_login	{
-  /*  border-left: 2px solid #0B8C52;  */
-}
-
-.input_title	{
-    width: 200px;
-	height: 30px;
-	font-size: 23px;
-	font-style: italic;
-	background-color: #FFFFFF;
-	text-align: right;
-	margin: 20px auto;
-}
-
-.input_field	{
+    margin: 12px 0px 0px 120px;
     width: 230px;
-	height: 24px;
-    margin-top:0;
-    margin-left:-6px; /* hax */
-	vertical-align: bottom;
-	background-color: #0B8C52;
-	color: #FFFFFF;
-	font-size: 20px;
-}
-.line           {
-
-    display:block
-}
-.login_button	{
-    background-color: #0B8C52;
-	height: 35px;
-	width: 100px;
-	margin:0 auto;
-	font-family: Century Gothic;
-	font-size: 20px;
-	font-weight: bold;
-	color: #FFFFFF;}
-/**---------------------------------------------------------------------*/
-				
-/**---------------------------------------------------------------------*/
-#about_start	{
-    padding-top: 89px;
-	background-color: transparent;
-	-webkit-transition: all 2s;
-	transition: all 2s;}
-.grey, 
-.green,
-.white		{
+    height: 200px;
     font-family: Century Gothic;
-	font-size: 30px;
-	font-style: italic;
-	display: inline-block;
-	width: 101%;
-	margin-top: -4px;
-	margin-left: -8px;}
-				
-.grey	{
+    font-size: 25px;
+    font-weight: bold;
     color: #0B8C52;
-	background-color: #D0CECE;}
-			
-.green	{color: #FFFFFF;
-		background-color: #0B8C52;}	
-			
-.white	{color: #0B8C52;
-		background-color: #FFFFFF;}	
-			
-.site_info	{width: 450px;
-			text-align: center;}
+}
 
-.ABOUT_content	{position: relative;
-				left: -50%;
-				float: right;
-				margin: 40px 0px;
-				clear: both;}
-	
-.ABOUT_content > .page_sample, 
-.ABOUT_content > .site_info		{float: left;
-								position: relative;
-								left: 50%;
-								margin: 10px 20px;}		
+#j_login {
+    border-right: 2px solid #0B8C52;
+    margin-left: 15px;
+}
 
-#guide, #profiles_pics	{margin-top: 5px;}	
-#profiles_text	{margin-bottom: 5px;}	
-#profiles_text p	{width: auto;
-				background-color: RGBA(255, 255, 255, 0.7);
-				padding: 10px;
-				border-radius: 10px;}	
+#p_login {
+    /*  border-left: 2px solid #0B8C52;  */
+}
 
-#profile_image	{width: 320px;
-				height: 280px;
-				position: absolute;
-				left: 0px;
-				-webkit-transition: 2s;
-				transition: 2s;}
-				
-#image_container	{width: 320px;
-					height: 280px;
-					overflow: hidden;}
+.input_title {
+    width: 200px;
+    height: 30px;
+    font-size: 23px;
+    font-style: italic;
+    background-color: #FFFFFF;
+    text-align: right;
+    margin: 20px auto;
+}
+
+.input_field {
+    width: 230px;
+    height: 24px;
+    margin-top: 0;
+    margin-left: -6px; /* hax */
+    vertical-align: bottom;
+    background-color: #0B8C52;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+.line {
+
+    display: block
+}
+
+.login_button {
+    background-color: #0B8C52;
+    height: 35px;
+    width: 100px;
+    margin: 0 auto;
+    font-family: Century Gothic;
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+/**---------------------------------------------------------------------*/
+
+/**---------------------------------------------------------------------*/
+#about_start {
+    padding-top: 89px;
+    background-color: transparent;
+    -webkit-transition: all 2s;
+    transition: all 2s;
+}
+
+.grey,
+.green,
+.white {
+    font-family: Century Gothic;
+    font-size: 30px;
+    font-style: italic;
+    display: inline-block;
+    width: 101%;
+    margin-top: -4px;
+    margin-left: -8px;
+}
+
+.grey {
+    color: #0B8C52;
+    background-color: #D0CECE;
+}
+
+.green {
+    color: #FFFFFF;
+    background-color: #0B8C52;
+}
+
+.white {
+    color: #0B8C52;
+    background-color: #FFFFFF;
+}
+
+.site_info {
+    width: 450px;
+    text-align: center;
+}
+
+.ABOUT_content {
+    position: relative;
+    left: -50%;
+    float: right;
+    margin: 40px 0px;
+    clear: both;
+}
+
+.ABOUT_content > .page_sample,
+.ABOUT_content > .site_info {
+    float: left;
+    position: relative;
+    left: 50%;
+    margin: 10px 20px;
+}
+
+#guide, #profiles_pics {
+    margin-top: 5px;
+}
+
+#profiles_text {
+    margin-bottom: 5px;
+}
+
+#profiles_text p {
+    width: auto;
+    background-color: RGBA(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#profile_image {
+    width: 320px;
+    height: 280px;
+    position: absolute;
+    left: 0px;
+    -webkit-transition: 2s;
+    transition: 2s;
+}
+
+#image_container {
+    width: 320px;
+    height: 280px;
+    overflow: hidden;
+}
 
 #left_arrow,
-#right_arrow	{width: 60px;
-				height: 60px;
-				margin: 110px 70px;}										
+#right_arrow {
+    width: 60px;
+    height: 60px;
+    margin: 110px 70px;
+}
+
 /**---------------------------------------------------------------------*/
-				
+
 /**---------------------------------------------------------------------*/
-#footer			{background-color: #EAE7E7;
-				width: 101%;
-				margin-top: -4px;
-				margin-left: -8px;
-				margin-bottom: -8px;}	
-				
-#footer_message	{width: 500px;
-				font-family: Century Gothic;
-				font-size: 25px;
-				color: #262626;
-				margin: 0% auto;
-				padding: 30px;
-				text-align: center;}	
+#footer {
+    background-color: #EAE7E7;
+    width: 101%;
+    margin-top: -4px;
+    margin-left: -8px;
+    margin-bottom: -8px;
+}
+
+#footer_message {
+    width: 500px;
+    font-family: Century Gothic;
+    font-size: 25px;
+    color: #262626;
+    margin: 0% auto;
+    padding: 30px;
+    text-align: center;
+}
 
 #back_to_top,
-#register		{width: 180px;
-				font-family: Century Gothic;
-				font-size: 20px;
-				text-align: center;
-				color: #FFFFFF;
-				padding: 10px;
-				background-color: #0B8C52;
-				border-radius: 10px;
-				border: none;
-				display:block;
-				margin-left:auto;
-				margin-right:auto;
-}				
-				
-#partners		{width: 101%;
-				background-color: #FFFFFF;}				
-#brands_logos	{margin: 0px auto;
-				width: 80%;
-				text-align: center;}			
-				
-.logos	{width: 200px;
-		height: 200px;
-		float: center;
-		margin: 0px 100px;}
+#register {
+    width: 180px;
+    font-family: Century Gothic;
+    font-size: 20px;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 10px;
+    background-color: #0B8C52;
+    border-radius: 10px;
+    border: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#partners {
+    width: 101%;
+    background-color: #FFFFFF;
+}
+
+#brands_logos {
+    margin: 0px auto;
+    width: 80%;
+    text-align: center;
+}
+
+.logos {
+    width: 200px;
+    height: 200px;
+    float: center;
+    margin: 0px 100px;
+}
 		

@@ -1,80 +1,92 @@
 <!DOCTYPE html >
 <html>
-<head> 
- <meta http-equiv="content-type" 
- content="text/html;charset=utf-8"/> 
- <link rel="stylesheet" type="text/css" href="parent_account.css"/>
- <title>Parent Account</title> 
-</head> 
+<head>
+    <meta http-equiv="content-type"
+          content="text/html;charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="parent_account.css"/>
+    <title>Parent Account</title>
+</head>
 
 
 <body>
 <div id="content">
 
-<div id="nav_bar">
+    <div id="nav_bar">
 
-</div>
+    </div>
 
-<div id="box1">
-	<p class="title">Manage Your Child's Account</p>
-	<form id="manage_child_account">
-		<div id="child_accounts">
-			<p class="pocket">Pocket Account : $ 0.00</p>
-			<p class="stash">Stash Account : $ 0.00</p>
-		</div>
-	
-		<div id="transfer">
-			<p>From <input type="text" name="from" /></p>
-			<p>To <input type="text" name="to" /></p>
-			<p>Amount <input type="text" name="amount" /></p>
-			<input class="make_tranfser" type="button" value="MAKE TRANSFER" onClick="" />
-		</div>
-		
-		<div id="set_limit">
-			<p>Maximum Amount to be spent per week</p>
-			<p>
-				<input type="text" name="spend_limit" />
-				<input class="set_limit" type="button" value="SET LIMIT" onClick="" />
-			</p>
-		</div>
-	</form>		
-</div>
+    <div id="box1">
+        <p class="title">Manage Your Child's Account</p>
 
+        <form id="manage_child_account">
+            <div id="child_accounts">
+                <p class="pocket">Pocket Account : $ 0.00</p>
 
-<div id="box2">
-	<p class="title">Set and Review Goals</p>
-	<form id="set_goals">
-		<div id="completed_goals">
-			<textarea class="complete_goals" name="complete_goals" rows="15" cols="75" />Your Child has completed these goals</textarea>
-		</div>
-		
-		<div id="new_goal">
-			<p>Goal Title : <input type="text" name="goal_title" /></p>
-			<p>Goal Points : <input type="text" name="goal_points" /></p>
-			<p><input class="set_new_goal" type="button" value="SET NEW GOAL" onClick="" /></p>
-		</div>
-	</form>
-</div>
+                <p class="stash">Stash Account : $ 0.00</p>
+            </div>
+
+            <div id="transfer">
+                <p>From <input type="text" name="from"/></p>
+
+                <p>To <input type="text" name="to"/></p>
+
+                <p>Amount <input type="text" name="amount"/></p>
+                <input class="make_tranfser" type="button" value="MAKE TRANSFER" onClick=""/>
+            </div>
+
+            <div id="set_limit">
+                <p>Maximum Amount to be spent per week</p>
+
+                <p>
+                    <input type="text" name="spend_limit"/>
+                    <input class="set_limit" type="button" value="SET LIMIT" onClick=""/>
+                </p>
+            </div>
+        </form>
+    </div>
 
 
-<div id="box3">
-	<p class="title">Select Safe ATMs</p>
-	<form id="choose_atms">
-		<p class="prompt">Select from the list of ATMs</p>
-		<p>
-			<input type="checkbox" name="ATM-1" value="Yes" />Newcastle Haymarket<br/>
-			<input type="checkbox" name="ATM-2" value="Yes" />Newcastle Northumberland Street<br/>
-			<input type="checkbox" name="ATM-3" value="Yes" />Newcastle South Gosforth<br/>
-			<input type="checkbox" name="ATM-4" value="Yes" />Newcastle Quayside<br/>
-			<input type="checkbox" name="ATM-5" value="Yes" />Newcastle St James<br/>
-		</p>
-		<p><input class="select_atms" type="button" value="UPDATE MAP" onClick="" /></p>
-	</form>
-</div>
+    <div id="box2">
+        <p class="title">Set and Review Goals</p>
 
-<div id="footer">
-	
-</div>
+        <form id="set_goals">
+            <div id="completed_goals">
+                <textarea class="complete_goals" name="complete_goals" rows="15" cols="75"/>Your Child has completed
+                these goals</textarea>
+            </div>
+
+            <div id="new_goal">
+                <p>Goal Title : <input type="text" name="goal_title"/></p>
+
+                <p>Goal Points : <input type="text" name="goal_points"/></p>
+
+                <p><input class="set_new_goal" type="button" value="SET NEW GOAL" onClick=""/></p>
+            </div>
+        </form>
+    </div>
+
+
+    <div id="box3">
+        <p class="title">Select Safe ATMs</p>
+
+        <form id="choose_atms">
+            <p class="prompt">Select from the list of ATMs</p>
+
+            <p>
+                <input type="checkbox" name="ATM-1" value="Yes"/>Newcastle Haymarket<br/>
+                <input type="checkbox" name="ATM-2" value="Yes"/>Newcastle Northumberland Street<br/>
+                <input type="checkbox" name="ATM-3" value="Yes"/>Newcastle South Gosforth<br/>
+                <input type="checkbox" name="ATM-4" value="Yes"/>Newcastle Quayside<br/>
+                <input type="checkbox" name="ATM-5" value="Yes"/>Newcastle St James<br/>
+            </p>
+
+            <p><input class="select_atms" type="button" value="UPDATE MAP" onClick=""/></p>
+        </form>
+    </div>
+
+    <div id="footer">
+
+    </div>
 
 </div>
 </body>

@@ -2,69 +2,74 @@
 <html>
 {% load staticfiles %}
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" type="text/css" href={% static 'bank_guide/guide-CSS.css' %} />
-	<style>
-		body {background-image: url('{% static "general\background_kids.jpg" %}') ;}
-		#nav_bar {background-image: url('{% static "general\lloyds_group_logo.png" %}') ;}
-	</style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href={% static 'bank_guide/guide-CSS.css' %}/>
+    <style>
+        body {
+            background-image: url('{% static "general\background_kids.jpg" %}');
+        }
+
+        #nav_bar {
+            background-image: url('{% static "general\lloyds_group_logo.png" %}');
+        }
+    </style>
     <script type="text/javascript">
 
 
-function myFunction4(){
-	document.getElementById("what_is_banking").style.display = 'block';
-	document.getElementById("banking_glossary").style.display = 'none';
-	document.getElementById("banking_tips").style.display = 'none';
+        function myFunction4() {
+            document.getElementById("what_is_banking").style.display = 'block';
+            document.getElementById("banking_glossary").style.display = 'none';
+            document.getElementById("banking_tips").style.display = 'none';
 
-	document.getElementById("what_is_bankingv2").style.display = 'none';
-	document.getElementById("banking_glossaryv2").style.display = 'block';
-	document.getElementById("banking_tipsv2").style.display = 'block';
+            document.getElementById("what_is_bankingv2").style.display = 'none';
+            document.getElementById("banking_glossaryv2").style.display = 'block';
+            document.getElementById("banking_tipsv2").style.display = 'block';
 
-	document.getElementById("banking_glossary_box").style.display = 'none';
-	document.getElementById("what_is_banking_box").style.display = 'block';
-	document.getElementById("banking_tips_box").style.display = 'none';
-}
-function myFunction5(){
-	document.getElementById("what_is_banking").style.display = 'none';
-	document.getElementById("banking_glossary").style.display = 'block';
-	document.getElementById("banking_tips").style.display = 'none';
+            document.getElementById("banking_glossary_box").style.display = 'none';
+            document.getElementById("what_is_banking_box").style.display = 'block';
+            document.getElementById("banking_tips_box").style.display = 'none';
+        }
+        function myFunction5() {
+            document.getElementById("what_is_banking").style.display = 'none';
+            document.getElementById("banking_glossary").style.display = 'block';
+            document.getElementById("banking_tips").style.display = 'none';
 
-	document.getElementById("what_is_bankingv2").style.display = 'block';
-	document.getElementById("banking_glossaryv2").style.display = 'none';
-	document.getElementById("banking_tipsv2").style.display = 'block';
+            document.getElementById("what_is_bankingv2").style.display = 'block';
+            document.getElementById("banking_glossaryv2").style.display = 'none';
+            document.getElementById("banking_tipsv2").style.display = 'block';
 
-	document.getElementById("banking_glossary_box").style.display = 'block';
-	document.getElementById("what_is_banking_box").style.display = 'none';
-	document.getElementById("banking_tips_box").style.display = 'none';
-}
-function myFunction6(){
-	document.getElementById("what_is_banking").style.display = 'none';
-	document.getElementById("banking_glossary").style.display = 'none';
-	document.getElementById("banking_tips").style.display = 'block';
+            document.getElementById("banking_glossary_box").style.display = 'block';
+            document.getElementById("what_is_banking_box").style.display = 'none';
+            document.getElementById("banking_tips_box").style.display = 'none';
+        }
+        function myFunction6() {
+            document.getElementById("what_is_banking").style.display = 'none';
+            document.getElementById("banking_glossary").style.display = 'none';
+            document.getElementById("banking_tips").style.display = 'block';
 
-	document.getElementById("what_is_bankingv2").style.display = 'block';
-	document.getElementById("banking_glossaryv2").style.display = 'block';
-	document.getElementById("banking_tipsv2").style.display = 'none';
+            document.getElementById("what_is_bankingv2").style.display = 'block';
+            document.getElementById("banking_glossaryv2").style.display = 'block';
+            document.getElementById("banking_tipsv2").style.display = 'none';
 
-	document.getElementById("banking_glossary_box").style.display = 'none';
-	document.getElementById("what_is_banking_box").style.display = 'none';
-	document.getElementById("banking_tips_box").style.display = 'block';
-}
-function myFunction7(){
-	document.getElementById("what_is_banking").style.display = 'none';
-	document.getElementById("banking_glossary").style.display = 'none';
-	document.getElementById("banking_tips").style.display = 'none';
+            document.getElementById("banking_glossary_box").style.display = 'none';
+            document.getElementById("what_is_banking_box").style.display = 'none';
+            document.getElementById("banking_tips_box").style.display = 'block';
+        }
+        function myFunction7() {
+            document.getElementById("what_is_banking").style.display = 'none';
+            document.getElementById("banking_glossary").style.display = 'none';
+            document.getElementById("banking_tips").style.display = 'none';
 
-	document.getElementById("what_is_bankingv2").style.display = 'block';
-	document.getElementById("banking_glossaryv2").style.display = 'block';
-	document.getElementById("banking_tipsv2").style.display = 'block';
+            document.getElementById("what_is_bankingv2").style.display = 'block';
+            document.getElementById("banking_glossaryv2").style.display = 'block';
+            document.getElementById("banking_tipsv2").style.display = 'block';
 
-	document.getElementById("banking_glossary_box").style.display = 'none';
-	document.getElementById("what_is_banking_box").style.display = 'none';
-	document.getElementById("banking_tips_box").style.display = 'none';
-}
-</script>
-	<title>Banking guide</title>
+            document.getElementById("banking_glossary_box").style.display = 'none';
+            document.getElementById("what_is_banking_box").style.display = 'none';
+            document.getElementById("banking_tips_box").style.display = 'none';
+        }
+    </script>
+    <title>Banking guide</title>
 </head>
 
 
@@ -73,87 +78,133 @@ function myFunction7(){
 {% include 'nav_bar.html' %}
 
 <div id="banner">
-	<img src={% static 'bank_guide/banking_guide_1.png' %} alt="Baking guide" title="Banking guide" width="1055" height="191" />
-	{% include 'logout_button.html' %}
+    <img src={% static 'bank_guide/banking_guide_1.png' %} alt="Baking guide" title="Banking guide" width="1055"
+    height="191" />
+    {% include 'logout_button.html' %}
 </div>
 
-<div id="content">	
-	
-	<div id="body">
-		<table>
-			<tr>
-				<td>
-					<div id="what_is_bankingv2" onclick="myFunction4()">
-						<img src={% static 'bank_guide/what_is_bankingv2.png' %} alt="What is banking?" title="What is banking?" width="100" height="200" />
-					</div>
-					<div id="what_is_banking" onclick="">
-						<img src={% static 'bank_guide/what_is_banking.png' %} alt="What is banking?" title="What is banking?" width="100" height="200" />
-					</div>
-				</td>
-				<td>
-					<div id="banking_glossaryv2" onclick="myFunction5()">
-						<img src={% static 'bank_guide/banking_glossaryv2.png' %} alt="Banking glossary" title="Banking glossary" width="100" height="200" />
-					</div>
-					<div id="banking_glossary" onclick="">
-						<img src={% static 'bank_guide/banking_glossary.png' %} alt="Banking glossary" title="Banking glossary" width="100" height="200" />
-					</div>
-				</td>
-				<td>
-					<div id="banking_tipsv2" onclick="myFunction6()">
-						<img src={% static 'bank_guide/how_to_bankv2.png' %} alt="Banking Tips" title="Banking Tips" width="100" height="200" />
-					</div>
-					<div id="banking_tips" onclick="">
-						<img src={% static 'bank_guide/how_to_bank.png' %} alt="Banking Tips" title="Banking Tips" width="100" height="200" />
-					</div>
-				</td>
-			</tr>
-		</table>
+<div id="content">
 
-	<div id="what_is_banking_box" style="width:1055px; height:400; overflow: auto;" >
-		<p>When you earn money you should think to put this cash in a safe place! You don’t need to try hiding or storing it as it might result with losing it as you might forget where you’ve put it when hiding too well. The safe place is a <b>bank</b>, where you can keep your money safe when you not intend to spend it all straight away. </p>
-		<p>Banks give you more options such as <b> saving account </b> where you can put money there and then banks give you a little more money, for keeping it there, which is called <b>interest</b>. </p>
-		<p>Another option is <b>checking accounts</b>, your parents are probably paying for thing like bills, electricity or rent using checks, no cash! If you have account in a bank, you can easy manage you money by using phone or <b>ATMs</b>, you don’t have to go a bank to get some money! </p>
-           	<p>You can buy very expensive things even you don’t have enough money because the bank help you by lending you the money, it is called <b>loans and credit cards</b>. Remember that you will need to return at some point that loans with interest as bank pays you interest for them to keep money.</p>
-           	<p>Banks are everywhere and the money comes to bank from treasury. You have some money in cash or check and you don’t want to lose it, so you can put your money into a bank and deposit it into your savings account. It is interest because a bank pay you and you are earning the money!</p>
-               <p>The idea is that money move in sort of circle, from one person to another. When you withdraw money, then buy something then this money you left in the store will be given to employee as wage, or spend in different way. </p>
-		</div>
+    <div id="body">
+        <table>
+            <tr>
+                <td>
+                    <div id="what_is_bankingv2" onclick="myFunction4()">
+                        <img src={% static 'bank_guide/what_is_bankingv2.png' %} alt="What is banking?" title="What is
+                        banking?" width="100" height="200" />
+                    </div>
+                    <div id="what_is_banking" onclick="">
+                        <img src={% static 'bank_guide/what_is_banking.png' %} alt="What is banking?" title="What is
+                        banking?" width="100" height="200" />
+                    </div>
+                </td>
+                <td>
+                    <div id="banking_glossaryv2" onclick="myFunction5()">
+                        <img src={% static 'bank_guide/banking_glossaryv2.png' %} alt="Banking glossary" title="Banking
+                        glossary" width="100" height="200" />
+                    </div>
+                    <div id="banking_glossary" onclick="">
+                        <img src={% static 'bank_guide/banking_glossary.png' %} alt="Banking glossary" title="Banking
+                        glossary" width="100" height="200" />
+                    </div>
+                </td>
+                <td>
+                    <div id="banking_tipsv2" onclick="myFunction6()">
+                        <img src={% static 'bank_guide/how_to_bankv2.png' %} alt="Banking Tips" title="Banking Tips"
+                        width="100" height="200" />
+                    </div>
+                    <div id="banking_tips" onclick="">
+                        <img src={% static 'bank_guide/how_to_bank.png' %} alt="Banking Tips" title="Banking Tips"
+                        width="100" height="200" />
+                    </div>
+                </td>
+            </tr>
+        </table>
 
-	<div id="banking_glossary_box" style="width:1055px; height:400; overflow: auto;" >
-		<p>A <b>bank</b> is a place that looks after people’s money for them and keeps it safe. It also lends money to people to help them buy things, such as houses, cars or bikes.</p>
-		<p>A <b>budget </b> is a plan on how you will spend the money that you earn and save up. 
-        	It includes the amount of money that you earn, details on what you want to spend that money on and how much you will need to save.</p>
-		<p><b>Saving</b> means not spending the money that you earn straight away. Normally people put their money in a bank account until they have saved enough to buy what they want, using their budget.</p>
-		<p>A<b>bank account</b> is a record that your bank keeps to know how much money you have given them to look after. You are able to put money in your bank account and withdraw it and you are given a unique account number to identify your bank account.</p>
-        	<p>An <b>account number</b> is a unique number that identifies your account in the banks records</p>
-        	<p>A <b>sort-code </b> is a six digit code that identifies what bank and which branch your account is at. You normally use this to tell other people where your bank account is.</p>
-        	<p>A <b>deposit</b> is when you put money in your bank account</p>
-        	<p>A <b>withdrawal</b> is when you take money out of your bank account.</p>
-	</div>
-		
-		<div id="banking_tips_box" style="width:1055px%; height:400; overflow: auto; padding-left:200px; padding-right:200px;" >
-			<h3>Get a savings account</h3>
+        <div id="what_is_banking_box" style="width:1055px; height:400; overflow: auto;">
+            <p>When you earn money you should think to put this cash in a safe place! You don’t need to try hiding or
+                storing it as it might result with losing it as you might forget where you’ve put it when hiding too
+                well. The safe place is a <b>bank</b>, where you can keep your money safe when you not intend to spend
+                it all straight away. </p>
+
+            <p>Banks give you more options such as <b> saving account </b> where you can put money there and then banks
+                give you a little more money, for keeping it there, which is called <b>interest</b>. </p>
+
+            <p>Another option is <b>checking accounts</b>, your parents are probably paying for thing like bills,
+                electricity or rent using checks, no cash! If you have account in a bank, you can easy manage you money
+                by using phone or <b>ATMs</b>, you don’t have to go a bank to get some money! </p>
+
+            <p>You can buy very expensive things even you don’t have enough money because the bank help you by lending
+                you the money, it is called <b>loans and credit cards</b>. Remember that you will need to return at some
+                point that loans with interest as bank pays you interest for them to keep money.</p>
+
+            <p>Banks are everywhere and the money comes to bank from treasury. You have some money in cash or check and
+                you don’t want to lose it, so you can put your money into a bank and deposit it into your savings
+                account. It is interest because a bank pay you and you are earning the money!</p>
+
+            <p>The idea is that money move in sort of circle, from one person to another. When you withdraw money, then
+                buy something then this money you left in the store will be given to employee as wage, or spend in
+                different way. </p>
+        </div>
+
+        <div id="banking_glossary_box" style="width:1055px; height:400; overflow: auto;">
+            <p>A <b>bank</b> is a place that looks after people’s money for them and keeps it safe. It also lends money
+                to people to help them buy things, such as houses, cars or bikes.</p>
+
+            <p>A <b>budget </b> is a plan on how you will spend the money that you earn and save up.
+                It includes the amount of money that you earn, details on what you want to spend that money on and how
+                much you will need to save.</p>
+
+            <p><b>Saving</b> means not spending the money that you earn straight away. Normally people put their money
+                in a bank account until they have saved enough to buy what they want, using their budget.</p>
+
+            <p>A<b>bank account</b> is a record that your bank keeps to know how much money you have given them to look
+                after. You are able to put money in your bank account and withdraw it and you are given a unique account
+                number to identify your bank account.</p>
+
+            <p>An <b>account number</b> is a unique number that identifies your account in the banks records</p>
+
+            <p>A <b>sort-code </b> is a six digit code that identifies what bank and which branch your account is at.
+                You normally use this to tell other people where your bank account is.</p>
+
+            <p>A <b>deposit</b> is when you put money in your bank account</p>
+
+            <p>A <b>withdrawal</b> is when you take money out of your bank account.</p>
+        </div>
+
+        <div id="banking_tips_box"
+             style="width:1055px%; height:400; overflow: auto; padding-left:200px; padding-right:200px;">
+            <h3>Get a savings account</h3>
             <ul>
-               <li>If you really want to save a lot of money then getting a savings account is important and it should be separate to your normal account</li>
-                </ul>
-			<h3>Start saving your money now</h3>
+                <li>If you really want to save a lot of money then getting a savings account is important and it should
+                    be separate to your normal account
+                </li>
+            </ul>
+            <h3>Start saving your money now</h3>
             <ul>
-               <li>The next step is to start putting money in your account, starting with whatever money you have, even if it is a small amount, it all helps.</li>
-               <li>The best thing to do is make a budget or saving plan and decide how much you’re willing to save every time you earn some money and then do it.</li>
-                </ul>
-			<h3>Investing your money</h3>
+                <li>The next step is to start putting money in your account, starting with whatever money you have, even
+                    if it is a small amount, it all helps.
+                </li>
+                <li>The best thing to do is make a budget or saving plan and decide how much you’re willing to save
+                    every time you earn some money and then do it.
+                </li>
+            </ul>
+            <h3>Investing your money</h3>
             <ul>
-               <li>If you have a really serious goal then the best idea is to start making your money work for you.</li>
-               <li> The way you do this is by investing your money somewhere it’s going to make more interest than in your savings account.</li>
-               </ul></div>
-	</div>
-	
+                <li>If you have a really serious goal then the best idea is to start making your money work for you.
+                </li>
+                <li> The way you do this is by investing your money somewhere it’s going to make more interest than in
+                    your savings account.
+                </li>
+            </ul>
+        </div>
+    </div>
+
 </div>
 
 <div>
-	{% include 'footer.html' %}
+    {% include 'footer.html' %}
 </div>
-
-
 
 
 </body>

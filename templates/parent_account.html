@@ -1,95 +1,115 @@
 <!DOCTYPE html >
 <html>
 {% load staticfiles %}
-<head> 
- <meta http-equiv="content-type" 
- content="text/html;charset=utf-8"/> 
- <link rel="stylesheet" type="text/css" href= {% static 'parent_account.css' %}/>
+<head>
+    <meta http-equiv="content-type"
+          content="text/html;charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href= {% static 'parent_account.css' %}/>
     <script type="text/javascript">
     </script>
- <style>
-	#nav_bar {background-image: url('{% static "general\lloyds_group_logo.png" %}') ;}
-</style>
- <title>Parent Account</title> 
-</head> 
+    <style>
+        #nav_bar {
+            background-image: url('{% static "general\lloyds_group_logo.png" %}');
+        }
+    </style>
+    <title>Parent Account</title>
+</head>
 
 
 <body>
 <div id="content">
 
-<div id="nav_bar">
-	{% include 'logout_button.html' %}
-</div>
-{% for key, value in child_data.items %}
-    <div class ="child_name">{{ value.forename }} {{ value.surname }}</div>
-<div class="management_panel">
-	<p class="title">Manage Your Child's Account</p>
-	<div class="manage_child_account">
-		<div class="child_accounts">
-			<p class="pocket">Pocket Account : $ {{ value.balance }}</p>
-			<p class="stash">Stash Account : $ {{ value.stash }}</p>
-		</div>
-	    {% csrf_token %}
-		<form action="." class="transfer" method="post">
-			<p><label for="from">From </label> <select type="text" name="from" required="true">
-                <option value="" selected="selected">-</option>
-                <option value='{{ parent_data.accountID }}0'>{{ parent_data.accountID }}ID: Type{{ parent_data.accountType }}</option>
-                <option value='{{ value.accountID }}'>{{ value.accountID }}ID: Type{{ value.accountType }}</option>
-            </select></p>
-			<p><label for="to">To </label> <select type="text" name="to" required="true">
-                <option value="" selected="selected">-</option>
-                <option value='{{ parent_data.accountID }}0'>{{ parent_data.accountID }}ID: Type{{ parent_data.accountType }}</option>
-                <option value='{{ value.accountID }}'>{{ value.accountID }}ID: Type{{ value.accountType }}</option>
-            </select></p>
-			<p><label for="number">Amount</label> <input type="number" name="amount" step="0.01"/></p>
-			<input class="make_tranfser" type="submit" value="Transfer" onClick="" />
+    <div id="nav_bar">
+        {% include 'logout_button.html' %}
+    </div>
+
+    <div class="child_name">{{ value.forename }} {{ value.surname }}</div>
+    <div class="management_panel">
+        <p class="title">Manage Your Child's Account</p>
+
+        <div class="manage_child_account">
+            {% for key, value in child_data.items %}
+                <div class="child_accounts">
+                    <p class="name">{{ value.forename }} {{ value.surname }}</p>
+
+                    <p class="pocket">Pocket : $ {{ value.balance }}</p>
+
+                    <p class="stash">Stash : $ {{ value.stash }}</p>
+                </div>
+
+            {% endfor %}
+            {% csrf_token %}
+
+            <form action="." class="transfer" method="post">
+                {{ form.as_p }}
+                <p><label for="from">From </label> <select type="text" name="from" required="true">
+                    <option value="" selected="selected">-</option>
+                    <option value='{{ parent_data.accountID }}0'>{{ parent_data.accountID }}ID:
+                        Type{{ parent_data.accountType }}</option>
+                    <option value='{{ value.accountID }}'>{{ value.accountID }}ID: Type{{ value.accountType }}</option>
+                </select></p>
+                <p><label for="to">To </label> <select type="text" name="to" required="true">
+                    <option value="" selected="selected">-</option>
+                    <option value='{{ parent_data.accountID }}0'>{{ parent_data.accountID }}ID:
+                        Type{{ parent_data.accountType }}</option>
+                    <option value='{{ value.accountID }}'>{{ value.accountID }}ID: Type{{ value.accountType }}</option>
+                </select></p>
+                <p><label for="number">Amount</label> <input type="number" name="amount" step="0.01"/></p>
+                <input class="make_tranfser" type="submit" value="Transfer" onClick=""/>
             </form>
-		
-		<div class="set_limit">
-			<p>Maximum Amount to be spent per week</p>
-			<p>
-				<input type="number" name="spend_limit" step="0.01"/>
-				<input class="set_limit" type="button" value="SET LIMIT" onClick="" />
-			</p>
-		</div>
-	</div>
-</div>
+
+            <div class="set_limit">
+                <p>Maximum Amount to be spent per week</p>
+
+                <p>
+                    <input type="number" name="spend_limit" step="0.01"/>
+                    <input class="set_limit" type="button" value="SET LIMIT" onClick=""/>
+                </p>
+            </div>
+        </div>
+    </div>
 
 
-<div class="goal_panel">
-	<p class="title">Set and Review Goals</p>
-	<form id="set_goals">
-		<div id="completed_goals">
-			<textarea class="complete_goals" name="complete_goals" rows="15" cols="75" />Your Child has completed these goals</textarea>
-		</div>
-		
-		<div id="new_goal">
-			<p>Goal Title : <input type="text" name="goal_title" /></p>
-			<p>Goal Points : <input type="text" name="goal_points" /></p>
-			<p><input class="set_new_goal" type="button" value="SET NEW GOAL" onClick="" /></p>
-		</div>
-	</form>
-</div>
+    <div class="goal_panel">
+        <p class="title">Set and Review Goals</p>
+
+        <form id="set_goals">
+            <div id="completed_goals">
+                <textarea class="complete_goals" name="complete_goals" rows="15" cols="75"/>Your Child has completed
+                these goals</textarea>
+            </div>
+
+            <div id="new_goal">
+                <p>Goal Title : <input type="text" name="goal_title"/></p>
+
+                <p>Goal Points : <input type="text" name="goal_points"/></p>
+
+                <p><input class="set_new_goal" type="button" value="SET NEW GOAL" onClick=""/></p>
+            </div>
+        </form>
+    </div>
 
 
-<div class="atms_panel">
-	<p class="title">Select Safe ATMs</p>
-	<form id="choose_atms">
-		<p class="prompt">Select from the list of ATMs</p>
-		<p>
-			<input type="checkbox" name="ATM-1" value="Yes" />Newcastle Haymarket<br/>
-			<input type="checkbox" name="ATM-2" value="Yes" />Newcastle Northumberland Street<br/>
-			<input type="checkbox" name="ATM-3" value="Yes" />Newcastle South Gosforth<br/>
-			<input type="checkbox" name="ATM-4" value="Yes" />Newcastle Quayside<br/>
-			<input type="checkbox" name="ATM-5" value="Yes" />Newcastle St James<br/>
-		</p>
-		<p><input class="select_atms" type="button" value="UPDATE MAP" onClick="" /></p>
-	</form>
-</div>
-{% endfor %}
-<div id="footer">
-	
-</div>
+    <div class="atms_panel">
+        <p class="title">Select Safe ATMs</p>
+
+        <form id="choose_atms">
+            <p class="prompt">Select from the list of ATMs</p>
+
+            <p>
+                <input type="checkbox" name="ATM-1" value="Yes"/>Newcastle Haymarket<br/>
+                <input type="checkbox" name="ATM-2" value="Yes"/>Newcastle Northumberland Street<br/>
+                <input type="checkbox" name="ATM-3" value="Yes"/>Newcastle South Gosforth<br/>
+                <input type="checkbox" name="ATM-4" value="Yes"/>Newcastle Quayside<br/>
+                <input type="checkbox" name="ATM-5" value="Yes"/>Newcastle St James<br/>
+            </p>
+
+            <p><input class="select_atms" type="button" value="UPDATE MAP" onClick=""/></p>
+        </form>
+    </div>
+    <div id="footer">
+
+    </div>
 
 </div>
 </body>

@@ -1,17 +1,22 @@
 <!DOCTYPE html >
 <html>
-<head> 
-{% load staticfiles %}
+<head>
+    {% load staticfiles %}
 
- <meta http-equiv="content-type" 
- content="text/html;charset=utf-8"/> 
- <link rel="stylesheet" type="text/css" href= {% static 'collection/collection.css' %}/>
- <style>
-	body {background-image: url('{% static "general\background_kids.jpg" %}') ;}
-	#nav_bar {background-image: url('{% static "general\lloyds_group_logo.png" %}') ;}
-</style>
- <title>Collection</title> 
-</head> 
+    <meta http-equiv="content-type"
+          content="text/html;charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href= {% static 'collection/collection.css' %}/>
+    <style>
+        body {
+            background-image: url('{% static "general\background_kids.jpg" %}');
+        }
+
+        #nav_bar {
+            background-image: url('{% static "general\lloyds_group_logo.png" %}');
+        }
+    </style>
+    <title>Collection</title>
+</head>
 
 
 <body>
@@ -19,89 +24,107 @@
 
 
 <div id="banner">
-	<img  src={% static 'collection/Collection_1.png' %} width="1055px" height="191px" id="banner" alt="Collection Banner">
+    <img src={% static 'collection/Collection_1.png' %} width="1055px" height="191px" id="banner"
+         alt="Collection Banner">
     {% include 'logout_button.html' %}
 </div>
 
 <div id="content">
-<form id="trophies_box">
-	<p id="cards">5 x
-	<img src={% static 'collection/cards(orange)_1.png' %} width="130px" height="100px" alt="Cards">
-	</p>
-	
-	<p id="rewards">{{goalscounter}} x
-	<img src={% static 'collection/goblet(blue)_1.png' %} width="100px" height="100px" alt="Goblet">
-	</p>
-	
-	<p id="gifts">0 x
-	<img src={% static 'collection/gift(green)_1.png' %} width="140px" height="100px" alt="Gifts">
-	</p>
-	
-	<div id="legend">
-		<p><img src={% static 'collection/orange_box.png' %} width="30px" height="20px" alt="Legend: Orange Box"> Trade cards</p>
-		<p><img src={% static 'collection/blue_box.png' %} width="30px" height="20px" alt="Legend: Blue Box"> Goals Completed</p>
-		<p><img src={% static 'collection/green_box.png' %} width="30px" height="20px" alt="Legend: Green Box"> Gifts from Lloyds</p>
-	</div>
-</form>
+    <form id="trophies_box">
+        <p id="cards">5 x
+            <img src={% static 'collection/cards(orange)_1.png' %} width="130px" height="100px" alt="Cards">
+        </p>
 
-<div id="collection_history">
-<table border="0">
-	<caption>TRADE CARDS: History</caption>
-	<tr>
-		<th>Date</th><th>Card Type</th>
-	</tr>
-	<tr>
-		<td> </td><td> </td>
-	</tr>
-	<tr>
-		<td> </td><td> </td>
-	</tr>
-	<tr>
-		<td> </td><td> </td>
-	</tr>
-	<tr>
-		<td> </td><td> </td>
-	</tr>
-</table>
+        <p id="rewards">{{ goalscounter }} x
+            <img src={% static 'collection/goblet(blue)_1.png' %} width="100px" height="100px" alt="Goblet">
+        </p>
 
-<table border="0">
-	<caption>Goals: History</caption>
-	<tr>
-		<th>Date</th><th>Reward Type</th>
-	</tr>
+        <p id="gifts">0 x
+            <img src={% static 'collection/gift(green)_1.png' %} width="140px" height="100px" alt="Gifts">
+        </p>
 
-	{% for goal, values in goalscompleted.items %}
-	<tr>
-		<td>{{values.date}}</td><td>{{values.desc}}</td>
-	</tr>
-	{% endfor %}
+        <div id="legend">
+            <p><img src={% static 'collection/orange_box.png' %} width="30px" height="20px" alt="Legend: Orange Box">
+                Trade cards</p>
 
-</table>
+            <p><img src={% static 'collection/blue_box.png' %} width="30px" height="20px" alt="Legend: Blue Box"> Goals
+                Completed</p>
 
-<table border="0">
-	<caption>LLOYDS BONUS: History</caption>
-	<tr>
-		<th>Date</th><th>Bonus Type</th>
-	</tr>
-	<tr>
-		<td> </td><td> </td>
-	</tr>
-	<tr>
-		<td> </td><td> </td>
-	</tr>
-	<tr>
-		<td> </td><td> </td>
-	</tr>
-	<tr>
-		<td> </td><td> </td>
-	</tr>
-</table>
+            <p><img src={% static 'collection/green_box.png' %} width="30px" height="20px" alt="Legend: Green Box">
+                Gifts from Lloyds</p>
+        </div>
+    </form>
 
-</div>
+    <div id="collection_history">
+        <table border="0">
+            <caption>TRADE CARDS: History</caption>
+            <tr>
+                <th>Date</th>
+                <th>Card Type</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
 
-<div id="footer">
-		<p>Page Footer</p>
-</div>
+        <table border="0">
+            <caption>Goals: History</caption>
+            <tr>
+                <th>Date</th>
+                <th>Reward Type</th>
+            </tr>
+
+            {% for goal, values in goalscompleted.items %}
+                <tr>
+                    <td>{{ values.date }}</td>
+                    <td>{{ values.desc }}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+
+        <table border="0">
+            <caption>LLOYDS BONUS: History</caption>
+            <tr>
+                <th>Date</th>
+                <th>Bonus Type</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div id="footer">
+        <p>Page Footer</p>
+    </div>
 
 </div>
 </body>
