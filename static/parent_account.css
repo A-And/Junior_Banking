@@ -26,7 +26,7 @@ body {
 
 /**---------------------------------------------------------------------*/
 #nav_bar {
-    background-color: #D0CECE;
+    background-color: #FFFFFF;
     position: relative;
     height: 85px;
     background-position: left;
@@ -62,12 +62,18 @@ body {
 /**---------------------------------------------------------------------*/
 
 /**---------------------------------------------------------------------*/
-.management_panel, .goal_panel, .atms_panel {
+.management_panel,  .atms_panel {
     width: 1450px;
     height: 400px;
     margin: 100px auto;
     color: #FFFFFF;
     /*border: 1px solid black;*/
+}
+.goal_panel {
+    width: 1450px;
+    height: 600px;
+    margin: 100px auto;
+    color: #FFFFFF;
 }
 
 .title {
@@ -98,13 +104,18 @@ body {
 
 }
 
-.manage_child_account, #set_goals, #choose_atms {
+.manage_child_account, #choose_atms {
     width: 1450px;
     height: 300px;
     background-color: #5B6562;
     border: 5px solid #0B8C52;
 }
-
+#set_goals{
+     width: 1450px;
+    height: 350px;
+    background-color: #5B6562;
+    border: 5px solid #0B8C52;
+}
 .manage_child_account {
     vertical-align: middle;
 }
