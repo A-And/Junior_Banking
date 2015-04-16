@@ -160,6 +160,8 @@ def parent(request):
         raise PermissionDenied()
     user_id = request.session['userID']
     rest = restAPI(request.session['sessionID'])
+    if rest.is_child(user_id):
+        raise PermissionDenied()
     child_data = rest.get_children(user_id)
     parent_data = rest.get_profile(user_id)
     validate_response(child_data)
