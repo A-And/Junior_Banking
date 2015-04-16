@@ -1,52 +1,147 @@
 <!DOCTYPE html >
 <html>
 <head>
-    {% load staticfiles %}
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="stylesheet" type="text/css" href={% static 'atms/ATMs-CSS.css' %}/>
+{% load staticfiles %}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href={% static 'atms/ATMs-CSS.css' %} />
     <style>
-        body {
-            background-image: url('{% static "general\background_kids.jpg" %}');
-        }
+		body {background-image: url('{% static "general\background_kids.jpg" %}') ;}
+		#nav_bar {background-image: url('{% static "general\lloyds_group_logo.png" %}') ;}
+	</style>
+	<title>ATMs</title>
+    <script
+	src="http://maps.googleapis.com/maps/api/js">
+	</script>
 
-        #nav_bar {
-            background-image: url('{% static "general\lloyds_group_logo.png" %}');
-        }
-    </style>
-    <title>ATMs</title>
+<script>
+ var geocoder;
+  var map;
+function initialise(){
+  geocoder = new google.maps.Geocoder();
+  var latlng = new google.maps.LatLng(54.9831,-1.5879);
+
+  var mapProp = {
+  zoom:11,
+  center:latlng
+  }
+
+   map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+	function codeAddress() {
+  	var address = document.getElementById('address').value;
+  	geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+  }
+  function codeAddress2() {
+  	var address = document.getElementById('address2').value;
+  	geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+  }
+    function codeAddress3() {
+  	var address = document.getElementById('address3').value;
+  	geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+  }
+    function codeAddress4() {
+  	var address = document.getElementById('address4').value;
+  	geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+  }
+    function codeAddress5() {
+  	var address = document.getElementById('address5').value;
+  	geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+  }
+</script>
 </head>
 
-<body>
+<body onLoad="initialise(); codeAddress(); codeAddress2()">
 {% include 'nav_bar.html' %}
 
+
 <div id="banner">
-    <img src={% static 'atms/ATMs_1.png' %} alt="ATMs" title="ATMs" width="1055" height="191"/>
-    {% include 'logout_button.html' %}
+	<img src={% static 'atms/ATMs_1.png' %} alt="ATMs" title="ATMs" width="1055" height="191" />
+	<img  src={% static 'general/logout_1.png' %} width="140px" height="70px" alt="Logout" id="logout" onClick="window.location.href='Landing_page.html'">
 </div>
 
 <div id="content">
-    <div id="prompt">
-        <p>You can withdraw the money at...</p>
-    </div>
+	<div id="prompt">
+		<p>You can withdraw the money at...</p>
+	</div>
+	
+	<ul id="atm_list">	
+        <li><p id="location1">  {{ atms.1.location }} <input type="button" value="Go!" onClick="codeAddress()" style="float:right;"></p></li>
+        <li><p id="location2">  {{ atms.2.location }} <input type="button" value="Go!" onClick="codeAddress2()" style="float:right;"></p></li>
+        <li><p id="location3">  {{ atms.3.location }} <input type="button" value="Go!" onClick="codeAddress3()" style="float:right;"></p></li>
+        <li><p id="location4">  {{ atms.4.location }} <input type="button" value="Go!" onClick="codeAddress4()" style="float:right;"></p></li>
+        <li><p id="location5">  {{ atms.5.location }} <input type="button" value="Go!" onClick="codeAddress5()" style="float:right;"></p></li>
+  	</ul>
 
-    <ul id="atm_list">
-        <li>Newcastle Haymarket</li>
-        <li>Newcastle Northumberland Street</li>
-        <li>Newcastle South Gosforth</li>
-    </ul>
+	<hr/>
+	 <div style="visibility:hidden;">
+          <input id="address" type="textbox" value="{{ atms.1.location }}">
+          <input id="address2" type="textbox" value="{{ atms.2.location }}">
+          <input id="address3" type="textbox" value="{{ atms.3.location }}">
+		  <input id="address4" type="textbox" value="{{ atms.4.location }}">
+          <input id="address5" type="textbox" value="{{ atms.5.location }}">
 
-    <hr/>
+          <input type="button" value="Go!" onClick="codeAddress2()">
+		  <input type="button" value="Go!" onClick="codeAddress3()">
+          <input type="button" value="Go!" onClick="codeAddress4()">
+          <input type="button" value="Go!" onClick="codeAddress5()">
 
-    <div id="location">
-        <object type="text/html"
-                data="http://www.nearestcashpoint.co.uk/search/cash-points-in-newcastle-upon-tyne-tyne-and-wear"
-                width="1055px" height="600px" style="overflow:auto;border:0px; border:#006600">
-        </object>
-    </div>
+        </div>
+	<div id="location"> 
+    <div id="googleMap" style="width:1055px;height:380px;"></div>
 </div>
-
+</div>
 <div>
-    {% include 'footer.html' %}
+		{% include 'footer.html' %}
 </div>
 
 </body>

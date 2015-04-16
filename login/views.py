@@ -210,8 +210,7 @@ def ATMs(request):
     user_id = request.session['userID']
     rest = restAPI(request.session['sessionID'])
     atms = rest.get_atms(user_id)
-    validate_response(atms)
-    return render(request, 'ATMs.html', {'atm_list': atms,
+    return render(request, 'ATMs.html', {'atms': atms,
     })
 
 
