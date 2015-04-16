@@ -12,9 +12,12 @@ class LoginForm(forms.Form):
     password = forms.CharField(label='Password', max_length=50,
                                widget=forms.PasswordInput(attrs={'required': 'required', 'class': "input_field"}))
 
-class ChildRegistrationForm(forms.Form):
-	email = forms.CharField(label='Email', max_length=50,widget=forms.TextInput(attrs={'required':'required', 'class': "input_field"}))
 
+class ChildRegistrationForm(forms.Form):
+    email = forms.EmailField(label='Email', max_length=50,widget=forms.TextInput(attrs={'required':'required', 'class': "input_field"}))
+    password = forms.CharField(label='Password', max_length=50,widget=forms.PasswordInput(attrs={'required':'required', 'class': "input_field"}))
+    first_name = forms.CharField(label='First Name', max_length=50,widget=forms.TextInput(attrs={'required':'required', 'class': "input_field"}))
+    last_name = forms.CharField(label='Last Name', max_length=50,widget=forms.TextInput(attrs={'required':'required', 'class': "input_field"}))
 
 
 class TransferForm(forms.Form):
