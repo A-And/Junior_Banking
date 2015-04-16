@@ -181,7 +181,7 @@ def parent(request):
     print(child_data.items())
     # Get IDs. Empty list will hold ID values for display
     accounts = list()
-    accounts.append(user_id)
+    accounts.append(str(user_id))
     # Get goals. Empty dictionary will hold all goals
     all_goals = dict()
     counter = 0
@@ -189,7 +189,7 @@ def parent(request):
     # Loop through returned children
     for key, value in child_data.items():
         # Append id
-        child_id = value['accountID']
+        child_id = str(value['accountID'])
         accounts.append(child_id)
         # Get all goals
         child_goals = rest.get_allgoals(child_id)
@@ -203,7 +203,6 @@ def parent(request):
     print('FORM')
     form = ParentChildTransferForm(accounts)
 
-    print(form)
     return render(request, 'parent_account.html', {'child_data': child_data, 'parent_data': parent_data, 'goalscompleted':completed_table, 'form': form})
 
 

@@ -39,9 +39,9 @@
 
             {% endfor %}
             {% csrf_token %}
-            {{ form }}
             <form action="." class="transfer" method="post">
                 <p><label for="from">From </label> <select type="text" name="from" required="true">
+                    {% for  %}
                     <option value="" selected="selected">-</option>
                     <option value='{{ parent_data.accountID }}0'>{{ parent_data.accountID }}ID:
                         Type{{ parent_data.accountType }}</option>
