@@ -62,6 +62,7 @@ def account(request):
         raise PermissionDenied()
     user_id = request.session['userID']
     rest = restAPI(request.session['sessionID'])
+
     if request.method == 'POST':
         form = TransferForm(request.POST)
         print('ITS HERE')
@@ -74,13 +75,14 @@ def account(request):
             print('YOU WANT THIS')
             print(b_to_s)
             print(s_to_b)
-            rest.balance_stash_transfer(user_id, float(s_to_b), float(b_to_s))
+            rest.balance_stash_transfer(user_id, float(b_to_s), float(s_to_b))
 
         profile = rest.get_profile(user_id)
         validate_response(profile)
         name = profile['forename'] + " " + profile['surname']
         balance = profile['balance']
         stash = profile['stash']
+        form = TransferForm()
         return render(request, 'Accounts.html', {'name': name,
                                                  'balance': balance,
                                                  'stash': stash,
@@ -96,7 +98,7 @@ def account(request):
         return render(request, 'Accounts.html', {'name': name,
                                                  'balance': balance,
                                                  'stash': stash,
-                                                 'form': form, })
+                                                 'form': form })
 
 
 def home(request):
@@ -171,17 +173,19 @@ def parent(request):
     if rest.is_child(user_id):
         raise PermissionDenied()
     if request.method == 'POST':
-        print(request.POST)
+        print("here-----------------------------------------------------------------------------------------")
+        response = rest.transfer_money(request.POST['from'], request.POST['to'], request.POST['amount'])
+        print(response)
     child_data = rest.get_children(user_id)
     parent_data = rest.get_profile(user_id)
     validate_response(child_data)
     validate_response(parent_data)
     print(parent_data)
-    request.session['childID'] = child_data
     print(child_data.items())
+
     # Get IDs. Empty list will hold ID values for display
-    accounts = list()
-    accounts.append(str(user_id))
+
+
     # Get goals. Empty dictionary will hold all goals
     all_goals = dict()
     counter = 0
@@ -189,8 +193,7 @@ def parent(request):
     # Loop through returned children
     for key, value in child_data.items():
         # Append id
-        child_id = str(value['accountID'])
-        accounts.append(child_id)
+        child_id = value['accountID']
         # Get all goals
         child_goals = rest.get_allgoals(child_id)
         # Check if goals are completed and if so add them to the final table
@@ -200,10 +203,8 @@ def parent(request):
                 completed_table[len(completed_table) + 1] = {'desc': goal[1]['desc'],
                                                            'date': date.fromtimestamp(goal[1]['date']),
                                                            'name': rest.get_name(child_id)}
-    print('FORM')
-    form = ParentChildTransferForm(accounts)
 
-    return render(request, 'parent_account.html', {'child_data': child_data, 'parent_data': parent_data, 'goalscompleted':completed_table, 'form': form})
+    return render(request, 'parent_account.html', {'child_data': child_data, 'parent_data': parent_data, 'goalscompleted':completed_table,'userID':user_id})
 
 
 def ATMs(request):

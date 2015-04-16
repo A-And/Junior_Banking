@@ -76,7 +76,7 @@ class restAPI:
         return response
 
     # A single function to use for the accounts view
-    def balance_stash_transfer(self, user_id, balance_to_stash_amount, stash_to_balance_amount):
+    def balance_stash_transfer(self, user_id, stash_to_balance_amount, balance_to_stash_amount):
         # Initialize dictionary to use in view for errors and/or success.
         response = dict()
         # Check the result of attempted transfers
@@ -111,6 +111,16 @@ class restAPI:
         print(response)
         return response
 
+    def transfer_money(self, user_id, target, amount):
+        print("TRANSFER ARGUMENTS")
+        print(user_id)
+        print(target)
+        print(amount)
+        data = requests.post(settings.API_URL + 'cdata/transfermoney ', data={'sessionID': self.cookie_id,
+                                                                          'user':user_id, 'target':target, 'amount':amount, 'appid': settings.API_KEY, })
+        response = parse_response(data)
+        return response
+
     def logout(self):
         data = requests.post(settings.API_URL + 'cdata/logout', data={'sessionID': self.cookie_id,
                                                                                'appid': settings.API_KEY,})
@@ -139,7 +149,6 @@ class restAPI:
                                                                           'user':user_id, 'appid': settings.API_KEY, })
         response = parse_response(data)
         return response
-
 
 
 def parse_response(data):

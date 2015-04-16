@@ -17,7 +17,7 @@ class TransferForm(forms.Form):
     stash_to_balance = forms.FloatField(required=False,
                                         widget=forms.TextInput(attrs={'name': 'stash-to-balance', 'placeholder': '￡'}))
     balance_to_stash = forms.FloatField(required=False,
-                                        widget=forms.TextInput(attrs={'name': 'balance-to-stash', 'placeholder': '￡'}))
+                                        widget=forms.TextInput(attrs={'name': 'balance-to-stash', 'placeholder': '￡', }))
 
 
 class ParentChildTransferForm(forms.Form):
@@ -32,4 +32,8 @@ class ParentChildTransferForm(forms.Form):
         self.fields['from_account'].choices = names
         self.fields['to_account'].choices = names
 
-
+class CreateGoalForm(forms.Form):
+    goal_title = email = forms.CharField(label='Username', max_length=50,
+                            widget=forms.TextInput(attrs={'required': 'required', 'class': "input_field"}))
+    goal_amount =  forms.FloatField(required=True,
+                                        widget=forms.TextInput(attrs={'name': 'balance-to-stash', 'placeholder': '￡'}))

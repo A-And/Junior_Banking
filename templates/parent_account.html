@@ -38,23 +38,27 @@
                 </div>
 
             {% endfor %}
-            {% csrf_token %}
+
             <form action="." class="transfer" method="post">
-                <p><label for="from">From </label> <select type="text" name="from" required="true">
-                    {% for  %}
+            {% csrf_token %}
+                <p class ='input'><label for="from">From </label>
+                    <select type="text" name="from" required="true">
                     <option value="" selected="selected">-</option>
-                    <option value='{{ parent_data.accountID }}0'>{{ parent_data.accountID }}ID:
-                        Type{{ parent_data.accountType }}</option>
-                    <option value='{{ value.accountID }}'>{{ value.accountID }}ID: Type{{ value.accountType }}</option>
+                    <option value='{{ userID }}'>{{ parent_data.forename }}</option>
+                    {% for key, value in child_data.items %}
+                    <option value="{{ value.accountID }}">{{ value.forename }}</option>
+                {% endfor %}
                 </select></p>
                 <p><label for="to">To </label> <select type="text" name="to" required="true">
                     <option value="" selected="selected">-</option>
-                    <option value='{{ parent_data.accountID }}0'>{{ parent_data.accountID }}ID:
-                        Type{{ parent_data.accountType }}</option>
-                    <option value='{{ value.accountID }}'>{{ value.accountID }}ID: Type{{ value.accountType }}</option>
+                    <option value='{{ userID }}'>{{ parent_data.forename }}</option>
+                    {% for key, value in child_data.items %}
+                    <option value="{{ value.accountID }}">{{ value.forename }}</option>
+                {% endfor %}
                 </select></p>
                 <p><label for="number">Amount</label> <input type="number" name="amount" step="0.01"/></p>
-                <input class="make_tranfser" type="submit" value="Transfer" onClick=""/>
+            {% csrf_token %}
+                <input class="make_transfer" type="submit" value="Transfer" onClick=""/>
             </form>
 
             <div class="set_limit">
