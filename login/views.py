@@ -3,7 +3,8 @@ import logging
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render_to_response, render, redirect
 
-from login.forms import LoginForm, TransferForm
+from login.forms import LoginForm, TransferForm, ParentChildTransferForm
+
 from main.restAPI import restAPI
 from login.utils import validate_response
 
@@ -164,6 +165,8 @@ def parent(request):
     rest = restAPI(request.session['sessionID'])
     if rest.is_child(user_id):
         raise PermissionDenied()
+    if request.method == 'POST':
+        print(request.POST)
     child_data = rest.get_children(user_id)
     parent_data = rest.get_profile(user_id)
     validate_response(child_data)
@@ -171,7 +174,12 @@ def parent(request):
     print(parent_data)
     request.session['childID'] = child_data
     print(child_data.items())
-    return render(request, 'parent_account.html', { 'child_data': child_data, 'parent_data':parent_data})
+    accounts = [user_id, ]
+    for key, value in child_data.items():
+        accounts.append(value['accountID'])
+    print(accounts)
+    form = ParentChildTransferForm(accounts)
+    return render(request, 'parent_account.html', { 'child_data': child_data, 'parent_data':parent_data, 'form': form})
 
 
 def ATMs(request):
