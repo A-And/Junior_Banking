@@ -45,7 +45,7 @@ class restAPI:
 
     def is_child(self, user_id):
         data = self.get_profile(user_id)
-        return data['isChild'] == '1'
+        return data['isChild'] == 1
 
     def transfer(self, sender_id, target_id, amount):
         data = requests.post(settings.API_URL + 'cdata/transfermoney', data={'user':sender_id,'sessionID':self.cookie_id,

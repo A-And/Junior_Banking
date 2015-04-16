@@ -12,7 +12,7 @@ urlpatterns = patterns('',
                        url(r'^profile/$', 'login.views.profile', name='profile'),
                        url(r'^ATMs/$', 'login.views.ATMs', name='ATMs'),
                        url(r'^collection/$', 'login.views.collection', name='collection'),
-                       url(r'^collection/?logout[/w]?$', 'login.views.logout', name = 'logout'),
+                       url(r'^.*/?logout[/w]?$', 'login.views.logout', name = 'logout'),
                        url(r'^parent/$', 'login.views.parent', name='parent'),
                        url(r'^admin/', include(admin.site.urls)),
 

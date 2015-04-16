@@ -1,15 +1,11 @@
-
 import logging
-from django.core.exceptions import PermissionDenied
-from django.http import Http404
 
-import requests
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import render_to_response, render, redirect
-from django.conf import settings
 
 from login.forms import LoginForm, TransferForm
 from main.restAPI import restAPI
-
+from login.utils import validate_response
 
 def landing(request):
     if request.method == 'POST':
@@ -76,7 +72,7 @@ def account(request):
             rest.balance_stash_transfer(user_id, float(s_to_b), float(b_to_s))
 
         profile = rest.get_profile(user_id)
-        print(profile)
+        validate_response(profile)
         name = profile['forename'] + " " + profile['surname']
         balance = profile['balance']
         stash = profile['stash']
@@ -87,7 +83,7 @@ def account(request):
 
     else:
         profile = rest.get_profile(user_id)
-        print(profile)
+        validate_response(profile)
         name = profile['forename'] + " " + profile['surname']
         balance = profile['balance']
         stash = profile['stash']
@@ -102,6 +98,7 @@ def home(request):
     user_id = request.session['userID']
     rest = restAPI(request.session['sessionID'])
     profile = rest.get_profile(user_id)
+    validate_response(profile)
     print(profile)
     name = profile['forename'] + " " + profile['surname']
     return render(request, 'home.html', {'name': name})
@@ -111,6 +108,7 @@ def profile(request):
     user_id = request.session['userID']
     rest = restAPI(user_id)
     name = restAPI.get_name(user_id)
+    validate_response(name)
     if 'Error' in name:
         error = name['error']
     return render(request, 'profile.html', {
@@ -124,7 +122,7 @@ def goals(request):
     print(user_id)
     returned_goals = rest.get_goals(user_id)
 
-    print(returned_goals)
+    validate_response(returned_goals)
     stash = rest.get_profile(user_id)['stash']
     total_goal_progress = 0.0
     for value in returned_goals.items():
@@ -164,6 +162,8 @@ def parent(request):
     rest = restAPI(request.session['sessionID'])
     child_data = rest.get_children(user_id)
     parent_data = rest.get_profile(user_id)
+    validate_response(child_data)
+    validate_response(parent_data)
     print(parent_data)
     request.session['childID'] = child_data
     print(child_data.items())
@@ -174,7 +174,7 @@ def ATMs(request):
     user_id = request.session['userID']
     rest = restAPI(request.session['sessionID'])
     atms = rest.get_atms(user_id)
-    print(atms.keys())
+    validate_response(atms)
     return render(request, 'ATMs.html', {'atm_list': atms,
     })
 
@@ -197,7 +197,7 @@ def http403(request):
         if form.is_valid():
             rest = restAPI("")
             requestedData = rest.login( form.cleaned_data['email'], form.cleaned_data['password'])
-
+            validate_response(requestedData)
             logger = logging.getLogger(__name__)
 
             print(requestedData.status_code)

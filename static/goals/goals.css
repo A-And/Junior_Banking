@@ -108,9 +108,7 @@ body		{background-image: url("../images/general/background_kids.jpg");
 /**---------------------------------------------------------------------*/	
 
 /**---------------------------------------------------------------------*/	
-#overview	{width: 1005px;
-
-			height: 500px;
+#overview	{
 			margin: 15px auto;}
 .winners    {
             float:right;

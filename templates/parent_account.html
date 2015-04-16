@@ -18,7 +18,7 @@
 <div id="content">
 
 <div id="nav_bar">
-	<img  src={% static 'general/logout_parent_account.png' %} width="140px" height="70px" alt="Logout" id="logout" onClick="window.location.href='Landing_page.html'">
+	{% include 'logout_button.html' %}
 </div>
 {% for key, value in child_data.items %}
     <div class ="child_name">{{ value.forename }} {{ value.surname }}</div>
