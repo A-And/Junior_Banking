@@ -25,7 +25,7 @@ def landing(request):
 
             if requestedData.status_code != 200:
                 form = LoginForm()
-                return render(request, 'Landing_Page.html', {'form': form, })
+                return render(request, 'Landing_Page.html', {'form': form, 'error':True })
 
             print(requestedData)
 

@@ -286,4 +286,28 @@ body {
     float: center;
     margin: 0px 100px;
 }
+
+.pageError, .pageWarning, .pageSuccess{
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+
+.pageError{
+    border: 2px #c0392b solid;
+    background-color: #CA736A;
+    color:#73180E;
+}
+
+.pageWarning{
+    border: 2px #f1c40f solid;
+    background-color: #FFD429;
+    color:#A48505;
+}
+
+.pageSuccess{
+    border: 2px #27ae60 solid;
+    background-color: #51FA99;
+    color:#0C6130;
+}
+
 		
