@@ -5,6 +5,8 @@
  <meta http-equiv="content-type" 
  content="text/html;charset=utf-8"/> 
  <link rel="stylesheet" type="text/css" href= {% static 'parent_account.css' %}/>
+    <script type="text/javascript">
+    </script>
  <style>
 	#nav_bar {background-image: url('{% static "general\lloyds_group_logo.png" %}') ;}
 </style>
@@ -18,34 +20,43 @@
 <div id="nav_bar">
 	<img  src={% static 'general/logout_parent_account.png' %} width="140px" height="70px" alt="Logout" id="logout" onClick="window.location.href='Landing_page.html'">
 </div>
-
-<div id="box1">
+{% for key, value in child_data.items %}
+    <div class ="child_name">{{ value.forename }} {{ value.surname }}</div>
+<div class="management_panel">
 	<p class="title">Manage Your Child's Account</p>
-	<form id="manage_child_account">
-		<div id="child_accounts">
-			<p class="pocket">Pocket Account : $ 0.00</p>
-			<p class="stash">Stash Account : $ 0.00</p>
+	<div class="manage_child_account">
+		<div class="child_accounts">
+			<p class="pocket">Pocket Account : $ {{ value.balance }}</p>
+			<p class="stash">Stash Account : $ {{ value.stash }}</p>
 		</div>
 	
-		<div id="transfer">
-			<p>From <input type="text" name="from" /></p>
-			<p>To <input type="text" name="to" /></p>
-			<p>Amount <input type="text" name="amount" /></p>
-			<input class="make_tranfser" type="button" value="MAKE TRANSFER" onClick="" />
-		</div>
+		<form action="." class="transfer" method="post">
+			<p><label for="from">From </label> <select type="text" name="from" required="true">
+                <option value="" selected="selected">-</option>
+                <option value='{{ parent_data.accountID }}0'>{{ parent_data.accountID }}ID: Type{{ parent_data.accountType }}</option>
+                <option value='{{ value.accountID }}'>{{ value.accountID }}ID: Type{{ value.accountType }}</option>
+            </select></p>
+			<p><label for="to">To </label> <select type="text" name="to" required="true">
+                <option value="" selected="selected">-</option>
+                <option value='{{ parent_data.accountID }}0'>{{ parent_data.accountID }}ID: Type{{ parent_data.accountType }}</option>
+                <option value='{{ value.accountID }}'>{{ value.accountID }}ID: Type{{ value.accountType }}</option>
+            </select></p>
+			<p><label for="number">Amount</label> <input type="number" name="amount" step="0.01"/></p>
+			<input class="make_tranfser" type="submit" value="Transfer" onClick="" />
+		</form>
 		
-		<div id="set_limit">
+		<div class="set_limit">
 			<p>Maximum Amount to be spent per week</p>
 			<p>
-				<input type="text" name="spend_limit" />
+				<input type="number" name="spend_limit" step="0.01"/>
 				<input class="set_limit" type="button" value="SET LIMIT" onClick="" />
 			</p>
 		</div>
-	</form>		
+	</div>
 </div>
 
 
-<div id="box2">
+<div class="goal_panel">
 	<p class="title">Set and Review Goals</p>
 	<form id="set_goals">
 		<div id="completed_goals">
@@ -61,7 +72,7 @@
 </div>
 
 
-<div id="box3">
+<div class="atms_panel">
 	<p class="title">Select Safe ATMs</p>
 	<form id="choose_atms">
 		<p class="prompt">Select from the list of ATMs</p>
@@ -75,7 +86,7 @@
 		<p><input class="select_atms" type="button" value="UPDATE MAP" onClick="" /></p>
 	</form>
 </div>
-
+{% endfor %}
 <div id="footer">
 	
 </div>

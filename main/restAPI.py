@@ -24,7 +24,7 @@ class restAPI:
         return data
 
     def logout(self):
-        data = requests.post(settings.API_URL + 'cdata/request', data={'user':user_id,'sessionID':self.cookie_id, 'appid': settings.API_KEY, })
+        data = requests.post(settings.API_URL + 'cdata/request', data={'sessionID':self.cookie_id, 'appid': settings.API_KEY, })
 
 
     def get_profile(self, user_id):

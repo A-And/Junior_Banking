@@ -45,7 +45,7 @@ def landing(request):
             rest = restAPI(data['sessionID'])
 
             # TODO Add check for parent account type
-            if  rest.is_child(data['userID']):
+            if not rest.is_child(data['userID']):
                 return redirect(parent)
             else:
                 return redirect(account)
@@ -84,7 +84,6 @@ def account(request):
                                              'balance': balance,
                                              'stash': stash,
                                              'form': form,})
-
 
     else:
         profile = rest.get_profile(user_id)
@@ -159,7 +158,16 @@ def guide(request):
 
 
 def parent(request):
-    return render(request, 'parent_account.html')
+    if 'userID' not in request.session or 'sessionID' not in request.session:
+        raise PermissionDenied()
+    user_id = request.session['userID']
+    rest = restAPI(request.session['sessionID'])
+    child_data = rest.get_children(user_id)
+    parent_data = rest.get_profile(user_id)
+    print(parent_data)
+    request.session['childID'] = child_data
+    print(child_data.items())
+    return render(request, 'parent_account.html', { 'child_data': child_data, 'parent_data':parent_data})
 
 
 def ATMs(request):
