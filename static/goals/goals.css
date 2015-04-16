@@ -1,5 +1,6 @@
 /**---------------------------------------------------------------------*/
-body		{background-size: 100%;}
+body		{background-image: url("../images/general/background_kids.jpg");
+		background-size: 100%;}
 
 #content	{background-color: #FFFFFF;
 			width: 1055px;
@@ -9,19 +10,13 @@ body		{background-size: 100%;}
 #banner	{width: 1055px;
 		height: 191px;
 		margin: 0% auto;}
-		
-#logout	{position: relative;
-		top: -85px;
-		left: 905px;}
-#logout:hover	{background-color: RGBA(255, 255, 255, 0.7);
-				border-radius: 3px;}
-#logout:active	{background-color: RGBA(208, 206, 206, 0.7);}
 /**---------------------------------------------------------------------*/	
 	
 /**---------------------------------------------------------------------*/	
 #nav_bar	{background-color: #FFFFFF;
 			height: 80px;
 			width: 1055px;
+			background-image:url("../images/general/lloyds_group_logo.png");
 			background-position: left;
 			background-size: 157px 85px;
 			background-repeat: no-repeat;
@@ -109,8 +104,11 @@ body		{background-size: 100%;}
 #overview	{width: 1005px;
 			height: 130px;
 			margin: 15px auto;}
+.winners     {
+            display:block
+}
 
-#score, #winner	{width: 325px;
+#score, .winners	{width: 325px;
 				height: 130px;
 				float: left;
 				padding-top: 0px;}
@@ -126,16 +124,20 @@ body		{background-size: 100%;}
 
 input.claim_prize	{background-color: #0B8C52;
 					height: 40px;
-					width: 300px;
+					width: 100px;
 					margin-bottom: 30px;
 					position: relative;
-					top: 40px;
-					left: 20px;
+					top: 0%;
+					left: 100%;
 					font-family: Century Gothic;
 					font-size: 25px;
 					font-style: italic;
 					font-weight: bold;
 					color: #FFFFFF;}
+.achieved_goal {
+                    display:block;
+                    background-color: #0B8C52;
+}
 /**---------------------------------------------------------------------*/	
 
 /**---------------------------------------------------------------------*/	

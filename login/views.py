@@ -123,8 +123,26 @@ def goals(request):
     rest = restAPI(request.session['sessionID'])
     print(user_id)
     returned_goals = rest.get_goals(user_id)
+
     print(returned_goals)
-    return render(request, 'goals.html', {'goals': returned_goals})
+    stash = rest.get_profile(user_id)['stash']
+    total_goal_progress = 0.0
+    for value in returned_goals.items():
+        goal = value[1]
+        print('HEERE')
+        if float(goal['target']) - float(goal['progress']) <= 0:
+            goal['reached'] = True
+        else:
+            goal['reached'] = False
+        total_goal_progress += float(goal['progress'])
+
+    for value in returned_goals.items():
+        if goal['reached']:
+            print(goal)
+    total = stash + total_goal_progress
+    available = stash - total_goal_progress
+    print(returned_goals)
+    return render(request, 'goals.html', {'goals': returned_goals, 'total': total, 'available': available})
 
 
 def guide(request):

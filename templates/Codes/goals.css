@@ -131,6 +131,10 @@ input.claim_prize	{background-color: #0B8C52;
 					font-style: italic;
 					font-weight: bold;
 					color: #FFFFFF;}
+.achieved_goal {
+                    display:block;
+                    background-color: #0B8C52;
+}
 /**---------------------------------------------------------------------*/	
 
 /**---------------------------------------------------------------------*/	
