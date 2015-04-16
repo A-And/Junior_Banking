@@ -39,7 +39,7 @@
 
             {% endfor %}
             {% csrf_token %}
-
+            {{ form }}
             <form action="." class="transfer" method="post">
                 <p><label for="from">From </label> <select type="text" name="from" required="true">
                     <option value="" selected="selected">-</option>

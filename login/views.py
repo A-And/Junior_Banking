@@ -200,8 +200,10 @@ def parent(request):
                 completed_table[len(completed_table) + 1] = {'desc': goal[1]['desc'],
                                                            'date': date.fromtimestamp(goal[1]['date']),
                                                            'name': rest.get_name(child_id)}
-    print(completed_table)
+    print('FORM')
     form = ParentChildTransferForm(accounts)
+
+    print(form)
     return render(request, 'parent_account.html', {'child_data': child_data, 'parent_data': parent_data, 'goalscompleted':completed_table, 'form': form})
 
 
