@@ -19,12 +19,10 @@
 function initialise(){
   geocoder = new google.maps.Geocoder();
   var latlng = new google.maps.LatLng(54.9831,-1.5879);
-
   var mapProp = {
-  zoom:11,
+  zoom:12,
   center:latlng
   }
-
    map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 }
 	function codeAddress() {
@@ -36,6 +34,7 @@ function initialise(){
           map: map,
           position: results[0].geometry.location
       });
+	  document.getElementById('location1').style.display = 'block';
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
@@ -50,7 +49,9 @@ function initialise(){
           map: map,
           position: results[0].geometry.location
       });
+	  document.getElementById('location2').style.display = 'block';
     } else {
+	  document.getElementById('location2').style.display = 'none';
       alert('Geocode was not successful for the following reason: ' + status);
     }
   });
@@ -64,6 +65,7 @@ function initialise(){
           map: map,
           position: results[0].geometry.location
       });
+	  document.getElementById('location3').style.display = 'block';
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
@@ -78,6 +80,7 @@ function initialise(){
           map: map,
           position: results[0].geometry.location
       });
+	  document.getElementById('location4').style.display = 'block';
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
@@ -92,6 +95,7 @@ function initialise(){
           map: map,
           position: results[0].geometry.location
       });
+	  document.getElementById('location5').style.display = 'block';
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
@@ -100,7 +104,7 @@ function initialise(){
 </script>
 </head>
 
-<body onLoad="initialise(); codeAddress(); codeAddress2()">
+<body onLoad="initialise(); codeAddress(); codeAddress2(); codeAddress3(); codeAddress4(); codeAddress5()">
 {% include 'nav_bar.html' %}
 
 
@@ -112,16 +116,15 @@ function initialise(){
 <div id="content">
 	<div id="prompt">
 		<p>You can withdraw the money at...</p>
-	</div>
+	</div> 
 	
 	<ul id="atm_list">	
-        <li><p id="location1">  {{ atms.1.location }} <input type="button" value="Go!" onClick="codeAddress()" style="float:right;"></p></li>
-        <li><p id="location2">  {{ atms.2.location }} <input type="button" value="Go!" onClick="codeAddress2()" style="float:right;"></p></li>
-        <li><p id="location3">  {{ atms.3.location }} <input type="button" value="Go!" onClick="codeAddress3()" style="float:right;"></p></li>
-        <li><p id="location4">  {{ atms.4.location }} <input type="button" value="Go!" onClick="codeAddress4()" style="float:right;"></p></li>
-        <li><p id="location5">  {{ atms.5.location }} <input type="button" value="Go!" onClick="codeAddress5()" style="float:right;"></p></li>
-  	</ul>
-
+        <div style="display:none" id="location1"<li><p>{{ atms.1.location }} <input type="button" value="Go!" onClick="codeAddress()" style="float:right;"></p></li></div>
+        <div style="display:none" id="location2"<li><p>{{ atms.2.location }} <input type="button" value="Go!" onClick="codeAddress2()" style="float:right;"></p></li></div>
+        <div style="display:none" id="location3"<li><p>{{ atms.3.location }} <input type="button" value="Go!" onClick="codeAddress3()" style="float:right;"></p></li></div>
+        <div style="display:none" id="location4"<li><p>{{ atms.4.location }} <input type="button" value="Go!" onClick="codeAddress4()" style="float:right;"></p></li></div>
+        <div style="display:none" id="location5"<li><p>{{ atms.5.location }} <input type="button" value="Go!" onClick="codeAddress5()" style="float:right;"></p></li></div>
+  	</ul> 
 	<hr/>
 	 <div style="visibility:hidden;">
           <input id="address" type="textbox" value="{{ atms.1.location }}">
@@ -130,10 +133,7 @@ function initialise(){
 		  <input id="address4" type="textbox" value="{{ atms.4.location }}">
           <input id="address5" type="textbox" value="{{ atms.5.location }}">
 
-          <input type="button" value="Go!" onClick="codeAddress2()">
-		  <input type="button" value="Go!" onClick="codeAddress3()">
-          <input type="button" value="Go!" onClick="codeAddress4()">
-          <input type="button" value="Go!" onClick="codeAddress5()">
+   
 
         </div>
 	<div id="location"> 
