@@ -179,13 +179,30 @@ def parent(request):
     print(parent_data)
     request.session['childID'] = child_data
     print(child_data.items())
-    accounts = []
+    # Get IDs. Empty list will hold ID values for display
+    accounts = list()
     accounts.append(user_id)
+    # Get goals. Empty dictionary will hold all goals
+    all_goals = dict()
+    counter = 0
+    completed_table = {}
+    # Loop through returned children
     for key, value in child_data.items():
-        accounts.append(value['accountID'])
-    print(accounts)
+        # Append id
+        child_id = value['accountID']
+        accounts.append(child_id)
+        # Get all goals
+        child_goals = rest.get_allgoals(child_id)
+        # Check if goals are completed and if so add them to the final table
+        for goal in child_goals.items():
+            if int(goal[1]['completed']) == 1:
+                counter += 1
+                completed_table[len(completed_table) + 1] = {'desc': goal[1]['desc'],
+                                                           'date': date.fromtimestamp(goal[1]['date']),
+                                                           'name': rest.get_name(child_id)}
+    print(completed_table)
     form = ParentChildTransferForm(accounts)
-    return render(request, 'parent_account.html', {'child_data': child_data, 'parent_data': parent_data, 'form': form})
+    return render(request, 'parent_account.html', {'child_data': child_data, 'parent_data': parent_data, 'goalscompleted':completed_table, 'form': form})
 
 
 def ATMs(request):

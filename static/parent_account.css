@@ -184,6 +184,41 @@ body {
     font-weight: bold;
     color: #FFFFFF;
 }
+#collection_history {
+    width: 1020px;
+    height: 220px;
+    margin: 20px auto;
+}
+table {
+    width: 150px;
+    font-family: Century Gothic;
+    background-color: #0B8C52;
+    float: left;
+    margin: 2px;
+}
+
+table caption {
+    background-color: #0B8C52;
+    height: 35px;
+    color: #FFFFFF;
+    font-size: 25px;
+    padding: 10px;
+}
+
+table tr {
+    height: 10px;
+    background-color: #FFFFFF;
+    color: #0B8C52;
+    font-size: 20px;
+    text-align: left;
+    padding-left: 5px;
+}
+
+table td {
+    background-color: #FFFFFF;
+    height: 5px;
+    width:100px;
+}
 
 /**---------------------------------------------------------------------*/
 

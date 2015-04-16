@@ -41,7 +41,6 @@
             {% csrf_token %}
 
             <form action="." class="transfer" method="post">
-                {{ form.as_p }}
                 <p><label for="from">From </label> <select type="text" name="from" required="true">
                     <option value="" selected="selected">-</option>
                     <option value='{{ parent_data.accountID }}0'>{{ parent_data.accountID }}ID:
@@ -73,12 +72,25 @@
     <div class="goal_panel">
         <p class="title">Set and Review Goals</p>
 
-        <form id="set_goals">
-            <div id="completed_goals">
-                <textarea class="complete_goals" name="complete_goals" rows="15" cols="75"/>Your Child has completed
-                these goals</textarea>
-            </div>
+            <div id="">
+            <table id="completed_goals">
 
+            <caption>Goals completed by your child</caption>
+            <tr>
+                <th>Date</th>
+                <th>Reward Type</th>
+                <th>By</th>
+            </tr>
+                {% for goal, values in goalscompleted.items %}
+                <tr>
+                    <td>{{ values.date }}</td>
+                    <td>{{ values.desc }}</td>
+                    <td>{{ values.name }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+            </div>
+         <form id="set_goals">
             <div id="new_goal">
                 <p>Goal Title : <input type="text" name="goal_title"/></p>
 
