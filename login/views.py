@@ -109,15 +109,12 @@ def home(request):
 def profile(request):
     user_id = request.session['userID']
     rest = restAPI(request.session['sessionID'])
-    print("REST IS")
-    print(rest)
-    name = rest.get_name(user_id)
-    validate_response(name)
-    if 'Error' in name:
-        error = name['error']
-    return render(request, 'profile.html', {
-        'name': name,
-    })
+    profile = rest.get_profile(user_id)
+    validate_response(profile)
+    print(profile)
+    name = profile['forename'] + " " + profile['surname']
+    dob = profile['dob']
+    return render(request, 'profile.html', {'name': name, 'dob': dob})
 
 
 def goals(request):
