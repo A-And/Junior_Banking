@@ -121,6 +121,13 @@ class restAPI:
         response = parse_response(data)
         return response
 
+    def get_allgoals(self, user_id):
+        data = requests.post(settings.API_URL + 'goals/loadall', data={'sessionID': self.cookie_id,
+                                                                          'user':user_id, 'appid': settings.API_KEY, })
+        response = parse_response(data)
+        return response
+
+
     def complete_goal(self, user_id, goal_id):
         data = requests.post(settings.API_URL + 'goals/load', data={'sessionID': self.cookie_id,
                                                                           'user':user_id, 'appid': settings.API_KEY, })

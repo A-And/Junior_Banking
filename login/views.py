@@ -6,6 +6,7 @@ from django.shortcuts import render_to_response, render, redirect
 from login.forms import LoginForm, TransferForm
 from main.restAPI import restAPI
 from login.utils import validate_response
+from datetime import date
 
 def landing(request):
     if request.method == 'POST':
@@ -183,10 +184,23 @@ def ATMs(request):
 
 def collection(request):
     if request.GET.get('logout'):
-        print("REACHED")
         restAPI(request.session['sessionID']).logout()
         redirect(landing(request))
-    return render(request, 'collection.html', {
+
+    rest = restAPI(request.session['sessionID'])
+    user_id = request.session['userID']
+    child_data = rest.get_allgoals(user_id)
+
+    counter = 0
+    completedTable = {}
+
+    for goal in child_data.items():
+        if int(goal[1]['completed']) == 1:
+            counter += 1
+            completedTable[len(completedTable)+1]={'desc':goal[1]['desc'],'date':date.fromtimestamp(goal[1]['date'])}
+
+
+    return render(request, 'collection.html', {'goalscounter': counter, 'goalscompleted':completedTable
     })
 
 
