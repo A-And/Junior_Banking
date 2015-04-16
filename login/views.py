@@ -125,7 +125,7 @@ def goals(request):
     returned_goals = rest.get_goals(user_id)
     stash = rest.get_profile(user_id)['stash']
     total_goal_balance = 0.0
-    for key, goal in returned_goals.values():
+    for goal in returned_goals.values():
         total_goal_balance += float(goal['progress'])
     total = stash + total_goal_balance
     unused = stash - total_goal_balance
