@@ -2,14 +2,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+{% load staticfiles %}
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="profile.css" />
-<script type="text/javascript" src="profile.js"></script>
+<link rel="stylesheet" type="text/css" href={% static 'profile\profile.css' %}/>
+<script type="text/javascript" src={% static 'profile\profile.js' %}></script>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen"/>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="{{assets}}/css/layout.css" media="screen"/>
+    <link rel="stylesheet" href={% static 'profile\profile.css' %} media="screen"/>
      <!--[if lt IE 9]>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <![endif]-->
@@ -28,33 +29,22 @@
     
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="{{assets}}/js/bootbox.min.js"></script>
-    <link href="./bootstrap-datetimepicker.css" rel="stylesheet">
-    <script src="./bootstrap-datetimepicker.js"></script>
+    <link href={% static 'profile\bottstrap-datetimepicker.css' %} rel="stylesheet">
+    <script src={% static 'profile\bottstrap-datetimepicker.js' %}></script>
     
 <title>Home</title>
 </head>
 
 <body>
-<div id="content">
-<div id="nav_bar">
-<ul>	
-    <li> <a href="home.html">Home</a></li>
-    <li> <a href="profile.html">Profile</a></li>
-    <li> <a href="Accounts.html">Accounts </a></li>
-    <li> <a href="goals.html">Goals</a></li>
-    <li> <a href="collection.html">Collection</a></li>
-    <li> <a href="ATMs.html">ATMs</a></li>
-    <li> <a href="guide.html">Banking Guide</a></li>
-</ul>
-</div>
+{% include 'nav_bar.html' %}
 
 
 <div id="body">
 
 <div id="picture">
-<img id="backpicture" src="../images/profile/kids.jpg" width="1055" height="300">
+<img id="backpicture" src={% static 'profile/kids.jpg' %} width="1055" height="300">
 <div id="ph">
-<img src="../images/profile/photo.png" width="200" height="200" alt="profile pic" >
+<img src={% static 'profile/photo.png' %} width="200" height="200" alt="profile pic" >
 	<p id="name">{{ name }}</p>
 	</div>
 </div>
@@ -113,9 +103,7 @@
 
 </div>
 
-<div id="footer">
-	<p>Page Footer</p>
-</div>
+{% include 'footer.html' %}
 
 
 </div>
@@ -252,5 +240,6 @@ $(document).ready(function() {
 			
 });
 </script>
+       </div>
 </body>
 </html>

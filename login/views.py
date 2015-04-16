@@ -106,8 +106,10 @@ def home(request):
 
 def profile(request):
     user_id = request.session['userID']
-    rest = restAPI(user_id)
-    name = restAPI.get_name(user_id)
+    rest = restAPI(request.session['sessionID'])
+    print("REST IS")
+    print(rest)
+    name = rest.get_name(user_id)
     validate_response(name)
     if 'Error' in name:
         error = name['error']
@@ -227,10 +229,10 @@ def http403(request):
             rest = restAPI(data['sessionID'])
 
             # TODO Add check for parent account type
-            if  rest.is_child(data['userID']):
-                return redirect(parent)
-            else:
+            if rest.is_child(data['userID']):
                 return redirect(account)
+            else:
+                return redirect(parent)
 
     else:
         form = LoginForm()
