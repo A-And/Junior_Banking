@@ -10,6 +10,12 @@ body		{background-image: url("../images/general/background_kids.jpg");
 #banner	{width: 1055px;
 		height: 191px;
 		margin: 0% auto;}
+#logout	{position: relative;
+		top: -85px;
+		left: 905px;}
+#logout:hover	{background-color: RGBA(255, 255, 255, 0.7);
+				border-radius: 3px;}
+#logout:active	{background-color: RGBA(208, 206, 206, 0.7);}
 /**---------------------------------------------------------------------*/	
 	
 /**---------------------------------------------------------------------*/	
@@ -45,11 +51,12 @@ body		{background-image: url("../images/general/background_kids.jpg");
 		font-size: 16px;}
 
 #finish_text	{text-align: right;}		
-#start_text, #finish_text	{width: 500px;
-							font-size: 25px;
+#start_text, #finish_text, #balance_text	{width: 500px;
+							font-size: 20px;
 							font-weight: bold;
 							color:	#FFFFFF;
 							float: left;}
+
 
 #y-axis, #chart, #finish	{float: left;}
 
@@ -102,10 +109,12 @@ body		{background-image: url("../images/general/background_kids.jpg");
 
 /**---------------------------------------------------------------------*/	
 #overview	{width: 1005px;
-			height: 130px;
+
+			height: 500px;
 			margin: 15px auto;}
-.winners     {
-            display:block
+.winners    {
+            float:right;
+            display:block;
 }
 
 #score, .winners	{width: 325px;
@@ -125,18 +134,26 @@ body		{background-image: url("../images/general/background_kids.jpg");
 input.claim_prize	{background-color: #0B8C52;
 					height: 40px;
 					width: 100px;
-					margin-bottom: 30px;
 					position: relative;
-					top: 0%;
-					left: 100%;
+                    float:right;
 					font-family: Century Gothic;
-					font-size: 25px;
+					font-size: 15px;
 					font-style: italic;
 					font-weight: bold;
 					color: #FFFFFF;}
+.winning_entry      {display:inline-block;
+                    float:left;
+                    border-style:solid;
+                    border-color: #0B8C52;
+    height: 100px;
+    width: 400px;
+    margin: 10px;
+
+}
 .achieved_goal {
-                    display:block;
-                    background-color: #0B8C52;
+                    display:inline-block;
+                    height: 40px;
+					width: 100px;
 }
 /**---------------------------------------------------------------------*/	
 
@@ -144,7 +161,8 @@ input.claim_prize	{background-color: #0B8C52;
 form#control_panel	{width: 1005px;
 					height: 130px;
 					margin: 30px auto;
-					background-color: #D0CECE;}
+					background-color: #D0CECE;
+                    display:none;}
 
 #add_points, #move_points	{width: 500px;
 							height: 130px;

@@ -12,9 +12,12 @@ urlpatterns = patterns('',
                        url(r'^profile/$', 'login.views.profile', name='profile'),
                        url(r'^ATMs/$', 'login.views.ATMs', name='ATMs'),
                        url(r'^collection/$', 'login.views.collection', name='collection'),
+                       url(r'^collection/?logout[/w]?$', 'login.views.logout', name = 'logout'),
+                       url(r'^parent/$', 'login.views.parent', name='parent'),
                        url(r'^admin/', include(admin.site.urls)),
 
 
 )
 # Default 404 override
 handler404 = 'login.views.http404'
+handler403 = 'login.views.http403'

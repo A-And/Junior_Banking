@@ -19,8 +19,8 @@
 
 
 <div id="banner">
-	<img  src={% static 'collection/Collection_1.png' %} width="1055px" height="191px" alt="Collection Banner">
-	<img  src={% static 'general/logout_1.png' %} width="140px" height="70px" alt="Logout" id="logout" onClick="window.location.href='Landing_page.html'">
+	<img  src={% static 'collection/Collection_1.png' %} width="1055px" height="191px" id="banner" alt="Collection Banner">
+    {% include 'logout_button.html' %}
 </div>
 
 <div id="content">

@@ -1,0 +1,36 @@
+
+<!DOCTYPE html >
+{% load staticfiles %}
+<html>
+<head> 
+	<meta http-equiv="content-type" 
+	content="text/html;charset=utf-8"/> 
+	<link rel="stylesheet" type="text/css" href={%static 'errors/403.css' %} />
+	<style>
+		body {background-image: url('{% static "general\background_kids.jpg" %}') ;}
+	</style>
+	<title>Not Logged In</title> 
+</head> 
+
+
+<body>
+
+<div id="content">
+	<p>You're not logged in</p>
+	    	<form action ="." id="p_login" method="POST">
+
+
+            {% csrf_token %}
+            {{form.as_p}}
+			<input class="login_button" type="submit" value="Sign In" id="j_log"/>
+                </form>
+</div>
+
+
+<div id="footer">
+		<p>Page Footer</p>
+</div>
+
+</div>
+</body>
+</html>

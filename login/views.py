@@ -1,5 +1,6 @@
 
 import logging
+from django.core.exceptions import PermissionDenied
 from django.http import Http404
 
 import requests
@@ -14,20 +15,11 @@ def landing(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
-            api_url = settings.API_URL
+            rest = restAPI("")
+            requestedData = rest.login( form.cleaned_data['email'], form.cleaned_data['password'])
 
-            post_values = {
-                'appid': settings.API_KEY,
-                'username': form.cleaned_data['email'],
-                'password': form.cleaned_data['password']
-            }
-
-            print(post_values)
             logger = logging.getLogger(__name__)
-            """ THIS IS WHERE THE MAGIC HAPPENS. Commented out, so that it doesn't throw errors when the API isn't up. Cookie is assigned an arbitrary value"""
-            LOGIN_URL = 'login'
-            requestedData = requests.post(api_url+LOGIN_URL, data=post_values)
-            logger.debug(api_url + LOGIN_URL)
+
             print(requestedData.status_code)
 
             if requestedData.status_code != 200:
@@ -45,11 +37,18 @@ def landing(request):
 
             # TODO
             data = requestedData.json()['data']
+            print('THIS IS IT')
             print(data)
             request.session['sessionID'] = data['sessionID']
             request.session['userID'] = data['userID']
+
+            rest = restAPI(data['sessionID'])
+
             # TODO Add check for parent account type
-            return redirect(account)
+            if  rest.is_child(data['userID']):
+                return redirect(parent)
+            else:
+                return redirect(account)
 
     else:
         form = LoginForm()
@@ -58,6 +57,8 @@ def landing(request):
 
 
 def account(request):
+    if 'userID' not in request.session or 'sessionID' not in request.session:
+        raise PermissionDenied()
     user_id = request.session['userID']
     rest = restAPI(request.session['sessionID'])
     if request.method == 'POST':
@@ -142,29 +143,87 @@ def goals(request):
     total = stash + total_goal_progress
     available = stash - total_goal_progress
     print(returned_goals)
-    return render(request, 'goals.html', {'goals': returned_goals, 'total': total, 'available': available})
+    return render(request, 'goals.html', {'goals': returned_goals, 'total': total, 'available': available, 'sorted_goals':sorted(returned_goals.items())})
+
+
+def logout(request):
+    restAPI(request.session['sessionID']).logout()
+    del request.session['sessionID']
+    del request.session['userID']
+    return redirect(landing)
 
 
 def guide(request):
     return render(request, 'guide.html', {
     })
 
+
+def parent(request):
+    return render(request, 'parent_account.html')
+
+
 def ATMs(request):
     user_id = request.session['userID']
-    rest = restAPI(request.seession['sessionID'])
+    rest = restAPI(request.session['sessionID'])
     atms = rest.get_atms(user_id)
-    return render(request, 'ATMs.html', {'atm_list':atms,
+    print(atms.keys())
+    return render(request, 'ATMs.html', {'atm_list': atms,
     })
-	
+
+
 def collection(request):
+    if request.GET.get('logout'):
+        print("REACHED")
+        restAPI(request.session['sessionID']).logout()
+        redirect(landing(request))
     return render(request, 'collection.html', {
     })
+
 
 def http404(request):
     return render_to_response('404.html')
 
 def http403(request):
-    return
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            rest = restAPI("")
+            requestedData = rest.login( form.cleaned_data['email'], form.cleaned_data['password'])
+
+            logger = logging.getLogger(__name__)
+
+            print(requestedData.status_code)
+
+            if requestedData.status_code != 200:
+                form = LoginForm()
+                return render(request, '403.html', {'form': form, })
+
+            print(requestedData)
+
+            print(requestedData.json())
+
+            if requestedData.json()['status'] == 3:
+                form = LoginForm()
+                return render(request, '403.html', {'form': form, })
 
 
+            # TODO
+            data = requestedData.json()['data']
+            print('THIS IS IT')
+            print(data)
+            request.session['sessionID'] = data['sessionID']
+            request.session['userID'] = data['userID']
+
+            rest = restAPI(data['sessionID'])
+
+            # TODO Add check for parent account type
+            if  rest.is_child(data['userID']):
+                return redirect(parent)
+            else:
+                return redirect(account)
+
+    else:
+        form = LoginForm()
+
+    return render(request, '403.html', {'form': form, })
 

@@ -1,0 +1,52 @@
+body		{background-size: 100%;
+		background-position: 0px -200px;
+		background-repeat: no-repeat;
+		background-color: #D0CECE;}
+		
+#content	{padding: 40px 0px;
+			background-color: #FFFFFF;
+			margin: 200px -8px;
+			text-align: center;}	
+
+p	{font-family: Century Gothic;
+		color: #0B8C52;
+		margin: 0px auto;
+		font-size: 50px;}
+	
+.input_title	{width: 200px;
+				height: 30px;
+				font-size: 23px;
+				font-style: italic;
+				text-align: right;
+				margin: 20px auto;
+				font-family: Century Gothic;
+				font-size: 25px;
+				font-weight: bold;
+				color: #0B8C52;}
+				
+.input_field	{width: 150px;
+				height: 24px;
+				vertical-align: bottom;
+				background-color: #0B8C52;
+				color: #FFFFFF;
+				font-size: 20px;}
+
+.login_button	{background-color: #0B8C52;
+				height: 35px;
+				width: 100px;
+				margin: 0px auto;
+				font-family: Century Gothic;
+				font-size: 20px;
+				font-weight: bold;
+				color: #FFFFFF;}	
+/**---------------------------------------------------------------------*/	
+
+
+/**---------------------------------------------------------------------*/				
+#footer	{background-color: #D0CECE;
+		margin: 0px -8px;
+		padding-top: 40px;
+		padding-bottom: 40px;
+		text-align: center;}	
+#footer p	{font-size: 25px;}	
+/**---------------------------------------------------------------------*/	

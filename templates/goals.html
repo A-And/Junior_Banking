@@ -28,14 +28,13 @@
 
 <div id="frame" title="Bar LEFTCLICK = auto-fill the corresponding To (goal) field.
 Bar RIGHTCLICK = auto-fill the corresponding From (goal) field.">
-<div id="start_text">START</div>
-<div id="finish_text">FINISH</div>
+    <div id="start_text">START</div>
+    <div id="finish_text">FINISH</div>
 
 <div id="y-axis">
-	<div class="numbers">1</div>
-	<div class="numbers">2</div>
-	<div class="numbers">3</div>
-	<div class="numbers">4</div>
+        {% for key, value in sorted_goals %}
+            <div class="numbers">{{ key }}</div>
+        {% endfor %}
 </div>
 
 
@@ -62,6 +61,7 @@ Bar RIGHTCLICK = auto-fill the corresponding From (goal) field.">
 		<img src={% static 'goals/horse.png' %} width="40px" height="25px" style="background-color: transparent" class="horse" id="horse4"
 									 oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);">
 	</div>
+        <div id="balance_text">Total : {{ total }} points</div>
 </div>
 
 <div id="finish">
@@ -73,24 +73,25 @@ Bar RIGHTCLICK = auto-fill the corresponding From (goal) field.">
 </div>
 
 <div id="legend">
-	<p id="1"></p>
-	<p id="2"></p>
-	<p id="3"></p>
-	<p id="4"></p>
+
+    {% for key, value in sorted_goals %}
+	<p id={{ key }}></p>
+    {% endfor %}
 </div>
 
 <div id="overview">
-	<div id="score">
-		<p class="heading">SCORE</p>
-		<p>Total : {{ total }} points</p>
-		<p id="unused"></p>
-	</div>
-	<div class="winner">
+
+	<div class="winners">
 		<p class="heading">Achieved goal</p>
-         {% for key,value in goals.items %}
+        {% for key,value in sorted_goals %}
         {% if value.reached %}
+            <div class="winning_entry">
+            <form action="#" method="get">
             <p class ='achieved_goal'>{{ value.desc }}</p>
-            <input class="claim_prize" type="button" value="Claim" id = {{ value.desc }} onClick="goalIsComplete();" />
+
+            <input class="claim_prize" type="button" value="Claim" name = "prize_claim"/>
+            </form>
+            </div>
         {% endif %}
     {% endfor %}
 	</div>
@@ -102,7 +103,7 @@ Bar RIGHTCLICK = auto-fill the corresponding From (goal) field.">
 		<p>
 			Goal <input type="text" id="add_goal_num" /><br/>
 			Points <input type="text" id="add_goal_points" /><br/>
-		</p>	
+		</p>
 		<input class="add" type="button" value="ADD POINTS" onClick="addPoints();" />
 	</div>
 

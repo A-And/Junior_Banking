@@ -15,6 +15,18 @@ class restAPI:
         """
         self.cookie_id = cookie_id
 
+    def login(self, username, password):
+        data = requests.post(settings.API_URL + 'login', data={
+            'appid': settings.API_KEY,
+                'username': username,
+                'password': password
+        })
+        return data
+
+    def logout(self):
+        data = requests.post(settings.API_URL + 'cdata/request', data={'user':user_id,'sessionID':self.cookie_id, 'appid': settings.API_KEY, })
+
+
     def get_profile(self, user_id):
         print('getting profile..')
         data = requests.post(settings.API_URL + 'cdata/request', data={'user':user_id,'sessionID':self.cookie_id, 'appid': settings.API_KEY, })
@@ -30,6 +42,10 @@ class restAPI:
     def get_balance(self, user_id):
         data = self.get_profile(user_id)
         return data['balance']
+
+    def is_child(self, user_id):
+        data = self.get_profile(user_id)
+        return data['isChild'] == '1'
 
     def transfer(self, sender_id, target_id, amount):
         data = requests.post(settings.API_URL + 'cdata/transfermoney', data={'user':sender_id,'sessionID':self.cookie_id,
@@ -100,6 +116,12 @@ class restAPI:
                                                                                'appid': settings.API_KEY,})
 
     def get_goals(self, user_id):
+        data = requests.post(settings.API_URL + 'goals/load', data={'sessionID': self.cookie_id,
+                                                                          'user':user_id, 'appid': settings.API_KEY, })
+        response = parse_response(data)
+        return response
+
+    def complete_goal(self, user_id, goal_id):
         data = requests.post(settings.API_URL + 'goals/load', data={'sessionID': self.cookie_id,
                                                                           'user':user_id, 'appid': settings.API_KEY, })
         response = parse_response(data)
