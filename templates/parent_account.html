@@ -8,7 +8,7 @@
     <script type="text/javascript">
     </script>
 	<style>
-		body {background-image: url('{% static "login\parent2.jpg" %}') ;background-size: 100% 50%;}
+		body {background-image: url('{% static "login\parent4.jpg" %}') ;}
 		#nav_bar {background-image: url('{% static "login\lloyds_group_logo.png" %}') ;}
 	</style>
     <title>Parent Account</title>
@@ -19,11 +19,11 @@
 <div id="content">
 
     {% include 'parent_nav.html' %}
-    <div class="bar">{{ parent_data.forename }}<br/>{{ parent_data.surname }}</div>
-    <div class="management_panel">
+    <div id="bar">{{ parent_data.forename }}<br/>{{ parent_data.surname }}</div>
+    <div id="management_panel">
         <p class="title">Manage Your Child's Account</p>
 
-        <div class="manage_child_account">
+        <div id="manage_child_account">
             {% for key, value in child_data.items %}
                 <div class="child_accounts">
                     <p class="name">{{ value.forename }} {{ value.surname }}</p>
@@ -54,15 +54,15 @@
                 </select></p>
                 <p><label for="number">Amount</label> <input type="number" name="amount" step="0.01"/></p>
             {% csrf_token %}
-                <input class="make_transfer" type="submit" value="Transfer" onClick=""/>
+                <input id="make_transfer" type="submit" value="Transfer" onClick=""/>
             </form>
 
-            <div class="set_limit">
+            <div id="set_limit">
                 <p>Maximum Amount to be spent per week</p>
 
                 <p>
                     <input type="number" name="spend_limit" step="0.01"/>
-                    <input class="set_limit" type="button" value="SET LIMIT" onClick=""/>
+                    <input id="set_limit" type="button" value="SET LIMIT" onClick=""/>
                 </p>
             </div>
         </div>
