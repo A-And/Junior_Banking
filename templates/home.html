@@ -2,6 +2,7 @@
 <html>
 {% load staticfiles %}
 <head>
+    <!--Author: Michal-->
     <meta http-equiv="content-type"
           content="text/html;charset=utf-8"/>
     <link rel="stylesheet" type="text/css" href={% static 'home/home.css' %}/>
@@ -20,11 +21,11 @@
 
 <body>
 
-
+<!--Requests name of user with welcome message-->
 <div id="greeting_box">
     <p id="name"> Hi {{ name }}! </p>
 </div>
-
+<!--Links other pages with icon hyperlinks-->
 <div id="nav_panel">
 
     <div id="frame">
@@ -65,7 +66,7 @@
         </a>
     </div>
 
-
+<!--Provides footer-->
     <div id="footer">
         {% include 'footer.html' %}
     </div>
