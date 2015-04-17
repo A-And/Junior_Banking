@@ -168,23 +168,25 @@ class restAPI:
     """
     ATM methods
 """
+    # Get a list of all atms
     def get_atms(self, user_id):
         data = requests.post(settings.API_URL + 'atms/load', data={'sessionID': self.cookie_id,
                                                                    'user': user_id, 'appid': settings.API_KEY, })
         response = parse_response(data)
         return response
-
+    # Delete an ATM. A single ATM can have multiple entries for each child
     def delete_atm(self, user_id, location_id):
         data = requests.post(settings.API_URL + 'atms/delete', data={'sessionID': self.cookie_id,
-                                                                   'user': user_id, 'location':location_id, 'appid': settings.API_KEY, })
+                                                                   'user': str(user_id), 'location':str(location_id), 'appid': settings.API_KEY, })
 
         response = parse_response(data)
         return response
-
+    # Add an ATM. A single ATM can have multiple entries for each child
     def add_atm(self, user_id, target_id, location_id):
-        data = requests.post(settings.API_URL + 'atms/delete', data={'sessionID': self.cookie_id,
-                                                                   'user': user_id, 'location':location_id, 'appid': settings.API_KEY, })
+        data = requests.post(settings.API_URL + 'atms/create', data={'sessionID': self.cookie_id,
+                                                                   'user': user_id, 'location':location_id,'target':target_id, 'appid': settings.API_KEY, })
         response = parse_response(data)
+
         return response
 
 # Helper method to automatically parse a received response

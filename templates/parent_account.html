@@ -143,13 +143,16 @@
     <div id="add_atm">
         <form action="." name="add" method="post">
             {% csrf_token %}
+        <label for="targetID" value = "Child">Child</label>
             <select type="text" name="targetID" required="true">
+
                     <option value="" selected="selected">-</option>
                     {% for key, value in child_data.items %}
                     <option value="{{ value.accountID }}">{{ value.forename }}</option>
                 {% endfor %}
             </select>
         <div class="name_atm">
+            <label for="location">Location(enter any location)</label>
             <input type="text" required="true" name="location"/>
         </div>
         <div class="add_button">

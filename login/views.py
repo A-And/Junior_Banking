@@ -237,8 +237,9 @@ def parent(request):
             # Loop through return values and skip the token and form name
             for key, value in request.POST.items():
                 if key != 'deleteatms' and key != 'csrfmiddlewaretoken':
-                    # We've passed the id of an ATM as a key and it's location as a value. This is hacky
-                    rest.delete_atm(key, value)
+                    # We've passed the id of an ATM as a key and it's location as a value. This is hacky---")
+                    print(key, value)
+                    rest.delete_atm(user_id, key)
                     # Redirect to view itself
                     return redirect(parent)
 
@@ -262,13 +263,11 @@ def parent(request):
             if form.is_valid() and goal_target is not False:
                 response = rest.create_goal(user_id, goal_target, form.cleaned_data['goal_description'], form.cleaned_data['goal_amount'])
 
-
+    # Request parent and child data
     child_data = rest.get_children(user_id)
     parent_data = rest.get_profile(user_id)
     validate_response(child_data)
     validate_response(parent_data)
-
-    # Get IDs. Empty list will hold ID values for display
 
 
     # Get goals. Empty dictionary will hold all goals
