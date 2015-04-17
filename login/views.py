@@ -1,82 +1,81 @@
-import hashlib
 import logging
-
-from django.core.exceptions import PermissionDenied
-
-from django.shortcuts import render_to_response, render, redirect
-
-from login.forms import LoginForm, TransferForm, ParentChildTransferForm, CreateGoalForm, ChildRegistrationForm
-
-from main.restAPI import restAPI
-
-from login.utils import validate_response
 from datetime import date
 
+from django.core.exceptions import PermissionDenied
+from django.shortcuts import render_to_response, render, redirect
 
+from login.forms import LoginForm, TransferForm, CreateGoalForm, ChildRegistrationForm
+from main.restAPI import restAPI
+from login.utils import validate_response
+
+"""
+    Each view is called in accordance with urls.py. I've added html files just in case.
+"""
+
+
+# Landing_Page.html
 def landing(request):
+    # If a form is submitted
     if request.method == 'POST':
         form = LoginForm(request.POST)
+        # Validate form
         if form.is_valid():
             rest = restAPI("")
-            requestedData = rest.login(form.cleaned_data['email'], form.cleaned_data['password'])
-
-            logger = logging.getLogger(__name__)
-
-            print(requestedData.status_code)
-
-            if requestedData.status_code != 200:
+            requested_data = rest.login(form.cleaned_data['email'], form.cleaned_data['password'])
+            # Re-render the form with an error flag
+            if requested_data.status_code != 200:
                 form = LoginForm()
                 return render(request, 'Landing_Page.html', {'form': form, 'error':True })
 
-            print(requestedData)
-
-            print(requestedData.json())
-
-            if requestedData.json()['status'] == 3:
+            # Invalid login
+            if requested_data.json()['status'] == 3:
                 form = LoginForm()
-                return render(request, 'Landing_Page.html', {'form': form, })
+                return render(request, 'Landing_Page.html', {'form': form, 'error':True })
 
-
-            data = requestedData.json()['data']
-            print('THIS IS IT')
-            print(data)
+            # Parse recieved data
+            data = requested_data.json()['data']
+            # Set session variables. In this case a cookie and a userID
             request.session['sessionID'] = data['sessionID']
             request.session['userID'] = data['userID']
 
             rest = restAPI(data['sessionID'])
 
-            # TODO Add check for parent account type
+            # Check the type of account and redirect respectively
             if not rest.is_child(data['userID']):
                 return redirect(parent)
             else:
                 return redirect(home)
 
     else:
+        # We've received a GET request. Render normally
         form = LoginForm()
 
     return render(request, 'Landing_Page.html', {'form': form, })
 
 
+# Accounts.html
 def account(request):
+    # Verify cookie and user id
     if 'userID' not in request.session or 'sessionID' not in request.session:
         raise PermissionDenied()
     user_id = request.session['userID']
     rest = restAPI(request.session['sessionID'])
 
     if request.method == 'POST':
+        # POST method. Check forms
         form = TransferForm(request.POST)
-        print(form.is_valid())
         if form.is_valid():
             b_to_s = form.cleaned_data['balance_to_stash'] or 0
             s_to_b = form.cleaned_data['stash_to_balance'] or 0
-
+            # Execute transfer
             rest.balance_stash_transfer(user_id, float(b_to_s), float(s_to_b))
-
+        # Get basic informaton
         profile = rest.get_profile(user_id)
         validate_response(profile)
         name = profile['forename'] + " " + profile['surname']
         balance = profile['balance']
         stash = profile['stash']
+        # Reset form and render
         form = TransferForm()
         return render(request, 'Accounts.html', {'name': name,
                                                  'balance': balance,
@@ -84,6 +83,7 @@ def account(request):
                                                  'form': form, })
 
     else:
+        # GET request. Render normally
         profile = rest.get_profile(user_id)
         validate_response(profile)
         name = profile['forename'] + " " + profile['surname']
@@ -96,94 +96,109 @@ def account(request):
                                                  'form': form })
 
 
+# home.html
 def home(request):
+    # Verify cookie and user id
+    if 'userID' not in request.session or 'sessionID' not in request.session:
+        raise PermissionDenied()
+    # Get basic information
     user_id = request.session['userID']
     rest = restAPI(request.session['sessionID'])
     profile = rest.get_profile(user_id)
+    # validate the response
     validate_response(profile)
-    print(profile)
     name = profile['forename'] + " " + profile['surname']
     return render(request, 'home.html', {'name': name})
 
 
+""" View was removed due to being useless. Kept fpr testing and mesing around """
 def profile(request):
     user_id = request.session['userID']
     rest = restAPI(request.session['sessionID'])
     profile = rest.get_profile(user_id)
     validate_response(profile)
-    print(profile)
     name = profile['forename'] + " " + profile['surname']
     dob = profile['dob']
     return render(request, 'profile.html', {'name': name, 'dob': dob})
 
-
+# goals.html
 def goals(request):
+    # Verify cookie and user id
+    if 'userID' not in request.session or 'sessionID' not in request.session:
+        raise PermissionDenied()
     user_id = request.session['userID']
     rest = restAPI(request.session['sessionID'])
-    print(user_id)
+    # Get all valid goals
     returned_goals = rest.get_goals(user_id)
-
     validate_response(returned_goals)
     stash = rest.get_profile(user_id)['stash']
+    # Loop through and build a map we need for rendering.
     total_goal_progress = 0.0
     for value in returned_goals.items():
         goal = value[1]
-        print('HEERE')
         if float(goal['target']) - float(goal['progress']) <= 0:
             goal['reached'] = True
         else:
             goal['reached'] = False
         total_goal_progress += float(goal['progress'])
 
-    for value in returned_goals.items():
-        if goal['reached']:
-            print(goal)
+
     total = stash + total_goal_progress
     available = stash - total_goal_progress
-    print(returned_goals)
     return render(request, 'goals.html', {'goals': returned_goals, 'total': round(total,2), 'available': round(available,2),
                                           'sorted_goals': sorted(returned_goals.items())})
 
 
+# Logout view. Not an actual view, but a helper
 def logout(request):
+    # Remove and drop session and user
     if 'sessionID' not in request.session:
         return redirect(landing)
     restAPI(request.session['sessionID']).logout()
     del request.session['sessionID']
     del request.session['userID']
+    # Redirect to beginning
     return redirect(landing)
 
-
+# Guide.html
 def guide(request):
+    # Verify sesion and user
+    if 'userID' not in request.session or 'sessionID' not in request.session:
+        raise PermissionDenied()
     return render(request, 'guide.html', {
     })
 
-
+# ATMs.html
 def ATMs(request):
+    # Verify sesion and user
+    if 'userID' not in request.session or 'sessionID' not in request.session:
+        raise PermissionDenied()
     user_id = request.session['userID']
     rest = restAPI(request.session['sessionID'])
+    # Get atms for rendering
     atms = rest.get_atms(user_id)
     return render(request, 'ATMs.html', {'atms': atms,
     })
 
-
+# Collections.html
 def collection(request):
-    if request.GET.get('logout'):
-        restAPI(request.session['sessionID']).logout()
-        redirect(landing(request))
+    # As always, verify
+    if 'userID' not in request.session or 'sessionID' not in request.session:
+        raise PermissionDenied()
 
     rest = restAPI(request.session['sessionID'])
     user_id = request.session['userID']
     child_data = rest.get_allgoals(user_id)
-
+    # Create a table count for goals
     counter = 0
     completedTable = {}
-
+    # Loop through and check for completed goals
     for goal in child_data.items():
         if int(goal[1]['completed']) == 1:
             counter += 1
             completedTable[len(completedTable) + 1] = {'desc': goal[1]['desc'],
                                                        'date': date.fromtimestamp(goal[1]['date'])}
+    # Get tables for trading cards and bonuses
     cards = rest.get_cards(user_id)
     card_counter = len(cards)
 
@@ -196,6 +211,14 @@ def references(request):
     return render(request, 'references.html')
 
 # PARENT VIEWS
+
+"""
+
+
+Parent is a very large view, coping with a lot of different types of forms.
+
+
+"""
 def parent(request):
     if 'userID' not in request.session or 'sessionID' not in request.session:
         raise PermissionDenied()
@@ -221,8 +244,10 @@ def parent(request):
 
         # Check if addatms was called
         if request.POST.get('addatm', False):
-            print("------------------")
-            print(request.POST)
+            target_id = request.POST.get('targetID', False)
+            location = request.POST.get('location', False)
+            if target_id and location:
+                response = rest.add_atm(user_id, target_id, location)
         # Again, similarly check what has been called
         origin_id = request.POST.get('from', False)
         target_id = request.POST.get('to', False)
@@ -230,15 +255,13 @@ def parent(request):
         if origin_id and target_id and amount:
             # We have all the values: transfer money
             response = rest.transfer_money(origin_id, target_id, amount)
-            print(response)
         else:
             # The only valid Django form
             form = CreateGoalForm(request.POST)
             goal_target = request.POST.get('goal_target', False)
-            print(form.is_valid())
             if form.is_valid() and goal_target is not False:
                 response = rest.create_goal(user_id, goal_target, form.cleaned_data['goal_description'], form.cleaned_data['goal_amount'])
-                print(response)
+
 
     child_data = rest.get_children(user_id)
     parent_data = rest.get_profile(user_id)
@@ -276,8 +299,13 @@ def parent(request):
     return render(request, 'parent_account.html', {'child_data': child_data, 'parent_data': parent_data, 'goalscompleted':completed_table,'userID':user_id, 'form':form, 'atms':total_atms})
 
 
+# signup.html
 def signup(request):
+    # Verification
+    if 'userID' not in request.session or 'sessionID' not in request.session:
+        raise PermissionDenied()
     rest = restAPI(request.session['sessionID'])
+    # Check if the user has not added more than one child. If so, render form
     if len(rest.get_children(request.session['userID'])) < 2:
         if request.method == 'POST':
             form = ChildRegistrationForm(request.POST)
@@ -285,15 +313,18 @@ def signup(request):
                 rest = restAPI(request.session['sessionID'])
                 response = rest.register_child(request.session['userID'],form.cleaned_data['first_name'], form.cleaned_data['last_name'], form.cleaned_data['dob'], form.cleaned_data['username'], form.cleaned_data['password'])
                 redirect(landing)
+
         form = ChildRegistrationForm()
         return render(request,'sign_up.html',{'form':form})
     else:
+         # If a user has two children registered, then he/she cannot register anymore. Redirect to warning
         return render(request, 'sign_up_unavailable.html')
 
+# default 404 override
 def http404(request):
     return render_to_response('404.html')
 
-
+# default 403 override. Also used as a relogin page
 def http403(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -301,17 +332,9 @@ def http403(request):
             rest = restAPI("")
             requestedData = rest.login(form.cleaned_data['email'], form.cleaned_data['password'])
             validate_response(requestedData)
-            logger = logging.getLogger(__name__)
-
-            print(requestedData.status_code)
-
             if requestedData.status_code != 200:
                 form = LoginForm()
                 return render(request, '403.html', {'form': form, })
-
-            print(requestedData)
-
-            print(requestedData.json())
 
             if requestedData.json()['status'] == 3:
                 form = LoginForm()
@@ -320,8 +343,6 @@ def http403(request):
 
             # TODO
             data = requestedData.json()['data']
-            print('THIS IS IT')
-            print(data)
             request.session['sessionID'] = data['sessionID']
             request.session['userID'] = data['userID']
 
