@@ -5,19 +5,20 @@
 
 <!--Author: Hailong Ren-->
 
-
+<!--load the static file-->
 {% load staticfiles %}
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--link with the css page-->
 <link rel="stylesheet" type="text/css" href={% static 'profile/profile.css' %} />
-<!--<script type="text/javascript" src={% static 'profile/profile.js' %}></script>-->
+<!--link with the JavaScript file which is a html page now-->
     {% include 'profileJS.html' %}
-
+<!--link with the online bootstrap source-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen"/>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="{{assets}}/css/layout.css" media="screen"/>
      <!--[if lt IE 9]>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <![endif]-->
     <!--[if gte IE 9]><!-->
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -31,7 +32,7 @@
     
     <!-- JS -->
     <script src="{{assets}}/js/util.js"></script>
-    
+    <!--link with the local bootstrap, when the online bootstrap is not work-->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="{{assets}}/js/bootbox.min.js"></script>
     <link href={% static 'profile/bootstrap-datetimepicker.css' %} rel="stylesheet">
@@ -42,6 +43,7 @@
 
 <body>
 <div id="content">
+<!--get the navigate bar-->
 {% include 'nav_bar.html' %}
 
 
@@ -56,15 +58,13 @@
 </div>
 
 <form id="buttons">
-<!--  <button type="button" class="btn btn-primary btn-sm"
-		 onClick="insertEvent()">EDIT PROFILE</button>-->
+<!--A button to show the edit profile window-->
 <input class="edit" type="button" value="   EDIT PROFILE " onclick="changeProfile();" />
-<!-- <button type="button" class="btn btn-primary btn-sm"
-		 onClick="change_color();">CHANGE PROFILE COLOR SCHEME</button>-->
 </form>
 
 
 <form id="profile">
+	<!--The drop down list-->
 		<p>
         CHANGE PROFILE COLOR SCHEME: 
 <select id="drop" style="color:#000" onchange="dorpChange();">
@@ -74,6 +74,8 @@
   <option value="Fish">Fish</option>
   <option value="Marvel">Marvel</option>
 </select>
+
+<!--The profile table-->
         </p>
 		<p>
 		Account Number: <input id="outAccountNumber" type="text" name="Account_Number"  size="8" style="margin-left:50px; color:#000;" readonly>
@@ -116,6 +118,7 @@
 
 </div>
 
+<!--The edit profile window-->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
    aria-labelledby="myModalLabel" aria-hidden="true">
    <div class="modal-dialog">
