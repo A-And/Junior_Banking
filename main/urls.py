@@ -20,6 +20,6 @@ urlpatterns = patterns('',
 
 
 )
-# Default 404 override
+# Default 404 and 403 code override
 handler404 = 'login.views.http404'
 handler403 = 'login.views.http403'
