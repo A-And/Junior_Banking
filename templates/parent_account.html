@@ -117,19 +117,23 @@
         {% for entry in atms %}
             <p class="name">{{ entry.child }}</p>
 
-
+            <div class="atms_names">
+            <div class="inside_atms">
             {% for atm, location in entry.atms.items %}
 
                {% if  atm != None %}<input type="checkbox" class="atms" name="{{ atm }}" value="{{ entry.childID }}">{{ location.location }}<br/>{% endif %}
 
                 {% endfor %}
-
+            </div>
+            </div>
 
 
         {% endfor %}
         </div>
-         <input type="submit" name="deleteatms" value="Delete ATM">
+        <div class="input">
+            <input type="submit" name="deleteatms" value="Delete ATM">
         {% csrf_token %}
+        </div>
         </form>
             <p></p>
 
@@ -145,8 +149,12 @@
                     <option value="{{ value.accountID }}">{{ value.forename }}</option>
                 {% endfor %}
             </select>
-        <input type="text" required="true" name="location"/>
-        <input type="submit" name="addatm" value="Add ATM">
+        <div class="name_atm">
+            <input type="text" required="true" name="location"/>
+        </div>
+        <div class="add_button">
+            <input type="submit" name="addatm" value="Add ATM">
+        </div>
         </form>
 
     </div>
