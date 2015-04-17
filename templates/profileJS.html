@@ -4,6 +4,7 @@
 <head>
 
 <script type="text/javascript" >
+//The function to change the color scheme and the background picture
 function dorpChange()
 {
 if(document.getElementById('drop').value=="Classic")
@@ -65,6 +66,8 @@ if(document.getElementById('drop').value=="Marvel")
 		document.getElementById('backpicture').src="../static/profile/marvel.jpg";
 	}
 }
+
+//The function to show the edit profile window and initial all the values in the window.
 function changeProfile(){
 	$('#myModal').modal('hide');
 	$('#myModal').modal('show');
@@ -77,9 +80,12 @@ function changeProfile(){
 	$('#branch').val("");
 }
 
+//The function to get the data time picker
 function selectDate(){
 	$('.datepicker').datepicker();
 }
+
+//After save, push all the value in the edit profile window to the profile page.
 function save(){
 	
 	$('#myModal').modal('hide');
@@ -92,6 +98,7 @@ function save(){
 	$('#outBranch').val($('#branch').val());
 }
 
+//The function to check all the validation for all values in the edit profile window.
 function validator2(){
 	var accountNumberP = /^[a-z0-9_-]{8,8}$/;
 	var emailP = /^[\w]+([\.\w-]*)?@[\w]+(\.[\w-]+)*(\.[a-z]{2,3})(\.[a-z]{2,3})*?$/i;
