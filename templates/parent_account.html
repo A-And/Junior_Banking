@@ -8,7 +8,8 @@
     <script type="text/javascript">
     </script>
 	<style>
-		body {background-image: url('{% static "login\background_signup.jpg" %}') ;}
+
+		body {background-image: url('{% static "login\parent.jpg" %}') ;background-size: 100% 50%;}
 		#nav_bar {background-image: url('{% static "login\lloyds_group_logo.png" %}') ;}
 	</style>
     <title>Parent Account</title>
@@ -123,9 +124,7 @@
             <p><input class="select_atms" type="button" value="UPDATE MAP" onClick=""/></p>
         </form>
     </div>
-    <div id="footer">
-
-    </div>
+{% include 'footer.html' %}
 
 </div>
 </body>

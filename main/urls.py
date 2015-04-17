@@ -15,6 +15,7 @@ urlpatterns = patterns('',
                        url(r'^collection/$', 'login.views.collection', name='collection'),
                        url(r'^.*/?logout[/w]?$', 'login.views.logout', name = 'logout'),
                        url(r'^parent/$', 'login.views.parent', name='parent'),
+                       url(r'^references/$', 'login.views.references', name='references'),
                        url(r'^admin/', include(admin.site.urls)),
 
 

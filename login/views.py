@@ -186,6 +186,9 @@ def collection(request):
     return render(request, 'collection.html', {'goalscounter': counter, 'goalscompleted': completedTable
     })
 
+def references(request):
+    return render(request, 'references.html')
+
 # PARENT VIEWS
 def parent(request):
     if 'userID' not in request.session or 'sessionID' not in request.session:
