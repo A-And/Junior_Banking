@@ -49,7 +49,7 @@ def landing(request):
             if not rest.is_child(data['userID']):
                 return redirect(parent)
             else:
-                return redirect(account)
+                return redirect(home)
 
     else:
         form = LoginForm()
@@ -146,6 +146,8 @@ def goals(request):
 
 
 def logout(request):
+    if 'sessionID' not in request.session:
+        return redirect(landing)
     restAPI(request.session['sessionID']).logout()
     del request.session['sessionID']
     del request.session['userID']
@@ -182,8 +184,12 @@ def collection(request):
             counter += 1
             completedTable[len(completedTable) + 1] = {'desc': goal[1]['desc'],
                                                        'date': date.fromtimestamp(goal[1]['date'])}
+    cards = rest.get_cards(user_id)
+    card_counter = len(cards)
 
-    return render(request, 'collection.html', {'goalscounter': counter, 'goalscompleted': completedTable
+    bonuses = rest.get_lloyds_bonuses(user_id)
+    bonuses_counter = len(bonuses)
+    return render(request, 'collection.html', {'goalscounter': counter, 'goalscompleted': completedTable, 'cards':cards, 'cardcounter':card_counter, 'bonuses':bonuses, 'bonusescounter':bonuses_counter,
     })
 
 def references(request):
@@ -299,7 +305,8 @@ def http403(request):
                 return redirect(account)
             else:
                 return redirect(parent)
-
+        else:
+            return redirect(http404)
     else:
         form = LoginForm()
 

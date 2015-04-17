@@ -16,6 +16,7 @@ urlpatterns = patterns('',
                        url(r'^.*/?logout[/w]?$', 'login.views.logout', name = 'logout'),
                        url(r'^parent/$', 'login.views.parent', name='parent'),
                        url(r'^references/$', 'login.views.references', name='references'),
+                       url(r'^404/$', 'login.views.http404', name='404'),
                        url(r'^admin/', include(admin.site.urls)),
 
 

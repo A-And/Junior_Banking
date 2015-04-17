@@ -6,6 +6,7 @@
     <meta http-equiv="content-type"
           content="text/html;charset=utf-8"/>
     <link rel="stylesheet" type="text/css" href= {% static 'collection/collection.css' %}/>
+    <link rel="stylesheet" type="text/css" href={% static 'footer.css' %}/>
     <style>
         body {
             background-image: url('{% static "general\background_kids.jpg" %}');
@@ -24,14 +25,14 @@
 
 
 <div id="banner">
-    <img src={% static 'collection/Collection_1.png' %} width="1055px" height="191px" id="banner"
+    <img src={% static 'collection/Collection.png' %} width="1055px" height="191px" id="banner"
          alt="Collection Banner">
     {% include 'logout_button.html' %}
 </div>
 
 <div id="content">
     <form id="trophies_box">
-        <p id="cards">5 x
+        <p id="cards">{{ cardcounter }}x
             <img src={% static 'collection/cards(orange)_1.png' %} width="130px" height="100px" alt="Cards">
         </p>
 
@@ -39,7 +40,7 @@
             <img src={% static 'collection/goblet(blue)_1.png' %} width="100px" height="100px" alt="Goblet">
         </p>
 
-        <p id="gifts">0 x
+        <p id="gifts">{{ bonusescounter }} x
             <img src={% static 'collection/gift(green)_1.png' %} width="140px" height="100px" alt="Gifts">
         </p>
 
@@ -61,23 +62,12 @@
             <tr>
                 <th>Date</th>
                 <th>Card Type</th>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
+            {% for card, values in cards.items %}
+                <tr>
+                    <td>{{ values.date }}</td>
+                    <td>{{ values.desc }}</td>
+                </tr>
+            {% endfor %}
         </table>
 
         <table border="0">
@@ -101,30 +91,18 @@
             <tr>
                 <th>Date</th>
                 <th>Bonus Type</th>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
+
+            {% for bonus, values in bonuses.items %}
+                <tr>
+                    <td>{{ values.date }}</td>
+                    <td>{{ values.desc }}</td>
+                </tr>
+            {% endfor %}
+
         </table>
 
     </div>
-
-    <div id="footer">
-        <p>Page Footer</p>
-    </div>
+{% include 'footer.html' %}
 
 </div>
 </body>

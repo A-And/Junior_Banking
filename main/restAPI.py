@@ -148,6 +148,19 @@ class restAPI:
         response = parse_response(data)
         return response
 
+    def get_cards(self, user_id):
+        # Values are hardcoded as actual trading cards ould require confirmation and active participation on the part of Lloyds Bank
+        response = {'1': {'desc': 'Super Saver', 'date': '16/03/2014'},
+                    '2': {'desc': 'Three Goals in a Week', 'date': '26/05/2014'},
+                    '3': {'desc': 'Custom Goal Master', 'date': '03/07/2014'}}
+        return response
+
+    def get_lloyds_bonuses(self,user_id):
+         # Values are hardcoded as actual trading cards ould require confirmation and active participation on the part of Lloyds Bank
+        response = {'1': {'desc': 'Toys R Us Voucher', 'date': '18/04/2014'},
+                    '2': {'desc': 'Disneyland Paris Discount', 'date': '27/09/2014'}}
+        return response
+
     def get_atms(self, user_id):
         data = requests.post(settings.API_URL + 'atms/load', data={'sessionID': self.cookie_id,
                                                                    'user': user_id, 'appid': settings.API_KEY, })
@@ -156,13 +169,11 @@ class restAPI:
 
 
 def parse_response(data):
-    print('DATA GOTTEN IS ' + str(data))
     if data.status_code == 404:
         return 404
     elif data.status_code == 403:
         return 403
     elif data.status_code == 500:
-        print('YEAAAAAAAAAAAAAAAAAAAAAAH')
         return 500
     else:
         response = data.json()

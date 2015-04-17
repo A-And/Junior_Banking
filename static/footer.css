@@ -1,0 +1,21 @@
+
+/**---------------------------------------------------------------------*/
+#footer {
+    background-color: #FFFFFF;
+    height: 80px;
+    width: 1075px;
+    margin: 0% auto;
+    font-family: Century Gothic;
+    color: #0B8C52;
+    font-size: 25px;
+    text-align: center;
+    padding-top: 40px;
+    border-top-style:solid;
+}
+
+#footer p {
+    width: 400px;
+    margin: auto;
+}
+
+/**---------------------------------------------------------------------*/

@@ -5,7 +5,7 @@
 <head>
     <title>{% block title %}Lloyds NetBanking{% endblock %} </title>
     <meta charset="utf-8"/>
-    <link rel="stylesheet" type="text/css" href={% static 'general/nav_bar.css' %}/>
+    <link rel="stylesheet" type="text/css" href={% static 'footer.css' %}/>
     <link rel="stylesheet" type="text/css" href={% static 'accounts/Accounts.css' %}/>
     <style>
         body {
@@ -23,7 +23,7 @@
 
 
 <div id="banner">
-    <img src={% static "accounts/Accounts_1.png" %} width="1055px" height="191px" alt="Accounts Banner">
+    <img src={% static "accounts/Accounts.png" %} width="1055px" height="191px" alt="Accounts Banner">
     {% include 'logout_button.html' %}
 </div>
 
@@ -59,7 +59,6 @@
         </form>
     </div>
 
-    <hr/>
 
 
 {% include 'footer.html' %}
