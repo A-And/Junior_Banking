@@ -5,7 +5,7 @@ body {
 }
 
 #content {
-    background-color: #262626;
+    opacity: 1.0;
     width:100%;
     margin: 0;
 }
@@ -38,6 +38,7 @@ body {
     margin: -7px;
     z-index: 9999;
     position: fixed;
+    top:0px;
     background-image: url('/static/login/lloyds_group_logo.png');
 }
 
@@ -99,7 +100,8 @@ body {
     height: 100px;
 }
 
-.child_name {
+.bar {
+    position:fixed;
     font-family: Century Gothic;
     text-aligh: center;
     font-size: 40px;
@@ -110,8 +112,9 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding: 5px 20px;
-    width: match-parent;
     height: 100px;
+    width:7%;
+    margin-bottom:20px;
 
 }
 

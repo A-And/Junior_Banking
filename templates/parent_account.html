@@ -8,7 +8,7 @@
     <script type="text/javascript">
     </script>
 	<style>
-		#content {background-image: url('{% static "login\background_signup.jpg" %}') ;}
+		body {background-image: url('{% static "login\background_signup.jpg" %}') ;}
 		#nav_bar {background-image: url('{% static "login\lloyds_group_logo.png" %}') ;}
 	</style>
     <title>Parent Account</title>
@@ -19,7 +19,7 @@
 <div id="content">
 
     {% include 'parent_nav.html' %}
-    <div class="child_name">{{ value.forename }} {{ value.surname }}</div>
+    <div class="bar">{{ parent_data.forename }}<br/>{{ parent_data.surname }}</div>
     <div class="management_panel">
         <p class="title">Manage Your Child's Account</p>
 
