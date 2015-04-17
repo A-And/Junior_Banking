@@ -30,15 +30,7 @@
 
 <div id="register">
 
-	<form id="form" method="post" action=".">
-    <p id="caption">Register</p>
-    {% csrf_token %}
-		{% for field in form %}
-        <p class="field_title">{{ field.label_tag }} {{ field }}</p>
-        {% endfor %}
-
-
-		<input id="register_button" type="submit" value="Register" id="j_log" onclick="" />
+    <p id ="caption"> You've reached the maximum number of registered children. </p>
 	</form>
 </div>
 </div>

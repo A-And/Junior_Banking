@@ -167,6 +167,22 @@ class restAPI:
         response = parse_response(data)
         return response
 
+    def delete_atm(self, user_id, location_id):
+        data = requests.post(settings.API_URL + 'atms/delete', data={'sessionID': self.cookie_id,
+                                                                   'user': user_id, 'location':location_id, 'appid': settings.API_KEY, })
+
+        response = parse_response(data)
+
+        print(response)
+        return response
+
+    def add_atm(self, user_id, target_id, location_id):
+        data = requests.post(settings.API_URL + 'atms/delete', data={'sessionID': self.cookie_id,
+                                                                   'user': user_id, 'location':location_id, 'appid': settings.API_KEY, })
+        response = parse_response(data)
+
+        print(response)
+        return response
 
 def parse_response(data):
     if data.status_code == 404:

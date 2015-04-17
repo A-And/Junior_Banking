@@ -141,7 +141,7 @@ def goals(request):
     total = stash + total_goal_progress
     available = stash - total_goal_progress
     print(returned_goals)
-    return render(request, 'goals.html', {'goals': returned_goals, 'total': total, 'available': available,
+    return render(request, 'goals.html', {'goals': returned_goals, 'total': round(total,2), 'available': round(available,2),
                                           'sorted_goals': sorted(returned_goals.items())})
 
 
@@ -204,17 +204,35 @@ def parent(request):
     # Check if the logged in user is a child. If not they don't have permission
     if rest.is_child(user_id):
         raise PermissionDenied()
-    # Check the post paramaters
+    # Check the post paramaters. If POST request handle the form
     if request.method == 'POST':
-        print('-----------------------------------------------------')
+        # Check to see if the delete ATMS form was invoked
+        """This is a hacky solution. It's not best practice, but is far more secure
+        because we don't need to store any customer data in a database. """
+        # If delete was called
+        if request.POST.get('deleteatms', False):
+            # Loop through return values and skip the token and form name
+            for key, value in request.POST.items():
+                if key != 'deleteatms' and key != 'csrfmiddlewaretoken':
+                    # We've passed the id of an ATM as a key and it's location as a value. This is hacky
+                    rest.delete_atm(key, value)
+                    # Redirect to view itself
+                    return redirect(parent)
+
+        # Check if addatms was called
+        if request.POST.get('addatm', False):
+            print("------------------")
+            print(request.POST)
+        # Again, similarly check what has been called
         origin_id = request.POST.get('from', False)
         target_id = request.POST.get('to', False)
         amount = request.POST.get('amount', False)
         if origin_id and target_id and amount:
+            # We have all the values: transfer money
             response = rest.transfer_money(origin_id, target_id, amount)
             print(response)
         else:
-
+            # The only valid Django form
             form = CreateGoalForm(request.POST)
             goal_target = request.POST.get('goal_target', False)
             print(form.is_valid())
@@ -226,8 +244,6 @@ def parent(request):
     parent_data = rest.get_profile(user_id)
     validate_response(child_data)
     validate_response(parent_data)
-    print(parent_data)
-    print(child_data.items())
 
     # Get IDs. Empty list will hold ID values for display
 
@@ -236,12 +252,19 @@ def parent(request):
     all_goals = dict()
     counter = 0
     completed_table = {}
+    total_atms = list()
     # Loop through returned children
     for key, value in child_data.items():
+        atms = {}
         # Append id
         child_id = value['accountID']
         # Get all goals
         child_goals = rest.get_allgoals(child_id)
+        child_atms = rest.get_atms(child_id)
+        atms['child']= value['forename'] + ' ' + value['surname']
+        atms['childID'] = child_id
+        atms['atms'] = child_atms
+        total_atms.append(atms)
         # Check if goals are completed and if so add them to the final table
         for goal in child_goals.items():
             if int(goal[1]['completed']) == 1:
@@ -250,18 +273,22 @@ def parent(request):
                                                            'date': date.fromtimestamp(goal[1]['date']),
                                                            'name': rest.get_name(child_id)}
     form = CreateGoalForm()
-    return render(request, 'parent_account.html', {'child_data': child_data, 'parent_data': parent_data, 'goalscompleted':completed_table,'userID':user_id, 'form':form})
+    return render(request, 'parent_account.html', {'child_data': child_data, 'parent_data': parent_data, 'goalscompleted':completed_table,'userID':user_id, 'form':form, 'atms':total_atms})
 
 
 def signup(request):
-    if request.method == 'POST':
-        form = ChildRegistrationForm(request.POST)
-        if form.is_valid():
-            rest = restAPI(request.session['sessionID'])
-            response = rest.register_child(request.session['userID'],form.cleaned_data['first_name'], form.cleaned_data['last_name'], form.cleaned_data['dob'], form.cleaned_data['username'], form.cleaned_data['password'])
-            redirect(landing)
-    form = ChildRegistrationForm()
-    return render(request,'sign_up.html',{'form':form})
+    rest = restAPI(request.session['sessionID'])
+    if len(rest.get_children(request.session['userID'])) < 2:
+        if request.method == 'POST':
+            form = ChildRegistrationForm(request.POST)
+            if form.is_valid():
+                rest = restAPI(request.session['sessionID'])
+                response = rest.register_child(request.session['userID'],form.cleaned_data['first_name'], form.cleaned_data['last_name'], form.cleaned_data['dob'], form.cleaned_data['username'], form.cleaned_data['password'])
+                redirect(landing)
+        form = ChildRegistrationForm()
+        return render(request,'sign_up.html',{'form':form})
+    else:
+        return render(request, 'sign_up_unavailable.html')
 
 def http404(request):
     return render_to_response('404.html')

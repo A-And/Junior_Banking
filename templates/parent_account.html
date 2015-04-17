@@ -4,6 +4,7 @@
 <head>
     <meta http-equiv="content-type"
           content="text/html;charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href={% static 'footer.css' %}/>
     <link rel="stylesheet" type="text/css" href= {% static 'parent_account.css' %}/>
     <script type="text/javascript">
     </script>
@@ -69,7 +70,7 @@
     </div>
 
 
-    <div class="goal_panel">
+    <div id="goal_panel">
         <p class="title">Set and Review Goals</p>
 
             <div id="">
@@ -106,22 +107,49 @@
     </div>
 
 
-    <div class="atms_panel">
+    <div id="atms_panel">
         <p class="title">Select Safe ATMs</p>
 
-        <form id="choose_atms" method="post">
-            <p class="prompt">Select from the list of ATMs</p>
+        <div id="choose_atms" >
 
-            <p>
-                <input type="checkbox" name="ATM-1" value="Yes"/>Newcastle Haymarket<br/>
-                <input type="checkbox" name="ATM-2" value="Yes"/>Newcastle Northumberland Street<br/>
-                <input type="checkbox" name="ATM-3" value="Yes"/>Newcastle South Gosforth<br/>
-                <input type="checkbox" name="ATM-4" value="Yes"/>Newcastle Quayside<br/>
-                <input type="checkbox" name="ATM-5" value="Yes"/>Newcastle St James<br/>
-            </p>
+        <form action="." name = "" method="post">
+        <div class="entry">
+        {% for entry in atms %}
+            <p class="name">{{ entry.child }}</p>
 
-            <p><input class="select_atms" type="button" value="UPDATE MAP" onClick=""/></p>
+
+            {% for atm, location in entry.atms.items %}
+
+               {% if  atm != None %}<input type="checkbox" class="atms" name="{{ atm }}" value="{{ entry.childID }}">{{ location.location }}<br/>{% endif %}
+
+                {% endfor %}
+
+
+
+        {% endfor %}
+        </div>
+         <input type="submit" name="deleteatms" value="Delete ATM">
+        {% csrf_token %}
         </form>
+            <p></p>
+
+
+        </div>
+
+    <div id="add_atm">
+        <form action="." name="add" method="post">
+            {% csrf_token %}
+            <select type="text" name="targetID" required="true">
+                    <option value="" selected="selected">-</option>
+                    {% for key, value in child_data.items %}
+                    <option value="{{ value.accountID }}">{{ value.forename }}</option>
+                {% endfor %}
+            </select>
+        <input type="text" required="true" name="location"/>
+        <input type="submit" name="addatm" value="Add ATM">
+        </form>
+
+    </div>
     </div>
 {% include 'footer.html' %}
 

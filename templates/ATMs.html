@@ -3,6 +3,9 @@
 <head>
 {% load staticfiles %}
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" type="text/css" href={% static 'footer.css' %}/>
+
 	<link rel="stylesheet" type="text/css" href={% static 'atms/ATMs-CSS.css' %} />
     <style>
 		body {background-image: url('{% static "general\background_kids.jpg" %}') ;}
@@ -109,7 +112,7 @@ function initialise(){
 
 
 <div id="banner">
-	<img src={% static 'atms/ATMs_1.png' %} alt="ATMs" title="ATMs" width="1055" height="191" />
+	<img src={% static 'atms/ATMs.png' %} alt="ATMs" title="ATMs" width="1055" height="191" />
 	{% include 'logout_button.html' %}
 </div>
 
@@ -140,9 +143,7 @@ function initialise(){
     <div id="googleMap" style="width:1055px;height:380px;"></div>
 </div>
 </div>
-<div>
 		{% include 'footer.html' %}
-</div>
 
 </body>
 </html>

@@ -3,6 +3,9 @@
 {% load staticfiles %}
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+    <link rel="stylesheet" type="text/css" href={% static 'footer.css' %}/>
     <link rel="stylesheet" type="text/css" href={% static 'bank_guide/guide-CSS.css' %}/>
     <style>
         body {
@@ -78,7 +81,7 @@
 {% include 'nav_bar.html' %}
 
 <div id="banner">
-    <img src={% static 'bank_guide/banking_guide_1.png' %} alt="Baking guide" title="Banking guide" width="1055"
+    <img src={% static 'bank_guide/banking_guide.png' %} alt="Baking guide" title="Banking guide" width="1055"
     height="191" />
     {% include 'logout_button.html' %}
 </div>
@@ -89,31 +92,31 @@
         <table>
             <tr>
                 <td>
-                    <div id="what_is_bankingv2" onclick="myFunction4()">
+                    <div id="what_is_bankingv2" class="box" onclick="myFunction4()">
                         <img src={% static 'bank_guide/what_is_bankingv2.png' %} alt="What is banking?" title="What is
                         banking?" width="100" height="200" />
                     </div>
-                    <div id="what_is_banking" onclick="">
+                    <div id="what_is_banking" class="box" onclick="">
                         <img src={% static 'bank_guide/what_is_banking.png' %} alt="What is banking?" title="What is
                         banking?" width="100" height="200" />
                     </div>
                 </td>
                 <td>
-                    <div id="banking_glossaryv2" onclick="myFunction5()">
+                    <div id="banking_glossaryv2" class="box" onclick="myFunction5()">
                         <img src={% static 'bank_guide/banking_glossaryv2.png' %} alt="Banking glossary" title="Banking
                         glossary" width="100" height="200" />
                     </div>
-                    <div id="banking_glossary" onclick="">
+                    <div id="banking_glossary" class="box"  onclick="">
                         <img src={% static 'bank_guide/banking_glossary.png' %} alt="Banking glossary" title="Banking
                         glossary" width="100" height="200" />
                     </div>
                 </td>
                 <td>
-                    <div id="banking_tipsv2" onclick="myFunction6()">
+                    <div id="banking_tipsv2" class="box" onclick="myFunction6()">
                         <img src={% static 'bank_guide/how_to_bankv2.png' %} alt="Banking Tips" title="Banking Tips"
                         width="100" height="200" />
                     </div>
-                    <div id="banking_tips" onclick="">
+                    <div id="banking_tips" class="box" onclick="">
                         <img src={% static 'bank_guide/how_to_bank.png' %} alt="Banking Tips" title="Banking Tips"
                         width="100" height="200" />
                     </div>
@@ -208,10 +211,7 @@
     </div>
 
 </div>
-
-<div>
     {% include 'footer.html' %}
-</div>
 
 
 </body>

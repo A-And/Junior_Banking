@@ -1,5 +1,6 @@
 <script type="text/javascript">
     var bar_max_width = 860;
+    var bar_min_width = 50;
     var no_goal = "No goals";
     var max_goals = 5;
     var points_limit; //must be fetched from the database = (new savings) * (conversion constant)
@@ -11,7 +12,8 @@
             if (data[i].title !== no_goal) {
                 var step = bar_max_width / data[i].total_value;
                 var width = step * data[i].current_value;
-                if (width > bar_max_width) width = 860;
+                if (width > bar_max_width) width = bar_max_width;
+                else if (width < bar_min_width) width = bar_min_width;
 
                 if (width >= bar_max_width * 0.75) {
                     document.getElementById("bar" + (i + 1)).style.backgroundColor = "MediumPurple";
@@ -66,7 +68,7 @@
         document.getElementById("to_goal_num").value = null;
         document.getElementById("move_goal_points").value = null;
 
-        /*data saved from the last session
+        /*data dynamically populated from the django template
          *to be fetched from the database */
         data = [
                 {% for key, value in goals.items %}{title: "{{ value.desc }}",

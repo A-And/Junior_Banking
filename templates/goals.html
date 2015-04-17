@@ -5,6 +5,8 @@
     <meta http-equiv="content-type"
           content="text/html;charset=utf-8"/>
     <link rel="stylesheet" type="text/css" href={% static 'goals/goals.css' %}/>
+
+    <link rel="stylesheet" type="text/css" href={% static 'footer.css' %}/>
     <style>
         body {
             background-image: url('{% static "general\background_kids.jpg" %}');
@@ -24,7 +26,7 @@
 {% include 'nav_bar.html' %}
 
 <div id="banner">
-    <img src={% static 'goals/Goals_1.png' %} width="1055px" height="191px" alt="Goals Banner">
+    <img src={% static 'goals/Goals.png' %} width="1055px" height="191px" alt="Goals Banner">
     {% include 'logout_button.html' %}
 </div>
 
@@ -74,7 +76,7 @@ Bar RIGHTCLICK = auto-fill the corresponding From (goal) field.">
                      class="horse" id="horse4"
                      oncontextmenu="autoFillFromGoalFields(this.id, event);" onClick="autoFillToGoalFields(this.id);">
             </div>
-            <div id="balance_text">Total : {{ total }} points</div>
+            <div id="balance_text">Total: {{ total }} points</div>
         </div>
 
         <div id="finish">

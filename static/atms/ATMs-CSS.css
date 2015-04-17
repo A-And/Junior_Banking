@@ -106,20 +106,5 @@ hr {
 
 /**---------------------------------------------------------------------*/
 #footer {
-    background-color: #D0CECE;
-    height: 80px;
     width: 1055px;
-    font-family: Century Gothic;
-    color: #0B8C52;
-    font-size: 25px;
-    text-align: center;
-    padding-top: 40px;
-    margin: 0% auto;
 }
-
-#footer p {
-    width: 200px;
-    margin: auto;
-}
-
-/**---------------------------------------------------------------------*/

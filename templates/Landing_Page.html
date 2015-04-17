@@ -27,14 +27,6 @@
 <div id="main">
     <img src={% static 'login/title.png' %} alt="finish sign" id="title">
     <div id="login">
-        <!--<form action = "." id="j_login" method="POST">
-
-			<p>Junior Login</p>
-            {% csrf_token %}
-            {{form.as_p}}
-			<input class="login_button" type="submit" value="Sign In" id="j_log" onclick="window.location.href='home.html'" />
-	</form>-->
-
         <form action="." id="p_login" method="POST">
             <p>Login</p>
                 {% if error %}
@@ -72,7 +64,7 @@
             <p class="site_info">Money management system via two types of accounts. Spend money in your 'Pocket' and when you want to save money in your 'Stash' will be automatically applied to your Goals!
             </p>
 
-            <img src={% static 'login/pages/5.png' %} width="300px" height="250px" alt="home" class="page_sample"/>
+            <img src={% static 'login/pages/5.png' %} width="350px" height="250px" alt="home" class="page_sample"/>
         </div>
     </div>
 
@@ -80,54 +72,32 @@
         <div class="ABOUT_content">
             <img src={% static 'login/pages/6.png' %} width="300px" height="250px" alt="home" class="page_sample"/>
 
-            <p class="site_info">Goals and Awards system ...
-                <br/>______________________________
-                <br/>______________________________
-                <br/>______________________________
-                <br/>______________________________
+            <p class="site_info">Our Goals and Awards system brings the 'fun' to the 'fundamentals of finance'. By setting savings Goals your child will discover the benefits of saving money.
             </p>
 
-            <img src={% static 'login/pages/7.png' %} width="300px" height="250px" alt="home" class="page_sample"/>
+            <img src={% static 'login/pages/7.png' %} width="320px" height="250px" alt="home" class="page_sample"/>
         </div>
     </div>
 
     <div class="green">
         <div class="ABOUT_content" id="atms">
-            <p class="site_info">Select Safe<br/>Neighbourhood ATMs</p>
+            <p class="site_info">Select Safe Neighbourhood ATMs where you would like your children to withdraw money.</p>
 
             <img src={% static 'login/pages/8.png' %} width="300px" height="250px" alt="home" class="page_sample"/>
         </div>
         <div class="ABOUT_content" id="guide">
             <img src={% static 'login/pages/9.png' %} width="300px" height="250px" alt="home" class="page_sample"/>
 
-            <p class="site_info">Get banking <br/>advice and tips</p>
+            <p class="site_info">Get banking advice and tips Our helpful Banking Guide will be a gentle introduction to the world of banking.</p>
         </div>
     </div>
 
-    <div class="white" id="profile">
-        <div class="ABOUT_content" id="profiles_text">
-            <p class="site_info">Customise your profile colour preferences</p>
-        </div>
-
-        <div class="ABOUT_content" id="profiles_pics">
-
-            <img src={% static 'login/left_arrow_1.png' %} alt="previous" id="left_arrow" onclick="rotateLeft();"
-                 class="page_sample">
-
-            <div id="image_container" class="page_sample"><img src={% static 'login/pages/100.png' %} alt="profile
-                                                               samples" id="profile_image">
-            </div>
-            <img src={% static 'login/right_arrow.png' %} alt="next" id="right_arrow" onclick="rotateRight();"
-                 class="page_sample">
-
-        </div>
-    </div>
 
 </div>
 
 <div id="footer">
     <p id="footer_message">
-        Start learning with Lloyds Junior Banking
+        Start learning with Lloyds Junior Banking.
     </p>
 
     <p id="buttons">

@@ -87,7 +87,7 @@ body {
     color: #0B8C52;
 }
 
-#form_title {
+#caption {
     margin-bottom: 50px;
 }
 
@@ -157,7 +157,7 @@ body {
 }
 
 #footer p {
-    width: 200px;
+    width: 300px;
     margin: auto;
 }
 
