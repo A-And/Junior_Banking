@@ -115,18 +115,17 @@
         <form action="." name = "" method="post">
         <div class="entry">
         {% for entry in atms %}
+            <div class="one_entry">
             <p class="name">{{ entry.child }}</p>
-
-            <div class="atms_names">
+            </div>
+             <div class="atms_names">
             <div class="inside_atms">
             {% for atm, location in entry.atms.items %}
-
                {% if  atm != None %}<input type="checkbox" class="atms" name="{{ atm }}" value="{{ entry.childID }}">{{ location.location }}<br/>{% endif %}
-
                 {% endfor %}
             </div>
             </div>
-
+        <div class="bar"></div>
 
         {% endfor %}
         </div>
