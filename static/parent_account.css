@@ -323,28 +323,17 @@ form#set_goals p {
 
 #choose_atms form{
     width: 800px;
-    height: 100px;
+    height: 300px;
     font-size: 25px;
-}
-
-.entry{
     background-color: #FFFFFF;
-    width: 600px;
 }
 
-.one_entry{
-    position: relative;
-    top: -75px;
-    border-right: 4px solid #0B8C52;
+#choose_atms .entry{
+    width: 500px;
+    background-color: #FFFFFF;
 }
 
-.entry p{ 
-    padding-top: 25px;
-    width: 150px;
-    height: 275px;
-}
-
-.atms_names{
+#choose_atms .atms_names{
     position: relative;
     top: 0px;
     left: 300px;
@@ -356,8 +345,8 @@ form#set_goals p {
 
 .inside_atms{
     position: relative;
-    top: 110px;
-    left: -500px;
+    top: 90px;
+    left: -100px;
 }
 
 #choose_atms p {
@@ -378,8 +367,8 @@ form#set_goals p {
 
 #choose_atms .input input{
     position: relative;
-    top: -50px;
-    left: 650px;
+    top: -200px;
+    left: 700px;
     font-size: 100%;
     color: #FFFFFF;
     background-color: #0B8C52;
@@ -398,14 +387,8 @@ input.select_atms {
 
 #add_atm{
     position: relative;
-    top: -270px;
-    left: 1050px;
-}
-
-#add_atm label{
-    position: relative;
-    top: 20px;
-    font-size: 25px;
+    top: -250px;
+    left: 950px;
 }
 
 #add_atm select{
@@ -416,23 +399,17 @@ input.select_atms {
     width: 100px;
 }
 
-.name_atm{
-    position: relative;
-    top: 20px;
-    left: 2px;
-}
-
 .name_atm input{
     position: relative;
-    top: 55px;
-    left: -290px;
+    top: 50px;
+    left: 25px;
     height: 35px;
 }
 
 .add_button input{
     position: relative;
-    top: 100px;
-    left: 0px;
+    top: 85px;
+    left: 140px;
     font-size: 150%;
     color: #FFFFFF;
     background-color: #0B8C52;
