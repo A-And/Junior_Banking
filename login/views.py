@@ -240,8 +240,6 @@ def parent(request):
                     # We've passed the id of an ATM as a key and it's location as a value. This is hacky---")
                     print(key, value)
                     rest.delete_atm(user_id, key)
-                    # Redirect to view itself
-                    return redirect(parent, request)
 
         # Check if addatms was called
         if request.POST.get('addatm', False):
@@ -249,8 +247,6 @@ def parent(request):
             location = request.POST.get('location', False)
             if target_id and location:
                 response = rest.add_atm(user_id, target_id, location)
-                # Redirect to view itself
-                return redirect(parent, request)
         # Again, similarly check what has been called
         origin_id = request.POST.get('from', False)
         target_id = request.POST.get('to', False)
