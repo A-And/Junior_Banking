@@ -142,9 +142,8 @@ def goals(request):
             goal['reached'] = False
         total_goal_progress += float(goal['progress'])
 
-
-    total = stash + total_goal_progress
-    available = stash - total_goal_progress
+    total = float(stash) + total_goal_progress
+    available = float(stash) - total_goal_progress
     return render(request, 'goals.html', {'goals': returned_goals, 'total': round(total,2), 'available': round(available,2),
                                           'sorted_goals': sorted(returned_goals.items())})
 
